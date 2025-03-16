@@ -1,0 +1,986 @@
+/* Стили для страницы атлета */
+
+/* Общие стили */
+body {
+    background-color: #f9f9f9;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Герой-секция */
+.athlete-hero {
+    position: relative;
+    margin-bottom: 60px;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(26, 60, 110, 0.9), rgba(26, 60, 110, 0.7));
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 50px;
+    color: #fff;
+}
+
+.athlete-portrait {
+    flex: 0 0 300px;
+    margin-right: 50px;
+}
+
+.athlete-portrait img {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border: 5px solid #fff;
+    transition: transform 0.3s ease;
+}
+
+.athlete-portrait img:hover {
+    transform: scale(1.03);
+}
+
+.athlete-intro {
+    flex: 1;
+}
+
+.athlete-intro h1 {
+    color: #fff;
+    font-size: 48px;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
+}
+
+.athlete-titles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.title-badge {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    backdrop-filter: blur(5px);
+}
+
+.athlete-stats {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.stat-item {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.stat-item i {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #e74c3c;
+}
+
+.stat-value {
+    display: block;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    display: block;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Контент-обертка */
+.athlete-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Быстрая информация */
+.athlete-quick-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.info-card {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.info-card h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ecf0f1;
+    display: flex;
+    align-items: center;
+}
+
+.info-card h3 i {
+    margin-right: 10px;
+    color: #e74c3c;
+    font-size: 22px;
+}
+
+.info-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-card li {
+    margin-bottom: 12px;
+    line-height: 1.6;
+    display: flex;
+    align-items: baseline;
+}
+
+.info-card strong {
+    color: #34495e;
+    margin-right: 5px;
+    font-weight: 600;
+    min-width: 140px;
+}
+
+.info-card a {
+    color: #e74c3c;
+    text-decoration: none;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 1px dashed rgba(231, 76, 60, 0.3);
+    white-space: nowrap;
+}
+
+.info-card a:hover {
+    color: #c0392b;
+    border-bottom: 1px solid rgba(231, 76, 60, 0.7);
+}
+
+/* Биография */
+.athlete-biography {
+    margin-bottom: 60px;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.athlete-biography h2 {
+    color: #2c3e50;
+    font-size: 32px;
+    margin-bottom: 30px;
+    font-family: 'Playfair Display', serif;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.athlete-biography h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #e74c3c;
+}
+
+.biography-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+.biography-text {
+    color: #34495e;
+}
+
+.biography-intro {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.biography-text h3 {
+    color: #2c3e50;
+    font-size: 24px;
+    margin: 30px 0 15px;
+    font-weight: 600;
+}
+
+.biography-text p {
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.biography-text a {
+    color: #e74c3c;
+    text-decoration: none;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 1px dashed rgba(231, 76, 60, 0.3);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.biography-text a:hover {
+    color: #c0392b;
+    border-bottom: 1px solid rgba(231, 76, 60, 0.7);
+}
+
+.biography-timeline {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 12px;
+    position: relative;
+}
+
+.biography-timeline h3 {
+    color: #2c3e50;
+    font-size: 20px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 8px;
+    height: 100%;
+    width: 2px;
+    background-color: #e74c3c;
+}
+
+.timeline-item {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.timeline-date {
+    position: absolute;
+    left: -30px;
+    background-color: #e74c3c;
+    color: #fff;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 16px;
+    font-weight: bold;
+    font-size: 0;
+}
+
+.timeline-date::after {
+    content: attr(data-year);
+    position: absolute;
+    left: -40px;
+    top: -8px;
+    font-size: 16px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.timeline-content {
+    background-color: #fff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.timeline-content h4 {
+    margin: 0 0 10px;
+    color: #2c3e50;
+    font-size: 18px;
+}
+
+.timeline-content p {
+    margin: 0;
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+/* Достижения */
+.athlete-achievements {
+    margin-bottom: 60px;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.athlete-achievements h2 {
+    color: #2c3e50;
+    font-size: 32px;
+    margin-bottom: 30px;
+    font-family: 'Playfair Display', serif;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.athlete-achievements h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #e74c3c;
+}
+
+.achievements-tabs {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.achievement-tab {
+    padding: 12px 25px;
+    background-color: #f8f9fa;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    color: #7f8c8d;
+    transition: all 0.3s ease;
+}
+
+.achievement-tab.active, .achievement-tab:hover {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.achievements-tab-content {
+    display: none;
+}
+
+.achievements-tab-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.achievements-category {
+    margin-bottom: 40px;
+}
+
+.achievements-category h3 {
+    color: #2c3e50;
+    font-size: 24px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.medals-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.medal-item {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.medal-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.medal-item.gold {
+    background-color: rgba(255, 215, 0, 0.1);
+    border-left: 5px solid gold;
+}
+
+.medal-item.silver {
+    background-color: rgba(192, 192, 192, 0.1);
+    border-left: 5px solid silver;
+}
+
+.medal-item.bronze {
+    background-color: rgba(205, 127, 50, 0.1);
+    border-left: 5px solid #cd7f32;
+}
+
+.medal-icon {
+    margin-right: 20px;
+    font-size: 24px;
+}
+
+.medal-item.gold .medal-icon i {
+    color: gold;
+}
+
+.medal-item.silver .medal-icon i {
+    color: silver;
+}
+
+.medal-item.bronze .medal-icon i {
+    color: #cd7f32;
+}
+
+.medal-details h4 {
+    margin: 0 0 5px;
+    color: #2c3e50;
+    font-size: 18px;
+}
+
+.medal-details p {
+    margin: 0 0 5px;
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+/* Галерея */
+.athlete-gallery {
+    margin-bottom: 60px;
+}
+
+.athlete-gallery h2 {
+    color: #2c3e50;
+    font-size: 32px;
+    margin-bottom: 30px;
+    font-family: 'Playfair Display', serif;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.athlete-gallery h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #e74c3c;
+}
+
+.gallery-tabs {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.gallery-tab {
+    padding: 12px 25px;
+    background-color: #f8f9fa;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    color: #7f8c8d;
+    transition: all 0.3s ease;
+}
+
+.gallery-tab.active, .gallery-tab:hover {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.gallery-content {
+    display: none;
+}
+
+.gallery-content.active {
+    display: block;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.gallery-item {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    background-color: #fff;
+}
+
+.gallery-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-caption {
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.gallery-caption h4 {
+    margin: 0 0 10px;
+    color: #2c3e50;
+    font-size: 18px;
+}
+
+.gallery-caption p {
+    margin: 0;
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+/* Видео */
+.athlete-video {
+    margin-bottom: 60px;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.athlete-video h2 {
+    color: #2c3e50;
+    font-size: 32px;
+    margin-bottom: 30px;
+    font-family: 'Playfair Display', serif;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.athlete-video h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #e74c3c;
+}
+
+.video-tabs {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.video-tab {
+    padding: 12px 25px;
+    background-color: #f8f9fa;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    color: #7f8c8d;
+    transition: all 0.3s ease;
+}
+
+.video-tab.active, .video-tab:hover {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-caption {
+    text-align: center;
+    margin-top: 20px;
+    color: #7f8c8d;
+    font-style: italic;
+    font-size: 16px;
+}
+
+/* Цитаты */
+.athlete-quotes {
+    margin-bottom: 60px;
+}
+
+.athlete-quotes h2 {
+    color: #2c3e50;
+    font-size: 32px;
+    margin-bottom: 30px;
+    font-family: 'Playfair Display', serif;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.athlete-quotes h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #e74c3c;
+}
+
+.quotes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+blockquote {
+    background-color: #ffffff;
+    padding: 30px;
+    border-left: 5px solid #e74c3c;
+    border-radius: 12px;
+    margin: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+blockquote:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+blockquote::before {
+    content: '"';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 60px;
+    color: rgba(0, 0, 0, 0.05);
+    font-family: 'Georgia', serif;
+    line-height: 1;
+}
+
+blockquote p {
+    font-size: 18px;
+    color: #34495e;
+    line-height: 1.7;
+    font-style: italic;
+    margin: 0 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+blockquote footer {
+    color: #7f8c8d;
+    font-size: 14px;
+    text-align: right;
+    font-weight: 500;
+}
+
+/* Социальные сети */
+.athlete-social {
+    margin-bottom: 60px;
+}
+
+.athlete-social h2 {
+    color: #2c3e50;
+    font-size: 32px;
+    margin-bottom: 30px;
+    font-family: 'Playfair Display', serif;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.athlete-social h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #e74c3c;
+}
+
+.social-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+    border-radius: 50px;
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.social-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.social-button i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.instagram {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+}
+
+.facebook {
+    background-color: #3b5998;
+}
+
+.youtube {
+    background-color: #FF0000;
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+    .biography-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .athlete-hero {
+        height: auto;
+    }
+    
+    .hero-content {
+        flex-direction: column;
+        padding: 40px;
+    }
+    
+    .athlete-portrait {
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+    
+    .athlete-intro {
+        text-align: center;
+    }
+    
+    .athlete-intro h1 {
+        font-size: 36px;
+    }
+    
+    .athlete-titles {
+        justify-content: center;
+    }
+    
+    .athlete-stats {
+        justify-content: center;
+    }
+    
+    .athlete-biography h2::after,
+    .athlete-gallery h2::after,
+    .athlete-video h2::after,
+    .athlete-quotes h2::after,
+    .athlete-social h2::after,
+    .athlete-achievements h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .athlete-biography h2,
+    .athlete-gallery h2,
+    .athlete-video h2,
+    .athlete-quotes h2,
+    .athlete-social h2,
+    .athlete-achievements h2 {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .athlete-portrait img {
+        width: 250px;
+        height: 350px;
+    }
+    
+    .athlete-stats {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .gallery-tabs,
+    .video-tabs,
+    .achievements-tabs {
+        flex-wrap: wrap;
+    }
+    
+    .gallery-tab,
+    .video-tab,
+    .achievement-tab {
+        flex: 1 0 calc(50% - 10px);
+        text-align: center;
+    }
+    
+    .social-container {
+        flex-direction: column;
+    }
+    
+    .athlete-quick-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .medals-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content {
+        padding: 30px 20px;
+    }
+    
+    .athlete-portrait img {
+        width: 200px;
+        height: 280px;
+    }
+    
+    .athlete-intro h1 {
+        font-size: 28px;
+    }
+    
+    .title-badge {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+    
+    .athlete-biography,
+    .athlete-video,
+    .athlete-achievements {
+        padding: 30px 20px;
+    }
+    
+    .gallery-tab,
+    .video-tab,
+    .achievement-tab {
+        flex: 1 0 100%;
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    
+    .athlete-biography h2,
+    .athlete-gallery h2,
+    .athlete-video h2,
+    .athlete-quotes h2,
+    .athlete-social h2,
+    .athlete-achievements h2 {
+        font-size: 24px;
+    }
+    
+    .biography-intro {
+        font-size: 18px;
+    }
+    
+    .biography-text h3 {
+        font-size: 20px;
+    }
+    
+    blockquote {
+        padding: 25px 20px;
+    }
+    
+    blockquote p {
+        font-size: 16px;
+    }
+}

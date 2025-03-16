@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Джоширо Маруяма | JUDO SPIRIT</title>
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/pages/athlete-detail.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,500&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Стили для секции достижений */
+        .athlete-achievements {
+            margin: 3rem 0;
+            padding: 2rem;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+        }
+
+        .achievements-subtitle {
+            font-size: 1.1rem;
+            color: #555;
+            margin-top: -0.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .achievement-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            padding: 1.5rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .achievement-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .achievement-header i {
+            font-size: 1.5rem;
+            margin-right: 0.8rem;
+            color: #d4af37;
+        }
+
+        .achievement-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .achievement-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .achievement-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .medal-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            margin-right: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .medal-icon i {
+            font-size: 0.9rem;
+        }
+
+        .medal-icon.gold {
+            background: linear-gradient(145deg, #ffd700, #f0c000);
+            color: #5e4c00;
+        }
+
+        .medal-icon.silver {
+            background: linear-gradient(145deg, #e0e0e0, #c0c0c0);
+            color: #333;
+        }
+
+        .medal-icon.bronze {
+            background: linear-gradient(145deg, #cd7f32, #a05a2c);
+            color: #fff;
+        }
+
+        .medal-icon.record {
+            background: linear-gradient(145deg, #4a90e2, #3a70b2);
+            color: #fff;
+        }
+
+        @media (max-width: 992px) {
+            .achievements-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Бокова навігація -->
+        <nav class="side-nav">
+            <div class="logo">
+                <h1>JUDO<span>SPIRIT</span></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Головна</a></li>
+                <li><a href="../calendar.html">Календар</a></li>
+                <li><a href="../techniques.html">Техніки</a></li>
+                <li><a href="../athletes.html" class="active">Атлети</a></li>
+                <li><a href="../gallery.html">Галерея</a></li>
+                <li><a href="../about.html">Про блог</a></li>
+            </ul>
+            <div class="social-links">
+                <a href="#" class="social-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook"></a>
+                <a href="#" class="social-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram"></a>
+                <a href="#" class="social-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram"></a>
+            </div>
+        </nav>
+
+        <!-- Основний контент -->
+        <main class="main-content">
+            <div class="breadcrumbs">
+                <a href="../../index.html">Головна</a> &gt; 
+                <a href="../athletes.html">Атлети</a> &gt;
+                <span>Джоширо Маруяма</span>
+            </div>
+
+            <!-- Герой-секція -->
+            <section class="athlete-hero">
+                <div class="hero-background" style="background-image: url('../../assets/images/athletes/maruyama-bg.jpg');">
+                    <div class="hero-overlay"></div>
+                </div>
+                <div class="hero-content">
+                    <div class="athlete-portrait">
+                        <img src="../../assets/images/athletes/joshiro-maruyama.jpg" alt="Джоширо Маруяма">
+                    </div>
+                    <div class="athlete-intro">
+                        <h1>Джоширо Маруяма</h1>
+                        <div class="athlete-titles">
+                            <span class="title-badge">Дворазовий чемпіон світу</span>
+                            <span class="title-badge">Призер Азіатських ігор</span>
+                            <span class="title-badge">Володар 4-го дану дзюдо</span>
+                        </div>
+                        <div class="athlete-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-medal"></i>
+                                <span class="stat-value">15+</span>
+                                <span class="stat-label">Золотих медалей</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-trophy"></i>
+                                <span class="stat-value">30+</span>
+                                <span class="stat-label">Міжнародних турнірів</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span class="stat-value">10+</span>
+                                <span class="stat-label">Років у спорті</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="athlete-content-wrapper">
+                <!-- Швидка інформація -->
+                <section class="athlete-quick-info">
+                    <div class="info-card">
+                        <h3><i class="fas fa-user"></i> Особиста інформація</h3>
+                        <ul>
+                            <li><strong>Повне ім'я:</strong> Джоширо Маруяма (丸山城志郎)</li>
+                            <li><strong>Дата народження:</strong> 11 серпня 1993</li>
+                            <li><strong>Місце народження:</strong> Міядзакі, Японія</li>
+                            <li><strong>Громадянство:</strong> Японія</li>
+                            <li><strong>Зріст:</strong> 168 см</li>
+                            <li><strong>Вагова категорія:</strong> 66 кг</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fas fa-dumbbell"></i> Спортивна кар'єра</h3>
+                        <ul>
+                            <li><strong>Клуб:</strong> Nippon Steel Corporation</li>
+                            <li><strong>Дан:</strong> 4-й дан дзюдо</li>
+                            <li><strong>Стиль:</strong> Технічний, динамічний</li>
+                            <li><strong>Коронні прийоми:</strong> Учі-мата, Сеой-наге</li>
+                            <li><strong>Завершення кар'єри:</strong> 17 лютого 2025</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Біографія -->
+                <section class="athlete-biography">
+                    <h2>Шлях чемпіона</h2>
+                    
+                    <div class="biography-content">
+                        <div class="biography-text">
+                            <p class="biography-intro">Джоширо Маруяма — видатний японський дзюдоїст, володар 4-го дану дзюдо, дворазовий чемпіон світу та призер Азіатських ігор у ваговій категорії до 66 кг. Він є одним із найтехнічніших дзюдоїстів сучасності, чия кар'єра була сповнена як тріумфів, так і випробувань.</p>
+                            
+                            <h3>Ранні роки та початок кар'єри</h3>
+                            <p>Джоширо Маруяма народився 11 серпня 1993 року в місті Міядзакі, Японія. З дитинства він проявляв інтерес до бойових мистецтв, а дзюдо стало його головною пристрастю. Завдяки наполегливим тренуванням та природному таланту, Маруяма швидко прогресував і почав виступати на національних змаганнях.</p>
+                            
+                            <p>Його технічний стиль боротьби та здатність виконувати складні кидки привернули увагу тренерів національної збірної Японії. Поступово Маруяма пробився до основного складу команди і почав представляти свою країну на міжнародних турнірах.</p>
+                            
+                            <h3>Міжнародний прорив</h3>
+                            <p>Перший значний міжнародний успіх прийшов до Маруями у 2018 році на літніх Азіатських іграх в Індонезії. У ваговій категорії до 66 кг він дійшов до фіналу, де поступився корейському спортсмену Ан Ба Улю, завоювавши срібну медаль. Цей результат став важливим кроком у його кар'єрі та підтвердив його потенціал на міжнародній арені.</p>
+                            
+                            <h3>Чемпіонські титули</h3>
+                            <p>Справжній прорив у кар'єрі Маруями відбувся на передолімпійському чемпіонаті світу 2019 року в Токіо. Він продемонстрував неймовірну техніку та тактичну майстерність, перемігши всіх суперників на шляху до фіналу. У вирішальному поєдинку за чемпіонський титул Маруяма переміг суперника з Південної Кореї Кім Лім Хвана, здобувши свою першу золоту медаль чемпіонату світу.</p>
+                            
+                            <p>У червні 2021 року на чемпіонаті світу в Будапешті Маруяма підтвердив свій високий клас, знову ставши чемпіоном світу. У фінальному поєдинку він переміг італійського спортсмена Мануеля Ломбардо, ставши дворазовим чемпіоном світу.</p>
+                            
+                            <h3>Випробування та повернення</h3>
+                            <p>Кар'єра Маруями не була позбавлена випробувань. В одному з поєдинків з Чарльзом Чібаною він отримав серйозну травму ніг, яка вимагала тривалого лікування та реабілітації. Багато хто сумнівався, що він зможе повернутися на колишній рівень, але Маруяма проявив неймовірну силу волі та наполегливість.</p>
+                            
+                            <p>Після упорних тренувань він зумів повернутися в професійний спорт і знову почав демонструвати високі результати. Його повернення стало прикладом незламного духу та відданості своїй справі.</p>
+                            
+                            <h3>Останні роки кар'єри</h3>
+                            <p>У 2022 році на чемпіонаті світу в Ташкенті Маруяма завоював срібну медаль, підтвердивши свій високий рівень. У травні 2023 року на чемпіонаті світу в Досі він знову став срібним призером, поступившись у фіналі своєму співвітчизнику Хіфумі Абе.</p>
+                            
+                            <p>17 лютого 2025 року Джоширо Маруяма оголосив про завершення своєї спортивної кар'єри, залишивши яскравий слід в історії японського та світового дзюдо.</p>
+                            
+                            <h3>Стиль боротьби</h3>
+                            <p>Маруяма відомий своїм технічним та динамічним стилем дзюдо. Його коронними прийомами є учі-мата (підхват зсередини) та сеой-наге (кидок через спину). Він майстерно використовує свою швидкість та відмінне відчуття моменту для виконання ефективних кидків.</p>
+                            
+                            <p>Експерти відзначають його здатність зберігати спокій у найнапруженіших моментах поєдинків та приймати правильні тактичні рішення. Маруяма також відомий своєю повагою до суперників та дотриманням принципів дзюдо як у спорті, так і в житті.</p>
+                        </div>
+                        
+                        <div class="biography-timeline">
+                            <h3>Ключові моменти кар'єри</h3>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2018"></div>
+                                    <div class="timeline-content">
+                                        <h4>Азіатські ігри в Джакарті</h4>
+                                        <p>Срібна медаль у ваговій категорії до 66 кг</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2019"></div>
+                                    <div class="timeline-content">
+                                        <h4>Чемпіонат світу в Токіо</h4>
+                                        <p>Перша золота медаль чемпіонату світу</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2020"></div>
+                                    <div class="timeline-content">
+                                        <h4>Травма та реабілітація</h4>
+                                        <p>Серйозна травма ніг у поєдинку з Чібаною</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2021"></div>
+                                    <div class="timeline-content">
+                                        <h4>Чемпіонат світу в Будапешті</h4>
+                                        <p>Друга золота медаль чемпіонату світу</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2022"></div>
+                                    <div class="timeline-content">
+                                        <h4>Чемпіонат світу в Ташкенті</h4>
+                                        <p>Срібна медаль чемпіонату світу</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2023"></div>
+                                    <div class="timeline-content">
+                                        <h4>Чемпіонат світу в Досі</h4>
+                                        <p>Срібна медаль, поразка від Хіфумі Абе</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2025"></div>
+                                    <div class="timeline-content">
+                                        <h4>Завершення кар'єри</h4>
+                                        <p>Офіційне оголошення про завершення спортивної кар'єри</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Досягнення -->
+                <section class="athlete-achievements">
+                    <h2>Досягнення</h2>
+                    <p class="achievements-subtitle">Один з найтехнічніших дзюдоїстів сучасності: 2 золоті медалі чемпіонатів світу та численні міжнародні перемоги</p>
+                    <div class="achievements-grid">
+                        <!-- Чемпіонати світу -->
+                        <div class="achievement-card">
+                            <div class="achievement-header">
+                                <i class="fas fa-trophy"></i>
+                                <h3>Чемпіонати світу</h3>
+                            </div>
+                            <ul class="achievement-list">
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Токіо 2019 — до 66 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Будапешт 2021 — до 66 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon silver"><i class="fas fa-medal"></i></span>
+                                    <span>Ташкент 2022 — до 66 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon silver"><i class="fas fa-medal"></i></span>
+                                    <span>Доха 2023 — до 66 кг</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Азіатські ігри -->
+                        <div class="achievement-card">
+                            <div class="achievement-header">
+                                <i class="fas fa-globe-asia"></i>
+                                <h3>Азіатські ігри</h3>
+                            </div>
+                            <ul class="achievement-list">
+                                <li>
+                                    <span class="medal-icon silver"><i class="fas fa-medal"></i></span>
+                                    <span>Джакарта 2018 — до 66 кг</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Інші досягнення -->
+                        <div class="achievement-card">
+                            <div class="achievement-header">
+                                <i class="fas fa-star"></i>
+                                <h3>Інші досягнення</h3>
+                            </div>
+                            <ul class="achievement-list">
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Гран-прі Загреб (2019)</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Гран-прі Тбілісі (2020)</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Великий шолом Париж (2022)</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon record"><i class="fas fa-award"></i></span>
+                                    <span>Найкращий дзюдоїст Японії (2019)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Галерея -->
+                <section class="athlete-gallery">
+                    <h2>Галерея</h2>
+                    <div class="gallery-tabs">
+                        <button class="gallery-tab active" data-tab="competitions">Змагання</button>
+                        <button class="gallery-tab" data-tab="training">Тренування</button>
+                        <button class="gallery-tab" data-tab="personal">Особисте</button>
+                    </div>
+                    
+                    <div class="gallery-content active" id="competitions">
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/maruyama-1.jpg" alt="Джоширо Маруяма на чемпіонаті світу">
+                                <div class="gallery-caption">
+                                    <h4>Чемпіонат світу 2019</h4>
+                                    <p>Момент перемоги у фінальному поєдинку</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/maruyama-2.jpg" alt="Джоширо Маруяма на чемпіонаті світу">
+                                <div class="gallery-caption">
+                                    <h4>Чемпіонат світу 2021</h4>
+                                    <p>Виконання коронного кидка</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/maruyama-3.jpg" alt="Джоширо Маруяма на п'єдесталі">
+                                <div class="gallery-caption">
+                                    <h4>Азіатські ігри 2018</h4>
+                                    <p>На п'єдесталі зі срібною медаллю</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-content" id="training">
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/maruyama-train-1.jpg" alt="Джоширо Маруяма на тренуванні">
+                                <div class="gallery-caption">
+                                    <h4>Тренування в Кодокані</h4>
+                                    <p>Відпрацювання техніки з партнером</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/maruyama-train-2.jpg" alt="Джоширо Маруяма демонструє техніку">
+                                <div class="gallery-caption">
+                                    <h4>Майстер-клас</h4>
+                                    <p>Демонстрація техніки учі-мата</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-content" id="personal">
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/maruyama-personal-1.jpg" alt="Джоширо Маруяма з родиною">
+                                <div class="gallery-caption">
+                                    <h4>Особисте фото</h4>
+                                    <p>Джоширо під час відпочинку</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Відео -->
+                <section class="athlete-video">
+                    <h2>Відео</h2>
+                    <div class="video-tabs">
+                        <button class="video-tab active" data-video="SG0P1HIWy-E">Найкращі моменти</button>
+                        <button class="video-tab" data-video="hFo2jV9UdWE">Чемпіонат світу 2019</button>
+                        <button class="video-tab" data-video="n3AyYZwghRw">Інтерв'ю</button>
+                    </div>
+                    
+                    <div class="video-container">
+                        <iframe id="video-frame" width="560" height="315" src="https://www.youtube.com/embed/SG0P1HIWy-E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p class="video-caption" id="video-caption">Найкращі моменти в кар'єрі Джоширо Маруями</p>
+                </section>
+
+                <!-- Цитати та інтерв'ю -->
+                <section class="athlete-quotes">
+                    <h2>Цитати та думки</h2>
+                    <div class="quotes-container">
+                        <blockquote>
+                            <p>"Травма була серйозним випробуванням для мене. Але я ніколи не думав про те, щоб здатися. Кожен день я працював над тим, щоб повернутися сильнішим."</p>
+                            <footer>Інтерв'ю після повернення, 2021</footer>
+                        </blockquote>
+                        
+                        <blockquote>
+                            <p>"У дзюдо найважливіше — це повага до суперника та постійне самовдосконалення. Навіть ставши чемпіоном світу, я продовжую вчитися та розвиватися."</p>
+                            <footer>Спортивний журнал "Judo Inside", 2020</footer>
+                        </blockquote>
+                        
+                        <blockquote>
+                            <p>"Моя мета — не просто перемагати, а показувати красиве, технічне дзюдо. Я хочу, щоб люди, дивлячись на мої поєдинки, відчували красу цього виду спорту."</p>
+                            <footer>З виступу перед молодими спортсменами, 2022</footer>
+                        </blockquote>
+                    </div>
+                </section>
+
+                <!-- Контакти та соціальні мережі -->
+                <section class="athlete-social">
+                    <div class="social-container">
+                        <a href="https://www.instagram.com/joshiromaruyama" class="social-button instagram">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="https://www.facebook.com/JoshiroMaruyamaOfficial" class="social-button facebook">
+                            <i class="fab fa-facebook-f"></i>
+                            <span>Facebook</span>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>JUDO<span>SPIRIT</span></h2>
+                <p>Ваш провідник у світі дзюдо</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Розділи</h4>
+                    <ul>
+                        <li><a href="../../index.html">Головна</a></li>
+                        <li><a href="../calendar.html">Календар</a></li>
+                        <li><a href="../techniques.html">Техніки</a></li>
+                        <li><a href="../athletes.html">Атлети</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Інформація</h4>
+                    <ul>
+                        <li><a href="../about.html">Про блог</a></li>
+                        <li><a href="../contact.html">Контакти</a></li>
+                        <li><a href="../privacy.html">Політика конфіденційності</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Контакти</h4>
+                    <ul class="contact-info">
+                        <li><a href="mailto:info@judospirit.ua">info@judospirit.ua</a></li>
+                        <li><a href="tel:+380501234567">+38 (050) 123-45-67</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 JUDOSPIRIT. Всі права захищені.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Галерея табів
+        const galleryTabs = document.querySelectorAll('.gallery-tab');
+        const galleryContents = document.querySelectorAll('.gallery-content');
+        
+        galleryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Видаляємо активний клас з усіх табів
+                galleryTabs.forEach(t => t.classList.remove('active'));
+                // Додаємо активний клас до поточного табу
+                tab.classList.add('active');
+                
+                // Ховаємо всі контенти
+                galleryContents.forEach(content => content.classList.remove('active'));
+                // Показуємо потрібний контент
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Відео табів
+        const videoTabs = document.querySelectorAll('.video-tab');
+        const videoFrame = document.getElementById('video-frame');
+        const videoCaption = document.getElementById('video-caption');
+        
+        videoTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Видаляємо активний клас з усіх табів
+                videoTabs.forEach(t => t.classList.remove('active'));
+                // Додаємо активний клас до поточного табу
+                tab.classList.add('active');
+                
+                // Змінюємо відео
+                const videoId = tab.getAttribute('data-video');
+                videoFrame.src = `https://www.youtube.com/embed/${videoId}`;
+                
+                // Змінюємо підпис
+                videoCaption.textContent = tab.textContent;
+            });
+        });
+    </script>
+</body>
+</html> 

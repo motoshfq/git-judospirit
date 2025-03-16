@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Хіфумі Абе | JUDO SPIRIT</title>
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/pages/athlete-detail.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,500&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Стили для секции достижений */
+        .athlete-achievements {
+            margin: 3rem 0;
+            padding: 2rem;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+        }
+
+        .achievements-subtitle {
+            font-size: 1.1rem;
+            color: #555;
+            margin-top: -0.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .achievement-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            padding: 1.5rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .achievement-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .achievement-header i {
+            font-size: 1.5rem;
+            margin-right: 0.8rem;
+            color: #d4af37;
+        }
+
+        .achievement-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .achievement-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .achievement-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .medal-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            margin-right: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .medal-icon i {
+            font-size: 0.9rem;
+        }
+
+        .medal-icon.gold {
+            background: linear-gradient(145deg, #ffd700, #f0c000);
+            color: #5e4c00;
+        }
+
+        .medal-icon.silver {
+            background: linear-gradient(145deg, #e0e0e0, #c0c0c0);
+            color: #333;
+        }
+
+        .medal-icon.bronze {
+            background: linear-gradient(145deg, #cd7f32, #a05a2c);
+            color: #fff;
+        }
+
+        .medal-icon.record {
+            background: linear-gradient(145deg, #4a90e2, #3a70b2);
+            color: #fff;
+        }
+
+        @media (max-width: 992px) {
+            .achievements-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Кнопка мобільного меню -->
+    <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+    
+    <!-- Затемнення фону при відкритому меню -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+
+    <div class="page-container">
+        <!-- Бокова навігація -->
+        <nav class="side-nav">
+            <div class="logo">
+                <h1>JUDO<span>SPIRIT</span></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Головна</a></li>
+                <li><a href="../calendar.html">Календар</a></li>
+                <li><a href="../techniques.html">Техніки</a></li>
+                <li><a href="../athletes.html" class="active">Атлети</a></li>
+                <li><a href="../gallery.html">Галерея</a></li>
+                <li><a href="../about.html">Про блог</a></li>
+            </ul>
+            <div class="social-links">
+                <a href="#" class="social-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook"></a>
+                <a href="#" class="social-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram"></a>
+                <a href="#" class="social-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram"></a>
+            </div>
+        </nav>
+
+        <!-- Основний контент -->
+        <main class="main-content">
+            <div class="breadcrumbs">
+                <a href="../../index.html">Головна</a> &gt; 
+                <a href="../athletes.html">Атлети</a> &gt;
+                <span>Хіфумі Абе</span>
+            </div>
+
+            <!-- Герой-секція -->
+            <section class="athlete-hero">
+                <div class="hero-background" style="background-image: url('../../assets/images/athletes/hifumi-abe-bg.jpg');">
+                    <div class="hero-overlay"></div>
+                </div>
+                <div class="hero-content">
+                    <div class="athlete-portrait">
+                        <img src="../../assets/images/athletes/hifumi-abe.jpg" alt="Хіфумі Абе">
+                    </div>
+                    <div class="athlete-intro">
+                        <h1>Хіфумі Абе</h1>
+                        <div class="athlete-titles">
+                            <span class="title-badge">Дворазовий олімпійський чемпіон</span>
+                            <span class="title-badge">Чотириразовий чемпіон світу</span>
+                            <span class="title-badge">Володар 5-го дану дзюдо</span>
+                        </div>
+                        <div class="athlete-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-medal"></i>
+                                <span class="stat-value">25+</span>
+                                <span class="stat-label">Золотих медалей</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-trophy"></i>
+                                <span class="stat-value">40+</span>
+                                <span class="stat-label">Міжнародних турнірів</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span class="stat-value">10+</span>
+                                <span class="stat-label">Років у спорті</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="athlete-content-wrapper">
+                <!-- Швидка інформація -->
+                <section class="athlete-quick-info">
+                    <div class="info-card">
+                        <h3><i class="fas fa-user"></i> Особиста інформація</h3>
+                        <ul>
+                            <li><strong>Повне ім'я:</strong> Хіфумі Абе (阿部一二三)</li>
+                            <li><strong>Дата народження:</strong> 9 серпня 1997</li>
+                            <li><strong>Місце народження:</strong> Кобе, Японія</li>
+                            <li><strong>Громадянство:</strong> Японія</li>
+                            <li><strong>Зріст:</strong> 167 см</li>
+                            <li><strong>Вагова категорія:</strong> 66 кг</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fas fa-dumbbell"></i> Спортивна кар'єра</h3>
+                        <ul>
+                            <li><strong>Клуб:</strong> Park24</li>
+                            <li><strong>Тренери:</strong> Сатору Ебінума, Косей Іноуе</li>
+                            <li><strong>Дан:</strong> 5-й дан дзюдо</li>
+                            <li><strong>Стиль:</strong> Технічний, атакуючий</li>
+                            <li><strong>Коронний прийом:</strong> Сеойнаге</li>
+                            <li><strong>Дебют:</strong> 2014 рік</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Біографія -->
+                <section class="athlete-biography">
+                    <h2>Шлях чемпіона</h2>
+                    
+                    <div class="biography-content">
+                        <div class="biography-text">
+                            <p class="biography-intro">Хіфумі Абе — видатний японський дзюдоїст, володар 5-го дану дзюдо, дворазовий олімпійський чемпіон та чотириразовий чемпіон світу у ваговій категорії до 66 кг. Він є одним із найяскравіших представників сучасного дзюдо та старшим братом олімпійської чемпіонки Ути Абе.</p>
+                            
+                            <h3>Ранні роки та початок кар'єри</h3>
+                            <p>Хіфумі Абе народився 9 серпня 1997 року в місті Кобе, Японія. Він почав займатися дзюдо у віці 6 років у клубі Hyogo Boys Kodamakai після того, як побачив змагання дзюдоїстів по телевізору. З раннього віку Хіфумі демонстрував виняткові здібності та відданість цьому виду спорту.</p>
+                            
+                            <p>Його талант швидко розвивався, і вже в юніорському віці він почав досягати значних успіхів. У 2014 році Абе виборов дві срібні медалі на світових першостях серед молоді: спочатку у віковій категорії до 18 років, а потім у категорії до 21 року на турнірі у Форт-Лодердейлі.</p>
+                            
+                            <h3>Міжнародний прорив</h3>
+                            <p>Перший значний міжнародний успіх прийшов до Хіфумі наприкінці 2014 року, коли він виграв престижний Кубок Дзігоро Кано, перемігши Масасі Ебінуму — бронзового призера Олімпійських ігор у Лондоні та триразового чемпіона світу. Ця перемога стала важливою віхою в кар'єрі молодого дзюдоїста.</p>
+                            
+                            <p>У 2016 році на чемпіонаті Японії Абе знову переміг Масасі Ебінуму в півфіналі, а потім виграв титул. Незважаючи на цю перемогу, саме Ебінума був обраний представляти Японію на Олімпійських іграх у Ріо-де-Жанейро. Того ж року Хіфумі виграв турнір Великого шлему в Тюмені, а наприкінці року знову здобув перемогу на Кубку Дзігоро Кано.</p>
+                            
+                            <p>У лютому 2017 року Абе став наймолодшим переможцем в історії престижного турніру в Парижі, що підтвердило його статус висхідної зірки світового дзюдо.</p>
+                            
+                            <h3>Чемпіонські титули</h3>
+                            <p>На чемпіонаті світу 2017 року в Будапешті Хіфумі Абе продемонстрував блискучу техніку та тактичну майстерність, перемігши всіх своїх суперників і завоювавши свою першу золоту медаль на світових першостях. Наприкінці року він виграв свій третій титул на Кубку Дзігоро Кано.</p>
+                            
+                            <p>У 2018 році Абе продовжив свою переможну ходу, вигравши турнір "Великий шлем" в Єкатеринбурзі. На чемпіонаті світу 2018 року в Баку він знову підтвердив свій статус найкращого дзюдоїста у своїй ваговій категорії, завоювавши другу золоту медаль на світових першостях.</p>
+                            
+                            <p>На чемпіонаті світу 2019 року в Токіо Хіфумі здобув бронзову медаль, перемігши в поєдинку за третє місце італійського спортсмена Мануеля Ломбардо.</p>
+                            
+                            <h3>Олімпійське золото</h3>
+                            <p>Найвищим досягненням у кар'єрі Хіфумі Абе стала золота медаль на Олімпійських іграх у Токіо 2020 (проведених у 2021 році через пандемію COVID-19). У фіналі він переміг грузинського дзюдоїста Важу Маргвелашвілі, продемонструвавши свою технічну перевагу.</p>
+                            
+                            <p>Особливо примітним є те, що в той самий день, коли Хіфумі виграв своє олімпійське золото, його сестра Ута також стала олімпійською чемпіонкою у ваговій категорії до 52 кг. Вони стали першими братом і сестрою в історії японського спорту, які виграли золоті олімпійські медалі в один день.</p>
+                            
+                            <h3>Продовження успіхів</h3>
+                            <p>У травні 2023 року на чемпіонаті світу в Досі, Катар, Хіфумі Абе знову підтвердив свій статус найкращого дзюдоїста у ваговій категорії до 66 кг, ставши чемпіоном світу вчетверте. У фіналі він переміг свого співвітчизника Дзьосіро Маруяму.</p>
+                            
+                            <p>На Олімпійських іграх 2024 року в Парижі Хіфумі Абе захистив свій титул олімпійського чемпіона, ставши дворазовим олімпійським чемпіоном. У фінальній сутичці він переміг бразильського дзюдоїста Вілльяма Ліму, продемонструвавши свою неперевершену майстерність.</p>
+                            
+                            <h3>Стиль боротьби</h3>
+                            <p>Хіфумі Абе відомий своїм технічним, атакуючим стилем дзюдо. Його коронним прийомом є сеойнаге (кидок через спину з захопленням руки на плече). Він майстерно використовує свою швидкість, вибухову силу та відмінне відчуття часу для виконання ефективних кидків.</p>
+                            
+                            <p>Експерти відзначають його здатність швидко адаптуватися до різних суперників та змінювати тактику під час поєдинку. Хіфумі також відомий своєю психологічною стійкістю та здатністю зберігати спокій у найнапруженіших моментах змагань.</p>
+                        </div>
+                        
+                        <div class="biography-timeline">
+                            <h3>Ключові моменти кар'єри</h3>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2014"></div>
+                                    <div class="timeline-content">
+                                        <h4>Перший великий успіх</h4>
+                                        <p>Перемога на Кубку Дзігоро Кано</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2017"></div>
+                                    <div class="timeline-content">
+                                        <h4>Чемпіонат світу в Будапешті</h4>
+                                        <p>Перша золота медаль чемпіонату світу</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2018"></div>
+                                    <div class="timeline-content">
+                                        <h4>Чемпіонат світу в Баку</h4>
+                                        <p>Друга золота медаль чемпіонату світу</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2019"></div>
+                                    <div class="timeline-content">
+                                        <h4>Чемпіонат світу в Токіо</h4>
+                                        <p>Бронзова медаль чемпіонату світу</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2021"></div>
+                                    <div class="timeline-content">
+                                        <h4>Олімпійські ігри в Токіо</h4>
+                                        <p>Перша олімпійська золота медаль</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2023"></div>
+                                    <div class="timeline-content">
+                                        <h4>Чемпіонат світу в Досі</h4>
+                                        <p>Четверта золота медаль чемпіонату світу</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2024"></div>
+                                    <div class="timeline-content">
+                                        <h4>Олімпійські ігри в Парижі</h4>
+                                        <p>Друга олімпійська золота медаль</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Досягнення -->
+                <section class="athlete-achievements">
+                    <h2>Досягнення</h2>
+                    <div class="achievements-grid">
+                        <!-- Олімпійські ігри -->
+                        <div class="achievement-card">
+                            <div class="achievement-header">
+                                <i class="fas fa-medal"></i>
+                                <h3>Олімпійські ігри</h3>
+                            </div>
+                            <ul class="achievement-list">
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Токіо 2020 — до 66 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Париж 2024 — до 66 кг</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Чемпіонати світу -->
+                        <div class="achievement-card">
+                            <div class="achievement-header">
+                                <i class="fas fa-trophy"></i>
+                                <h3>Чемпіонати світу</h3>
+                            </div>
+                            <ul class="achievement-list">
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Будапешт 2017 — до 66 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Баку 2018 — до 66 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon bronze"><i class="fas fa-medal"></i></span>
+                                    <span>Токіо 2019 — до 66 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Доха 2023 — до 66 кг</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Інші досягнення -->
+                        <div class="achievement-card">
+                            <div class="achievement-header">
+                                <i class="fas fa-star"></i>
+                                <h3>Інші досягнення</h3>
+                            </div>
+                            <ul class="achievement-list">
+                                <li>
+                                    <span class="medal-icon record"><i class="fas fa-award"></i></span>
+                                    <span>Наймолодший переможець турніру в Парижі (2017)</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Кубок Дзігоро Кано (2014, 2016, 2017)</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Великий шлем Тюмень/Єкатеринбург (2016, 2018)</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon silver"><i class="fas fa-medal"></i></span>
+                                    <span>Чемпіонат світу серед молоді (2014)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Галерея -->
+                <section class="athlete-gallery">
+                    <h2>Галерея</h2>
+                    <div class="gallery-tabs">
+                        <button class="gallery-tab active" data-tab="competitions">Змагання</button>
+                        <button class="gallery-tab" data-tab="training">Тренування</button>
+                        <button class="gallery-tab" data-tab="personal">Особисте</button>
+                    </div>
+                    
+                    <div class="gallery-content active" id="competitions">
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/hifumi-abe-1.jpg" alt="Хіфумі Абе на Олімпійських іграх в Токіо">
+                                <div class="gallery-caption">
+                                    <h4>Олімпійські ігри в Токіо, 2020</h4>
+                                    <p>Момент перемоги у фінальному поєдинку</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/hifumi-abe-2.jpg" alt="Хіфумі Абе на чемпіонаті світу">
+                                <div class="gallery-caption">
+                                    <h4>Чемпіонат світу в Будапешті, 2017</h4>
+                                    <p>Виконання коронного кидка</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/hifumi-abe-5.jpg" alt="Хіфумі Абе на п'єдесталі">
+                                <div class="gallery-caption">
+                                    <h4>Олімпіада в Парижі, 2024</h4>
+                                    <p>На п'єдесталі з золотою медаллю</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-content" id="training">
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/hifumi-abe-3.jpg" alt="Хіфумі Абе на тренуванні">
+                                <div class="gallery-caption">
+                                    <h4>Тренування в Кодокані</h4>
+                                    <p>Відпрацювання техніки з партнером</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/hifumi-abe-6.jpg" alt="Хіфумі Абе демонструє техніку">
+                                <div class="gallery-caption">
+                                    <h4>Майстер-клас</h4>
+                                    <p>Демонстрація техніки учі-мата</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-content" id="personal">
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/uta-abe-personal-1.jpg" alt="Хіфумі Абе з сестрою Утою">
+                                <div class="gallery-caption">
+                                    <h4>Сімейне фото</h4>
+                                    <p>Хіфумі з сестрою Утою Абе після перемоги на Олімпіаді</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Відео -->
+                <section class="athlete-video">
+                    <h2>Відео</h2>
+                    <div class="video-tabs">
+                        <button class="video-tab active" data-video="qx86DxH4BYc">Найкращі моменти</button>
+                        <button class="video-tab" data-video="O9SbKyznQB8">Олімпійське золото</button>
+                        <button class="video-tab" data-video="c1Y7MXcWlx8">Інтерв'ю</button>
+                    </div>
+                    
+                    <div class="video-container">
+                        <iframe id="video-frame" width="560" height="315" src="https://www.youtube.com/embed/qx86DxH4BYc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p class="video-caption" id="video-caption">Найкращі моменти в кар'єрі Хіфумі Абе</p>
+                </section>
+
+                <!-- Цитати та інтерв'ю -->
+                <section class="athlete-quotes">
+                    <h2>Цитати та думки</h2>
+                    <div class="quotes-container">
+                        <blockquote>
+                            <p>"Я завжди прагну до досконалості. Кожне тренування — це можливість стати кращим, ніж учора."</p>
+                            <footer>Інтерв'ю після Олімпіади в Токіо, 2021</footer>
+                        </blockquote>
+                        
+                        <blockquote>
+                            <p>"Перемога на Олімпіаді разом із сестрою — це було наше спільне мріяння з дитинства. Коли ми обоє виграли золото в один день, це було неймовірне відчуття."</p>
+                            <footer>Спортивний журнал "Judo Inside", 2021</footer>
+                        </blockquote>
+                        
+                        <blockquote>
+                            <p>"Дзюдо — це не просто спорт, це філософія життя. Повага до суперника так само важлива, як і перемога."</p>
+                            <footer>З виступу перед молодими спортсменами, 2022</footer>
+                        </blockquote>
+                    </div>
+                </section>
+
+                <!-- Контакти та соціальні мережі -->
+                <section class="athlete-social">
+                    <div class="social-container">
+                        <a href="https://www.instagram.com/hifumiabe" class="social-button instagram">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="https://www.facebook.com/hifumiabe" class="social-button facebook">
+                            <i class="fab fa-facebook-f"></i>
+                            <span>Facebook</span>
+                        </a>
+                        <a href="https://twitter.com/hifumiabe" class="social-button twitter">
+                            <i class="fab fa-twitter"></i>
+                            <span>Twitter</span>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <script src="../../js/main.js"></script>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>JUDO<span>SPIRIT</span></h2>
+                <p>Ваш провідник у світі дзюдо</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Розділи</h4>
+                    <ul>
+                        <li><a href="../../index.html">Головна</a></li>
+                        <li><a href="../calendar.html">Календар</a></li>
+                        <li><a href="../techniques.html">Техніки</a></li>
+                        <li><a href="../athletes.html">Атлети</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Інформація</h4>
+                    <ul>
+                        <li><a href="../about.html">Про блог</a></li>
+                        <li><a href="../contact.html">Контакти</a></li>
+                        <li><a href="../privacy.html">Політика конфіденційності</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Контакти</h4>
+                    <ul class="contact-info">
+                        <li><a href="mailto:info@judospirit.ua">info@judospirit.ua</a></li>
+                        <li><a href="tel:+380501234567">+38 (050) 123-45-67</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 JUDOSPIRIT. Всі права захищені.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Галерея табів
+        const galleryTabs = document.querySelectorAll('.gallery-tab');
+        const galleryContents = document.querySelectorAll('.gallery-content');
+        
+        galleryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Видаляємо активний клас з усіх табів
+                galleryTabs.forEach(t => t.classList.remove('active'));
+                // Додаємо активний клас до поточного табу
+                tab.classList.add('active');
+                
+                // Ховаємо всі контенти
+                galleryContents.forEach(content => content.classList.remove('active'));
+                // Показуємо потрібний контент
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Відео табів
+        const videoTabs = document.querySelectorAll('.video-tab');
+        const videoFrame = document.getElementById('video-frame');
+        const videoCaption = document.getElementById('video-caption');
+        
+        videoTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Видаляємо активний клас з усіх табів
+                videoTabs.forEach(t => t.classList.remove('active'));
+                // Додаємо активний клас до поточного табу
+                tab.classList.add('active');
+                
+                // Змінюємо відео
+                const videoId = tab.getAttribute('data-video');
+                videoFrame.src = `https://www.youtube.com/embed/${videoId}`;
+                
+                // Змінюємо підпис
+                videoCaption.textContent = tab.textContent;
+            });
+        });
+    </script>
+</body>
+</html> 

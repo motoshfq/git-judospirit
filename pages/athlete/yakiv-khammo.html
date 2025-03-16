@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Яків Хаммо | JUDO SPIRIT</title>
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/pages/athlete-detail.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,500&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Кнопка мобільного меню -->
+    <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <i class="fas fa-bars"></i>
+        <i class="fas fa-times"></i>
+    </div>
+    
+    <!-- Затемнення фону при відкритому меню -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+
+    <div class="page-container">
+        <!-- Бокова навігація -->
+        <nav class="side-nav">
+            <div class="logo">
+                <h1>JUDO<span>SPIRIT</span></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Головна</a></li>
+                <li><a href="../calendar.html">Календар</a></li>
+                <li><a href="../techniques.html">Техніки</a></li>
+                <li><a href="../athletes.html" class="active">Атлети</a></li>
+                <li><a href="../gallery.html">Галерея</a></li>
+                <li><a href="../about.html">Про блог</a></li>
+            </ul>
+            <div class="social-links">
+                <a href="#" class="social-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook"></a>
+                <a href="#" class="social-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram"></a>
+                <a href="#" class="social-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram"></a>
+            </div>
+        </nav>
+
+        <!-- Основний контент -->
+        <main class="main-content">
+            <div class="breadcrumbs">
+                <a href="../../index.html">Головна</a> &gt; 
+                <a href="../athletes.html">Атлети</a> &gt;
+                <span>Яків Хаммо</span>
+            </div>
+
+            <!-- Герой-секція -->
+            <section class="athlete-hero">
+                <div class="hero-background" style="background-image: url('../../assets/images/athletes/yakiv-khammo-bg.jpg');">
+                    <div class="hero-overlay"></div>
+                </div>
+                <div class="hero-content">
+                    <div class="athlete-portrait">
+                        <img src="../../assets/images/athletes/yakiv-khammo.jpg" alt="Яків Хаммо">
+                    </div>
+                    <div class="athlete-intro">
+                        <h1>Яків Хаммо</h1>
+                        <div class="athlete-titles">
+                            <span class="title-badge">Бронзовий призер чемпіонату світу</span>
+                            <span class="title-badge">Бронзовий призер Європейських ігор</span>
+                            <span class="title-badge">Майстер спорту України міжнародного класу</span>
+                        </div>
+                        <div class="athlete-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-medal"></i>
+                                <span class="stat-value">10+</span>
+                                <span class="stat-label">Міжнародних медалей</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-trophy"></i>
+                                <span class="stat-value">20+</span>
+                                <span class="stat-label">Міжнародних турнірів</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span class="stat-value">10+</span>
+                                <span class="stat-label">Років у спорті</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="athlete-content-wrapper">
+                <!-- Швидка інформація -->
+                <section class="athlete-quick-info">
+                    <div class="info-card">
+                        <h3><i class="fas fa-user"></i> Особиста інформація</h3>
+                        <ul>
+                            <li><strong>Повне ім'я:</strong> Яків Михайлович Хаммо</li>
+                            <li><strong>Дата народження:</strong> 11 червня 1994</li>
+                            <li><strong>Місце народження:</strong> Донецьк, Україна</li>
+                            <li><strong>Громадянство:</strong> Україна</li>
+                            <li><strong>Зріст:</strong> 188 см</li>
+                            <li><strong>Вагова категорія:</strong> +100 кг</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fas fa-dumbbell"></i> Спортивна кар'єра</h3>
+                        <ul>
+                            <li><strong>Клуб:</strong> Донецька область</li>
+                            <li><strong>Тренери:</strong> Станіслав Логашенко, Сергій Дуброва, Євген Подолякін</li>
+                            <li><strong>Перший тренер:</strong> Євген Подолякін</li>
+                            <li><strong>Стиль:</strong> Правосторонній</li>
+                            <li><strong>Дебют:</strong> 2010 рік</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fas fa-award"></i> Найвищі досягнення</h3>
+                        <ul>
+                            <li><strong>Чемпіонат світу:</strong> Бронза (2015, 2021)</li>
+                            <li><strong>Європейські ігри:</strong> Бронза (2015)</li>
+                            <li><strong>Grand-Slam:</strong> Золото (2016, Баку)</li>
+                            <li><strong>Чемпіонат Європи U23:</strong> Золото (2016)</li>
+                            <li><strong>Олімпійські ігри:</strong> Учасник (2016)</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Біографія -->
+                <section class="athlete-biography">
+                    <h2>Шлях чемпіона</h2>
+                    
+                    <div class="biography-content">
+                        <div class="biography-text">
+                            <p class="biography-intro">Яків Хаммо — один з найталановитіших українських дзюдоїстів у важкій ваговій категорії, який завдяки своїй силі, техніці та спортивному духу став гордістю українського дзюдо.</p>
+                            
+                            <h3>Ранні роки та початок кар'єри</h3>
+                            <p>Яків Михайлович Хаммо народився 11 червня 1994 року в Донецьку, Україна. Він почав займатися дзюдо в Донецьку під керівництвом свого першого тренера Євгена Подолякіна. Паралельно зі спортивною кар'єрою, Хаммо здобував вищу освіту в Донецькому національному університеті.</p>
+                            
+                            <p>Завдяки своїм фізичним даним та наполегливій праці, Яків швидко прогресував у спорті, демонструючи значні успіхи спочатку на юніорських змаганнях, а потім і на дорослому рівні.</p>
+                            
+                            <h3>Міжнародний прорив</h3>
+                            <p>Перший серйозний міжнародний успіх прийшов до Якова у 2014 році, коли він здобув бронзову медаль на чемпіонаті світу серед юніорів у Форт-Лодердейлі. Це досягнення стало передвісником його майбутніх успіхів у дорослій категорії.</p>
+                            
+                            <p>2015 рік став визначальним у кар'єрі Хаммо. На чемпіонаті світу в Астані він здобув бронзову медаль у ваговій категорії понад 100 кг, а також виборов бронзу на Перших Європейських іграх у Баку. Ці досягнення закріпили за ним статус одного з найперспективніших важковаговиків у світовому дзюдо.</p>
+                            
+                            <h3>Спортивний дух</h3>
+                            <p>Яків Хаммо відомий не лише своїми спортивними досягненнями, але й високими моральними якостями. Після змагань на Європейських іграх у Баку (2015) він отримав спеціальну нагороду "Дух дзюдо" за те, що відніс до роздягальні травмованого суперника, який не міг самостійно зійти з татамі. Цей вчинок яскраво демонструє відданість Якова принципам дзюдо, які виходять далеко за межі спортивних змагань.</p>
+                            
+                            <h3>Олімпійський досвід</h3>
+                            <p>У 2016 році Яків Хаммо представляв Україну на Літніх Олімпійських іграх в Ріо-де-Жанейро. У ваговій категорії понад 100 кг він переміг Сідібе (Буркіна-Фасо) у першому колі, але поступився Краковецькому (Киргизстан) у другому колі. Хоча Яків не здобув олімпійську медаль, участь в Іграх стала важливим досвідом у його кар'єрі.</p>
+                            
+                            <p>Того ж року він здобув золоту медаль на турнірі Grand-Slam з дзюдо в Баку та на молодіжному чемпіонаті Європи до 23 років, підтверджуючи свій високий рівень.</p>
+                            
+                            <h3>Продовження успіхів</h3>
+                            <p>У 2021 році Яків знову підтвердив свій високий клас, здобувши бронзову медаль на чемпіонаті світу в Будапешті. Це досягнення продемонструвало його стабільність та здатність залишатися в еліті світового дзюдо протягом тривалого часу.</p>
+                            
+                            <h3>Вплив на українське дзюдо</h3>
+                            <p>Яків Хаммо є взірцем для багатьох молодих українських дзюдоїстів, особливо у важкій ваговій категорії. Його досягнення значно підвищили престиж українського дзюдо на міжнародній арені та надихають нове покоління спортсменів прагнути до високих результатів.</p>
+                        </div>
+                        
+                        <div class="biography-timeline">
+                            <h3>Ключові моменти кар'єри</h3>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2010"></div>
+                                    <div class="timeline-content">
+                                        <h4>Початок міжнародної кар'єри</h4>
+                                        <p>Перші виступи на міжнародних юніорських турнірах</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2014"></div>
+                                    <div class="timeline-content">
+                                        <h4>Юніорський успіх</h4>
+                                        <p>Бронзова медаль чемпіонату світу серед юніорів у Форт-Лодердейлі</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2015"></div>
+                                    <div class="timeline-content">
+                                        <h4>Прорив на дорослому рівні</h4>
+                                        <p>Бронзові медалі на чемпіонаті світу в Астані та Європейських іграх у Баку</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2016"></div>
+                                    <div class="timeline-content">
+                                        <h4>Олімпійські ігри в Ріо</h4>
+                                        <p>Перша участь в Олімпійських іграх та золото Grand-Slam у Баку</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2021"></div>
+                                    <div class="timeline-content">
+                                        <h4>Чемпіонат світу в Будапешті</h4>
+                                        <p>Друга бронзова медаль чемпіонату світу</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Галерея -->
+                <section class="athlete-gallery">
+                    <h2>Галерея</h2>
+                    <div class="gallery-tabs">
+                        <button class="gallery-tab active" data-tab="competitions">Змагання</button>
+                        <button class="gallery-tab" data-tab="training">Тренування</button>
+                        <button class="gallery-tab" data-tab="personal">Особисте</button>
+                    </div>
+                    
+                    <div class="gallery-content active" id="competitions">
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/yakiv-khammo-competition-1.jpg" alt="Яків Хаммо на чемпіонаті світу">
+
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/yakiv-khammo-competition-2.jpg" alt="Яків Хаммо на Європейських іграх">
+
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/yakiv-khammo-competition-3.jpg" alt="Яків Хаммо на Олімпійських іграх">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-content" id="training">
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/yakiv-khammo-training-1.jpg" alt="Яків Хаммо на тренуванні">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/yakiv-khammo-training-2.jpg" alt="Яків Хаммо на тренуванні">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/yakiv-khammo-training-3.jpg" alt="Яків Хаммо на тренуванні">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-content" id="personal">
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/yakiv-khammo-personal-1.jpg" alt="Яків Хаммо з нагородою">
+
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/yakiv-khammo-personal-2.jpg" alt="Яків Хаммо на інтерв'ю">
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Відео -->
+                <section class="athlete-video">
+                    <h2>Відео</h2>
+                    <div class="video-tabs">
+                        <button class="video-tab active" data-video="VIDEO_ID_INTERVIEWS">Найкращі моменти</button>
+                        <button class="video-tab" data-video="VIDEO_ID_INTERVIEWS">Інтерв'ю</button>
+                    </div>
+                    
+                    <div class="video-container">
+                        <iframe id="video-frame" width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_INTERVIEWS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p class="video-caption" id="video-caption">Найкращі моменти в кар'єрі Якова Хаммо</p>
+                </section>
+
+                <!-- Цитати та інтерв'ю -->
+                <section class="athlete-quotes">
+                    <h2>Цитати та думки</h2>
+                    <div class="quotes-container">
+                        <blockquote>
+                            <p>"Дзюдо — це не просто спорт, це філософія життя. Повага до суперника так само важлива, як і перемога."</p>
+                            <footer>Інтерв'ю після чемпіонату світу, 2021</footer>
+                        </blockquote>
+                        
+                        <blockquote>
+                            <p>"Кожна поразка — це урок. Я завжди аналізую свої помилки, щоб стати сильнішим у наступному поєдинку."</p>
+                            <footer>Спортивний журнал "Чемпіон", 2019</footer>
+                        </blockquote>
+                        
+                        <blockquote>
+                            <p>"Нагорода "Дух дзюдо" для мене така ж цінна, як і медалі. Вона нагадує мені про справжні цінності спорту."</p>
+                            <footer>З виступу перед молодими спортсменами, 2018</footer>
+                        </blockquote>
+                    </div>
+                </section>
+
+                <!-- Контакти та соціальні мережі -->
+                <section class="athlete-social">
+                    <div class="social-container">
+                        <a href="https://www.instagram.com/khammo_yakiv/" class="social-button instagram">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="https://m.facebook.com/khammoiakiv/?profile_tab_item_selected=mentions" class="social-button facebook">
+                            <i class="fab fa-facebook-f"></i>
+                            <span>Facebook</span>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>JUDO<span>SPIRIT</span></h2>
+                <p>Ваш провідник у світі дзюдо</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Розділи</h4>
+                    <ul>
+                        <li><a href="../../index.html">Головна</a></li>
+                        <li><a href="../calendar.html">Календар</a></li>
+                        <li><a href="../techniques.html">Техніки</a></li>
+                        <li><a href="../athletes.html">Атлети</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Інформація</h4>
+                    <ul>
+                        <li><a href="../about.html">Про блог</a></li>
+                        <li><a href="../contact.html">Контакти</a></li>
+                        <li><a href="../privacy.html">Політика конфіденційності</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Контакти</h4>
+                    <ul class="contact-info">
+                        <li><a href="mailto:info@judospirit.ua">info@judospirit.ua</a></li>
+                        <li><a href="tel:+380501234567">+38 (050) 123-45-67</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 JUDOSPIRIT. Всі права захищені.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Галерея табів
+        const galleryTabs = document.querySelectorAll('.gallery-tab');
+        const galleryContents = document.querySelectorAll('.gallery-content');
+        
+        galleryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Видаляємо активний клас з усіх табів
+                galleryTabs.forEach(t => t.classList.remove('active'));
+                // Додаємо активний клас до поточного табу
+                tab.classList.add('active');
+                
+                // Ховаємо всі контенти
+                galleryContents.forEach(content => content.classList.remove('active'));
+                // Показуємо потрібний контент
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Відео табів
+        const videoTabs = document.querySelectorAll('.video-tab');
+        const videoFrame = document.getElementById('video-frame');
+        const videoCaption = document.getElementById('video-caption');
+        
+        videoTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Видаляємо активний клас з усіх табів
+                videoTabs.forEach(t => t.classList.remove('active'));
+                // Додаємо активний клас до поточного табу
+                tab.classList.add('active');
+                
+                // Змінюємо відео
+                const videoType = tab.getAttribute('data-video');
+                let videoId = '';
+                let captionText = '';
+                
+                switch(videoType) {
+                    case 'highlights':
+                        videoId = 'I-x3qaMNXEw';
+                        captionText = 'Найкращі моменти в кар\'єрі Якова Хаммо';
+                        break;
+                    case 'interviews':
+                        videoId = 'jZWq6aC6JO8';
+                        captionText = 'Інтерв\'ю з Яковом Хаммо після чемпіонату світу';
+                        break;
+                }
+                
+                videoFrame.src = `https://www.youtube.com/embed/${videoId}`;
+                videoCaption.textContent = captionText;
+            });
+        });
+    </script>
+</body>
+</html> 

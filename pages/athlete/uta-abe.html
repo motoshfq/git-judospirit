@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ута Абе | JUDO SPIRIT</title>
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/pages/athlete-detail.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,500&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Стили для секции достижений */
+        .athlete-achievements {
+            margin: 3rem 0;
+            padding: 2rem;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+        }
+
+        .achievements-subtitle {
+            font-size: 1.1rem;
+            color: #555;
+            margin-top: -0.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .achievement-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            padding: 1.5rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .achievement-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .achievement-header i {
+            font-size: 1.5rem;
+            margin-right: 0.8rem;
+            color: #d4af37;
+        }
+
+        .achievement-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .achievement-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .achievement-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .medal-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            margin-right: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .medal-icon i {
+            font-size: 0.9rem;
+        }
+
+        .medal-icon.gold {
+            background: linear-gradient(145deg, #ffd700, #f0c000);
+            color: #5e4c00;
+        }
+
+        .medal-icon.silver {
+            background: linear-gradient(145deg, #e0e0e0, #c0c0c0);
+            color: #333;
+        }
+
+        .medal-icon.bronze {
+            background: linear-gradient(145deg, #cd7f32, #a05a2c);
+            color: #fff;
+        }
+
+        .medal-icon.record {
+            background: linear-gradient(145deg, #4a90e2, #3a70b2);
+            color: #fff;
+        }
+
+        @media (max-width: 992px) {
+            .achievements-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Кнопка мобільного меню -->
+    <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+    
+    <!-- Затемнення фону при відкритому меню -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+
+    <div class="page-container">
+        <!-- Бокова навігація -->
+        <nav class="side-nav">
+            <div class="logo">
+                <h1>JUDO<span>SPIRIT</span></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Головна</a></li>
+                <li><a href="../calendar.html">Календар</a></li>
+                <li><a href="../techniques.html">Техніки</a></li>
+                <li><a href="../athletes.html" class="active">Атлети</a></li>
+                <li><a href="../gallery.html">Галерея</a></li>
+                <li><a href="../about.html">Про блог</a></li>
+            </ul>
+            <div class="social-links">
+                <a href="#" class="social-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook"></a>
+                <a href="#" class="social-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram"></a>
+                <a href="#" class="social-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram"></a>
+            </div>
+        </nav>
+
+        <!-- Основний контент -->
+        <main class="main-content">
+            <div class="breadcrumbs">
+                <a href="../../index.html">Головна</a> &gt; 
+                <a href="../athletes.html">Атлети</a> &gt;
+                <span>Ута Абе</span>
+            </div>
+
+            <!-- Герой-секція -->
+            <section class="athlete-hero">
+                <div class="hero-background" style="background-image: url('../../assets/images/athletes/uta-abe-bg.jpg');">
+                    <div class="hero-overlay"></div>
+                </div>
+                <div class="hero-content">
+                    <div class="athlete-portrait">
+                        <img src="../../assets/images/athletes/uta-abe.jpg" alt="Ута Абе">
+                    </div>
+                    <div class="athlete-intro">
+                        <h1>Ута Абе</h1>
+                        <div class="athlete-titles">
+                            <span class="title-badge">Олімпійська чемпіонка</span>
+                            <span class="title-badge">Чотириразова чемпіонка світу</span>
+                            <span class="title-badge">Володарка 5-го дану Кодокан</span>
+                        </div>
+                        <div class="athlete-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-medal"></i>
+                                <span class="stat-value">20+</span>
+                                <span class="stat-label">Золотих медалей</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-trophy"></i>
+                                <span class="stat-value">30+</span>
+                                <span class="stat-label">Міжнародних турнірів</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span class="stat-value">8+</span>
+                                <span class="stat-label">Років у спорті</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="athlete-content-wrapper">
+                <!-- Швидка інформація -->
+                <section class="athlete-quick-info">
+                    <div class="info-card">
+                        <h3><i class="fas fa-user"></i> Особиста інформація</h3>
+                        <ul>
+                            <li><strong>Повне ім'я:</strong> Ута Абе (阿部 詩)</li>
+                            <li><strong>Дата народження:</strong> 14 липня 2000</li>
+                            <li><strong>Місце народження:</strong> Кобе, Японія</li>
+                            <li><strong>Громадянство:</strong> Японія</li>
+                            <li><strong>Зріст:</strong> 158 см</li>
+                            <li><strong>Вагова категорія:</strong> 52 кг</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fas fa-dumbbell"></i> Спортивна кар'єра</h3>
+                        <ul>
+                            <li><strong>Клуб:</strong> Університет Цукуба</li>
+                            <li><strong>Дан:</strong> 5-й дан Кодокан (2022)</li>
+                            <li><strong>Стиль:</strong> Технічний, агресивний</li>
+                            <li><strong>Коронні прийоми:</strong> Учі-мата, О-учі-гарі</li>
+                            <li><strong>Дебют:</strong> 2016 рік</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Біографія -->
+                <section class="athlete-biography">
+                    <h2>Шлях чемпіонки</h2>
+                    
+                    <div class="biography-content">
+                        <div class="biography-text">
+                            <p class="biography-intro">Ута Абе — феноменальна японська дзюдоїстка, володарка 5-го дану Кодокан, яка в молодому віці стала однією з найдомінантніших спортсменок у своїй ваговій категорії, завоювавши титули олімпійської чемпіонки та чотириразової чемпіонки світу.</p>
+                            
+                            <h3>Ранні роки та початок кар'єри</h3>
+                            <p>Ута Абе народилася 14 липня 2000 року в місті Кобе, Японія. Вона походить із родини з глибокими дзюдоїстськими традиціями. Її старший брат, Хіфумі Абе, також є видатним дзюдоїстом, олімпійським та чотириразовим чемпіоном світу. Ута почала займатися дзюдо у ранньому віці, наслідуючи свого брата.</p>
+                            
+                            <p>Вже в юніорському віці Ута демонструвала виняткові здібності, вигравши численні національні турніри. Її технічна майстерність, швидкість та тактичне мислення виділяли її серед однолітків.</p>
+                            
+                            <h3>Міжнародний прорив</h3>
+                            <p>Міжнародний дебют Ути відбувся у 2016 році, коли їй було лише 16 років. Вона стала наймолодшою дзюдоїсткою, яка виграла Гран-Прі IJF (Міжнародна федерація дзюдо), здобувши перше місце на Гран-Прі Дюссельдорфа в лютому 2016 року.</p>
+                            
+                            <p>У 2018 році, у віці 18 років, Ута стала наймолодшою японською чемпіонкою світу з дзюдо, перемігши у ваговій категорії до 52 кг на чемпіонаті світу в Баку. Вона стала третьою наймолодшою дзюдоїсткою в історії, яка коли-небудь завоювала титул найкращої дзюдоїстки планети. У фіналі Абе перемогла свою співвітчизницю та діючу на той момент чемпіонку світу Аі Сісіме.</p>
+                            
+                            <p>Наступного року на передолімпійському чемпіонаті світу 2019 року в Токіо вона захистила свій титул, перемігши у фіналі російську спортсменку Наталію Кузютіну, підтверджуючи свій статус найкращої дзюдоїстки у своїй ваговій категорії.</p>
+                            
+                            <h3>Олімпійське золото</h3>
+                            <p>Найвищим досягненням у кар'єрі Ути Абе стала золота медаль на Олімпійських іграх у Токіо 2020 (проведених у 2021 році через пандемію COVID-19). У фіналі вона перемогла французьку дзюдоїстку Амандін Бушар, продемонструвавши свою технічну перевагу.</p>
+                            
+                            <p>Особливо примітним є те, що в той самий день, коли Ута виграла своє олімпійське золото, її брат Хіфумі також став олімпійським чемпіоном у ваговій категорії до 66 кг. Вони стали першими братом і сестрою в історії японського спорту, які виграли золоті олімпійські медалі в один день.</p>
+                            
+                            <h3>Продовження успіхів</h3>
+                            <p>Після Олімпіади Ута продовжила свою переможну ходу, вигравши золоті медалі на чемпіонатах світу 2022 року в Ташкенті та 2023 року в Досі. До Олімпійських ігор у Парижі 2024 року вона підійшла з неймовірною серією з 47 перемог поспіль, не програвши жодного поєдинку з листопада 2019 року.</p>
+                            
+                            <p>На Олімпійських іграх 2024 року в Парижі Ута несподівано програла в 1/16 фіналу узбецькій спортсменці Діьорі Келдіьоровій, яка згодом стала олімпійською чемпіонкою. Це поразка стала великою несподіванкою для світу дзюдо, оскільки Ута була беззаперечною фавориткою турніру. Проте в змаганнях змішаних команд вона допомогла збірній Японії здобути срібну медаль.</p>
+                            
+                            <h3>Стиль боротьби</h3>
+                            <p>Ута Абе відома своїм агресивним, атакуючим стилем дзюдо. Незважаючи на свій невеликий зріст (158 см), вона демонструє виняткову силу та вибухову швидкість. Її коронними прийомами є учі-мата (кидок через стегно з захопленням ноги зсередини) та о-учі-гарі (підхват зсередини).</p>
+                            
+                            <p>Експерти відзначають її здатність швидко переходити від стійки до партеру, а також її майстерність у виконанні утримань та больових прийомів. Ута також відома своєю психологічною стійкістю та здатністю зберігати спокій у найнапруженіших моментах поєдинку.</p>
+                            
+                            <h3>Вплив на світове дзюдо</h3>
+                            <p>У молодому віці Ута Абе вже стала взірцем для багатьох молодих дзюдоїсток по всьому світу. Її технічна майстерність, спортивний дух та скромність поза татамі втілюють найкращі традиції японського дзюдо.</p>
+                            
+                            <p>Разом зі своїм братом Хіфумі вони представляють нове покоління японських дзюдоїстів, які продовжують підтримувати домінування Японії у цьому виді спорту, який був створений у їхній країні.</p>
+                        </div>
+                        
+                        <div class="biography-timeline">
+                            <h3>Ключові моменти кар'єри</h3>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2016"></div>
+                                    <div class="timeline-content">
+                                        <h4>Міжнародний дебют</h4>
+                                        <p>Перемога на Гран-Прі Дюссельдорфа у віці 16 років</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2018"></div>
+                                    <div class="timeline-content">
+                                        <h4>Чемпіонат світу в Баку</h4>
+                                        <p>Перша золота медаль чемпіонату світу у віці 18 років</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2019"></div>
+                                    <div class="timeline-content">
+                                        <h4>Чемпіонат світу в Токіо</h4>
+                                        <p>Друга золота медаль чемпіонату світу</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2021"></div>
+                                    <div class="timeline-content">
+                                        <h4>Олімпійські ігри в Токіо</h4>
+                                        <p>Олімпійська золота медаль у ваговій категорії до 52 кг</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2022"></div>
+                                    <div class="timeline-content">
+                                        <h4>Чемпіонат світу в Ташкенті</h4>
+                                        <p>Третя золота медаль чемпіонату світу</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2023"></div>
+                                    <div class="timeline-content">
+                                        <h4>Чемпіонат світу в Досі</h4>
+                                        <p>Четверта золота медаль чемпіонату світу</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2024"></div>
+                                    <div class="timeline-content">
+                                        <h4>Олімпійські ігри в Парижі</h4>
+                                        <p>Срібна медаль у змішаних командних змаганнях</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Досягнення -->
+                <section class="athlete-achievements">
+                    <h2>Досягнення</h2>
+                    <p class="achievements-subtitle">Одна з найуспішніших дзюдоїсток сучасності: 1 олімпійське золото, 4 титули чемпіонки світу</p>
+                    <div class="achievements-grid">
+                        <!-- Олімпійські ігри -->
+                        <div class="achievement-card">
+                            <div class="achievement-header">
+                                <i class="fas fa-medal"></i>
+                                <h3>Олімпійські ігри</h3>
+                            </div>
+                            <ul class="achievement-list">
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Токіо 2020 — до 52 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon silver"><i class="fas fa-medal"></i></span>
+                                    <span>Токіо 2020 — змішані команди</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon silver"><i class="fas fa-medal"></i></span>
+                                    <span>Париж 2024 — змішані команди</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Чемпіонати світу -->
+                        <div class="achievement-card">
+                            <div class="achievement-header">
+                                <i class="fas fa-trophy"></i>
+                                <h3>Чемпіонати світу</h3>
+                            </div>
+                            <ul class="achievement-list">
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Баку 2018 — до 52 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Токіо 2019 — до 52 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Ташкент 2022 — до 52 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Доха 2023 — до 52 кг</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Інші досягнення -->
+                        <div class="achievement-card">
+                            <div class="achievement-header">
+                                <i class="fas fa-star"></i>
+                                <h3>Інші досягнення</h3>
+                            </div>
+                            <ul class="achievement-list">
+                                <li>
+                                    <span class="medal-icon record"><i class="fas fa-award"></i></span>
+                                    <span>Наймолодша переможниця Гран-Прі IJF (2016)</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon record"><i class="fas fa-award"></i></span>
+                                    <span>47 перемог поспіль (2019-2024)</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Багаторазова чемпіонка Grand Slam</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Галерея -->
+                <section class="athlete-gallery">
+                    <h2>Галерея</h2>
+                    <div class="gallery-tabs">
+                        <button class="gallery-tab active" data-tab="competitions">Змагання</button>
+                        <button class="gallery-tab" data-tab="training">Тренування</button>
+                        <button class="gallery-tab" data-tab="personal">Особисте</button>
+                    </div>
+                    
+                    <div class="gallery-content active" id="competitions">
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/uta-abe-competition-1.jpg" alt="Ута Абе на Олімпійських іграх">
+                                <div class="gallery-caption">
+                                    <h4>Олімпійські ігри 2020</h4>
+                                    <p>Момент перемоги у фінальному поєдинку</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/uta-abe-competition-2.jpg" alt="Ута Абе на чемпіонаті світу">
+                                <div class="gallery-caption">
+                                    <h4>Чемпіонат світу 2023</h4>
+                                    <p>Виконання коронного кидка</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/uta-abe-competition-3.jpg" alt="Ута Абе на п'єдесталі">
+                                <div class="gallery-caption">
+                                    <h4>Grand Slam Париж</h4>
+                                    <p>На п'єдесталі з золотою медаллю</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-content" id="training">
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/uta-abe-training-1.jpg" alt="Ута Абе на тренуванні">
+                                <div class="gallery-caption">
+                                    <h4>Тренувальний збір</h4>
+                                    <p>Відпрацювання техніки з партнером</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/uta-abe-training-2.jpg" alt="Ута Абе на тренуванні">
+                                <div class="gallery-caption">
+                                    <h4>Ранкове тренування</h4>
+                                    <p>Розминка перед основною частиною</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/uta-abe-training-3.jpg" alt="Ута Абе на тренуванні">
+                                <div class="gallery-caption">
+                                    <h4>Підготовка до змагань</h4>
+                                    <p>Спаринг з членами національної збірної</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-content" id="personal">
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/uta-abe-personal-1.jpg" alt="Ута Абе з братом">
+                                <div class="gallery-caption">
+                                    <h4>Сімейне фото</h4>
+                                    <p>Ута з братом Хіфумі після перемоги на Олімпіаді</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/uta-abe-personal-2.jpg" alt="Ута Абе на інтерв'ю">
+                                <div class="gallery-caption">
+                                    <h4>Інтерв'ю</h4>
+                                    <p>Після перемоги на чемпіонаті світу</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Відео -->
+                <section class="athlete-video">
+                    <h2>Відео</h2>
+                    <div class="video-tabs">
+                        <button class="video-tab active" data-video="highlights">Найкращі моменти</button>
+                        <button class="video-tab" data-video="interviews">Інтерв'ю</button>
+                        <button class="video-tab" data-video="techniques">Техніка</button>
+                    </div>
+                    
+                    <div class="video-container">
+                        <iframe id="video-frame" width="560" height="315" src="https://www.youtube.com/embed/DP83nky0L3w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p class="video-caption" id="video-caption">Найкращі моменти в кар'єрі Ути Абе</p>
+                </section>
+
+                <!-- Цитати та інтерв'ю -->
+                <section class="athlete-quotes">
+                    <h2>Цитати та думки</h2>
+                    <div class="quotes-container">
+                        <blockquote>
+                            <p>"Я завжди прагну до досконалості в кожному русі. Дзюдо для мене — це не просто спорт, це шлях життя."</p>
+                            <footer>Інтерв'ю після Олімпійських ігор, 2021</footer>
+                        </blockquote>
+                        
+                        <blockquote>
+                            <p>"Мій брат завжди був моїм натхненням. Ми підтримуємо один одного і разом прагнемо стати кращими."</p>
+                            <footer>Спортивний журнал "Judo Inside", 2019</footer>
+                        </blockquote>
+                        
+                        <blockquote>
+                            <p>"Перемога на Олімпіаді в Токіо була моєю мрією з дитинства. Виграти золото в своїй країні — це неймовірне відчуття."</p>
+                            <footer>Прес-конференція після Олімпійських ігор, 2021</footer>
+                        </blockquote>
+                    </div>
+                </section>
+
+                <!-- Контакти та соціальні мережі -->
+                <section class="athlete-social">
+                    <div class="social-container">
+                        <a href="https://www.instagram.com/abe_uta/" class="social-button instagram">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="https://www.facebook.com/UtaAbeOfficial" class="social-button facebook">
+                            <i class="fab fa-facebook-f"></i>
+                            <span>Facebook</span>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>JUDO<span>SPIRIT</span></h2>
+                <p>Ваш провідник у світі дзюдо</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Розділи</h4>
+                    <ul>
+                        <li><a href="../../index.html">Головна</a></li>
+                        <li><a href="../calendar.html">Календар</a></li>
+                        <li><a href="../techniques.html">Техніки</a></li>
+                        <li><a href="../athletes.html">Атлети</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Інформація</h4>
+                    <ul>
+                        <li><a href="../about.html">Про блог</a></li>
+                        <li><a href="../contact.html">Контакти</a></li>
+                        <li><a href="../privacy.html">Політика конфіденційності</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Контакти</h4>
+                    <ul class="contact-info">
+                        <li><a href="mailto:info@judospirit.ua">info@judospirit.ua</a></li>
+                        <li><a href="tel:+380501234567">+38 (050) 123-45-67</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 JUDOSPIRIT. Всі права захищені.</p>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script>
+        // Галерея табів
+        const galleryTabs = document.querySelectorAll('.gallery-tab');
+        const galleryContents = document.querySelectorAll('.gallery-content');
+        
+        galleryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Видаляємо активний клас з усіх табів
+                galleryTabs.forEach(t => t.classList.remove('active'));
+                // Додаємо активний клас до поточного табу
+                tab.classList.add('active');
+                
+                // Ховаємо всі контенти
+                galleryContents.forEach(content => content.classList.remove('active'));
+                // Показуємо потрібний контент
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Відео табів
+        const videoTabs = document.querySelectorAll('.video-tab');
+        const videoFrame = document.getElementById('video-frame');
+        const videoCaption = document.getElementById('video-caption');
+        
+        videoTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Видаляємо активний клас з усіх табів
+                videoTabs.forEach(t => t.classList.remove('active'));
+                // Додаємо активний клас до поточного табу
+                tab.classList.add('active');
+                
+                // Змінюємо відео
+                const videoType = tab.getAttribute('data-video');
+                let videoId = '';
+                let captionText = '';
+                
+                switch(videoType) {
+                    case 'highlights':
+                        videoId = 'DP83nky0L3w';
+                        captionText = 'Найкращі моменти в кар\'єрі Ути Абе';
+                        break;
+                    case 'interviews':
+                        videoId = 'EAgCKUHxcAQ';
+                        captionText = 'Інтерв\'ю з Утою Абе після Олімпійських ігор';
+                        break;
+                    case 'techniques':
+                        videoId = 'QlRrz8zO6Ic';
+                        captionText = 'Аналіз техніки Ути Абе: коронні прийоми';
+                        break;
+                }
+                
+                videoFrame.src = `https://www.youtube.com/embed/${videoId}`;
+                videoCaption.textContent = captionText;
+            });
+        });
+    </script>
+</body>
+</html> 

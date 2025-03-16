@@ -1,0 +1,705 @@
+/* Стили для страницы "Про блог" */
+
+/* Общие стили */
+body {
+    background-color: #f9f9f9;
+}
+
+/* Герой-секция */
+.about-hero {
+    position: relative;
+    margin-bottom: 60px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(26, 60, 110, 0.9), rgba(26, 60, 110, 0.7));
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 0 50px;
+    color: #fff;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    font-family: 'Noto Serif', serif;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* Контент-обертка */
+.about-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Наша миссия */
+.about-mission {
+    margin-bottom: 80px;
+}
+
+.about-mission h2,
+.about-story h2,
+.about-team h2,
+.about-collaboration h2,
+.about-thanks h2 {
+    color: #2c3e50;
+    font-size: 32px;
+    margin-bottom: 30px;
+    font-family: 'Playfair Display', serif;
+    position: relative;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.about-mission h2::after,
+.about-story h2::after,
+.about-team h2::after,
+.about-collaboration h2::after,
+.about-thanks h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #e74c3c;
+}
+
+.mission-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+}
+
+.mission-text {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #34495e;
+    margin-bottom: 20px;
+}
+
+.mission-values {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.value-item {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.value-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.value-icon {
+    width: 80px;
+    height: 80px;
+    background-color: #f8f9fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.value-icon i {
+    font-size: 32px;
+    color: #e74c3c;
+}
+
+.value-item h3 {
+    color: #2c3e50;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.value-item p {
+    color: #7f8c8d;
+    line-height: 1.6;
+}
+
+/* История создания */
+.about-story {
+    margin-bottom: 80px;
+}
+
+.story-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.story-image {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.story-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.story-image:hover img {
+    transform: scale(1.05);
+}
+
+.story-text p {
+    color: #34495e;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+/* Наша команда */
+.about-team {
+    margin-bottom: 80px;
+}
+
+.team-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #34495e;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 30px;
+}
+
+.team-member {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    display: flex;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.member-photo {
+    flex: 0 0 200px;
+    overflow: hidden;
+}
+
+.member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.team-member:hover .member-photo img {
+    transform: scale(1.05);
+}
+
+.member-info {
+    flex: 1;
+    padding: 25px;
+}
+
+.member-info h3 {
+    color: #2c3e50;
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.member-role {
+    color: #e74c3c;
+    font-size: 16px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.member-bio {
+    color: #7f8c8d;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.member-social {
+    display: flex;
+    gap: 15px;
+}
+
+.member-social a {
+    width: 36px;
+    height: 36px;
+    background-color: #f8f9fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7f8c8d;
+    transition: all 0.3s ease;
+}
+
+.member-social a:hover {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+/* Сотрудничество */
+.about-collaboration {
+    margin-bottom: 80px;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.collaboration-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.collaboration-text {
+    max-width: 800px;
+    margin-bottom: 30px;
+}
+
+.collaboration-text p {
+    color: #34495e;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #e74c3c;
+    color: #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+}
+
+.cta-button:hover {
+    background-color: #c0392b;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(231, 76, 60, 0.4);
+}
+
+/* Благодарности */
+.about-thanks {
+    margin-bottom: 80px;
+}
+
+.thanks-content {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.thanks-content p {
+    color: #34495e;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.thanks-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+}
+
+.thanks-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    color: #34495e;
+    line-height: 1.6;
+}
+
+.thanks-list li::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: #e74c3c;
+}
+
+/* Философия дзюдо */
+.about-philosophy {
+    margin-bottom: 80px;
+}
+
+.philosophy-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.philosophy-image {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.philosophy-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.philosophy-image:hover img {
+    transform: scale(1.05);
+}
+
+.philosophy-text p {
+    color: #34495e;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.philosophy-text h3 {
+    color: #2c3e50;
+    font-size: 22px;
+    margin: 30px 0 15px;
+    font-weight: 600;
+}
+
+.principles-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+}
+
+.principles-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 20px;
+    color: #34495e;
+    line-height: 1.6;
+}
+
+.principles-list li::before {
+    content: '\f0c8';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: #e74c3c;
+    font-size: 12px;
+    top: 5px;
+}
+
+.principles-list li strong {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+/* Образовательные материалы */
+.about-education {
+    margin-bottom: 80px;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.education-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #34495e;
+}
+
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.education-item {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.education-icon {
+    width: 70px;
+    height: 70px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.education-icon i {
+    font-size: 28px;
+    color: #e74c3c;
+}
+
+.education-item h3 {
+    color: #2c3e50;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.education-item p {
+    color: #7f8c8d;
+    line-height: 1.6;
+}
+
+.education-cta {
+    text-align: center;
+}
+
+/* Развитие дзюдо в Украине */
+.about-development {
+    margin-bottom: 80px;
+}
+
+.development-content {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.development-content p {
+    color: #34495e;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.development-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+}
+
+.development-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    color: #34495e;
+    line-height: 1.6;
+}
+
+.development-list li::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: #e74c3c;
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+    .hero-content h1 {
+        font-size: 42px;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 992px) {
+    .story-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .story-image {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-hero {
+        height: 300px;
+    }
+    
+    .hero-content h1 {
+        font-size: 36px;
+    }
+    
+    .hero-subtitle {
+        font-size: 18px;
+    }
+    
+    .mission-text {
+        font-size: 16px;
+    }
+    
+    .team-member {
+        flex-direction: column;
+    }
+    
+    .member-photo {
+        flex: 0 0 auto;
+        height: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-hero {
+        height: 250px;
+    }
+    
+    .hero-content h1 {
+        font-size: 28px;
+    }
+    
+    .hero-subtitle {
+        font-size: 16px;
+    }
+    
+    .about-mission h2,
+    .about-story h2,
+    .about-team h2,
+    .about-collaboration h2,
+    .about-thanks h2 {
+        font-size: 24px;
+    }
+    
+    .value-item {
+        padding: 20px;
+    }
+    
+    .about-collaboration {
+        padding: 30px 20px;
+    }
+    
+    .thanks-content {
+        padding: 30px 20px;
+    }
+}
+
+/* Адаптивность для новых разделов */
+@media (max-width: 992px) {
+    .philosophy-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .philosophy-image {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .education-intro {
+        font-size: 16px;
+    }
+    
+    .education-item {
+        padding: 20px;
+    }
+    
+    .development-content {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-philosophy h2,
+    .about-education h2,
+    .about-development h2 {
+        font-size: 24px;
+    }
+    
+    .philosophy-text h3 {
+        font-size: 20px;
+    }
+    
+    .education-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .education-icon i {
+        font-size: 24px;
+    }
+    
+    .about-education {
+        padding: 30px 20px;
+    }
+} 

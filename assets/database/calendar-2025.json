@@ -1,0 +1,845 @@
+{
+  "title": "КАЛЕНДАР СПОРТИВНИХ ЗАХОДІВ НА 2025 рік",
+  "months": {
+    "01": [
+      {
+        "id": 1,
+        "title": "Міжнародний тренувальний табір",
+        "dateStart": "2025-01-07",
+        "dateEnd": "2025-01-13",
+        "location": "Міттерзіль, Австрія",
+        "type": "training"
+      },
+      {
+        "id": 2,
+        "title": "Міжнародний тренувальний табір U18",
+        "dateStart": "2025-01-09",
+        "dateEnd": "2025-01-12",
+        "location": "Банська Бистриця, Словаччина",
+        "type": "training"
+      },
+      {
+        "id": 3,
+        "title": "НТЗ збірної команди (жінки)",
+        "dateStart": "2025-01-08",
+        "dateEnd": "2025-01-22",
+        "location": "Київ, ОНСЦ «Конча-Заспа»",
+        "type": "training"
+      },
+      {
+        "id": 4,
+        "title": "НТЗ збірної команди (чоловіки)",
+        "dateStart": "2025-01-16",
+        "dateEnd": "2025-01-29",
+        "location": "Київ, ОНСЦ «Конча-Заспа»",
+        "type": "training"
+      },
+      {
+        "id": 5,
+        "title": "Семінар для керівників відокремлених підрозділів ФДУ, тренерів та суддів",
+        "dateStart": "2025-01-17",
+        "dateEnd": "2025-01-17",
+        "location": "м. Київ, ОНСЦ \"Конча-Заспа\"",
+        "type": "national"
+      }
+    ],
+    "02": [
+      {
+        "id": 6,
+        "title": "GRAND SLAM",
+        "dateStart": "2025-02-01",
+        "dateEnd": "2025-02-02",
+        "location": "Париж, Франція",
+        "type": "international"
+      },
+      {
+        "id": 7,
+        "title": "НТЗ збірної команди (юніорки, дівчата 2005-2010 р.н.)",
+        "dateStart": "2025-02-03",
+        "dateEnd": "2025-02-05",
+        "location": "Київ, ОФК ім. І. Піддубного",
+        "type": "training"
+      },
+      {
+        "id": 8,
+        "title": "EUROPEAN OPEN",
+        "dateStart": "2025-02-10",
+        "dateEnd": "2025-02-11",
+        "location": "Любляна, Словаччина",
+        "type": "international"
+      },
+      {
+        "id": 9,
+        "title": "Всеукраїнський Ката семінар",
+        "dateStart": "2025-02-11",
+        "dateEnd": "2025-02-14",
+        "location": "Ужгород",
+        "type": "national"
+      },
+      {
+        "id": 10,
+        "title": "GRAND SLAM",
+        "dateStart": "2025-02-14",
+        "dateEnd": "2025-02-16",
+        "location": "Азербайджан, Баку",
+        "type": "international"
+      },
+      {
+        "id": 11,
+        "title": "Кубок Європи U18",
+        "dateStart": "2025-02-15",
+        "dateEnd": "2025-02-16",
+        "location": "Шаморін, Словаччина",
+        "type": "international"
+      },
+      {
+        "id": 12,
+        "title": "Чемпіонат України U18 (2008-2010 р.н.)",
+        "dateStart": "2025-02-19",
+        "dateEnd": "2025-02-21",
+        "location": "Черкаси",
+        "type": "national"
+      },
+      {
+        "id": 13,
+        "title": "EUROPEAN OPEN",
+        "dateStart": "2025-02-22",
+        "dateEnd": "2025-02-23",
+        "location": "Варшава, Польща",
+        "type": "international"
+      },
+      {
+        "id": 14,
+        "title": "GRAND SLAM",
+        "dateStart": "2025-02-28",
+        "dateEnd": "2025-03-02",
+        "location": "Ташкент, Узбекистан",
+        "type": "international"
+      }
+    ],
+    "03": [
+      {
+        "id": 15,
+        "title": "ВТ «Київська весна», юнакі та дівчата 2010-2011 р.н.",
+        "dateStart": "2025-03-01",
+        "dateEnd": "2025-03-01",
+        "location": "Київ",
+        "type": "national"
+      },
+      {
+        "id": 16,
+        "title": "Чемпіонат України U21 (2005-10 р.н.)",
+        "dateStart": "2025-03-04",
+        "dateEnd": "2025-03-06",
+        "location": "Ужгород",
+        "type": "national"
+      },
+      {
+        "id": 17,
+        "title": "GRAND PRIX",
+        "dateStart": "2025-03-07",
+        "dateEnd": "2025-03-09",
+        "location": "Лінц, Австрія",
+        "type": "international"
+      },
+      {
+        "id": 18,
+        "title": "Міжнародний тренувальний табір",
+        "dateStart": "2025-03-10",
+        "dateEnd": "2025-03-17",
+        "location": "Німбурк, Чехія",
+        "type": "training"
+      },
+      {
+        "id": 19,
+        "title": "Кубок Європи",
+        "dateStart": "2025-03-15",
+        "dateEnd": "2025-03-16",
+        "location": "Рига, Латвія",
+        "type": "international"
+      },
+      {
+        "id": 20,
+        "title": "Кубок Європи U18",
+        "dateStart": "2025-03-15",
+        "dateEnd": "2025-03-16",
+        "location": "Загреб, Хорватія",
+        "type": "international"
+      },
+      {
+        "id": 21,
+        "title": "GRAND SLAM",
+        "dateStart": "2025-03-21",
+        "dateEnd": "2025-03-23",
+        "location": "Тбілісі, Грузія",
+        "type": "international"
+      },
+      {
+        "id": 22,
+        "title": "НТЗ збірної команди (юніорки, дівчата 2005-2010 р.н.)",
+        "dateStart": "2025-03-21",
+        "dateEnd": "2025-03-23",
+        "location": "Київ, ОФК ім. І. Піддубного",
+        "type": "training"
+      },
+      {
+        "id": 23,
+        "title": "ВТ \"Kremen Cup\", юнаки та дівчата U15 (2011-2012 р.н.), U13 (2013-2014 р.н.), U11 (2015-2016 р.н.)",
+        "dateStart": "2025-03-28",
+        "dateEnd": "2025-03-30",
+        "location": "Кременчук",
+        "type": "national"
+      },
+      {
+        "id": 24,
+        "title": "ХХ літня Універсіада України",
+        "dateStart": "2025-03-29",
+        "dateEnd": "2025-03-31",
+        "location": "Хмельницький",
+        "type": "national"
+      }
+    ],
+    "04": [
+      {
+        "id": 25,
+        "title": "Кубок Європи",
+        "dateStart": "2025-04-05",
+        "dateEnd": "2025-04-06",
+        "location": "Дубровник, Хорватія",
+        "type": "international"
+      },
+      {
+        "id": 26,
+        "title": "Кубок Європи U18",
+        "dateStart": "2025-04-05",
+        "dateEnd": "2025-04-06",
+        "location": "Тепліце, Чехія",
+        "type": "international"
+      },
+      {
+        "id": 27,
+        "title": "Кубок Європи U21",
+        "dateStart": "2025-04-05",
+        "dateEnd": "2025-04-06",
+        "location": "Познань, Польща",
+        "type": "international"
+      },
+      {
+        "id": 28,
+        "title": "ВТ «ХХХIV Меморіал Івана Прищепи» серед юнаків та дівчат 2009-2011 р.н.",
+        "dateStart": "2025-04-05",
+        "dateEnd": "2025-04-06",
+        "location": "Дніпро",
+        "type": "national"
+      },
+      {
+        "id": 29,
+        "title": "Міжнародний тренувальний табір",
+        "dateStart": "2025-04-07",
+        "dateEnd": "2025-04-12",
+        "location": "Тата, Угорщина",
+        "type": "training"
+      },
+      {
+        "id": 30,
+        "title": "НТЗ збірної команди до чемпіонату Європи",
+        "dateStart": "2025-04-10",
+        "dateEnd": "2025-04-20",
+        "location": "Україна",
+        "type": "training"
+      },
+      {
+        "id": 31,
+        "title": "ВТ «Randori Spring Cup-2024» серед юнаків та дівчат 2009-2011 р.н.",
+        "dateStart": "2025-04-18",
+        "dateEnd": "2025-04-20",
+        "location": "Ужгород",
+        "type": "national"
+      },
+      {
+        "id": 32,
+        "title": "Чемпіонат Європи",
+        "dateStart": "2025-04-24",
+        "dateEnd": "2025-04-27",
+        "location": "Подгориця, Чорногорія",
+        "type": "international"
+      },
+      {
+        "id": 33,
+        "title": "ВТ «Кубок Луцьку»",
+        "dateStart": "2025-04-25",
+        "dateEnd": "2025-04-26",
+        "location": "Луцьк",
+        "type": "national"
+      },
+      {
+        "id": 34,
+        "title": "Всеукраїнське змагання \"Дитяча ліга\" (фінал)",
+        "dateStart": "2025-04-25",
+        "dateEnd": "2025-04-26",
+        "location": "Дніпро",
+        "type": "national"
+      },
+      {
+        "id": 35,
+        "title": "Кубок Європи U18",
+        "dateStart": "2025-04-26",
+        "dateEnd": "2025-04-27",
+        "location": "Берлін, Німеччина",
+        "type": "international"
+      },
+      {
+        "id": 36,
+        "title": "Чемпіонат України U16 (2010-2011 р.н.)",
+        "dateStart": "2025-04-30",
+        "dateEnd": "2025-05-02",
+        "location": "Київ",
+        "type": "national"
+      }
+    ],
+    "05": [
+      {
+        "id": 37,
+        "title": "Кубок України",
+        "dateStart": "2025-05-02",
+        "dateEnd": "2025-05-03",
+        "location": "Київ",
+        "type": "national"
+      },
+      {
+        "id": 38,
+        "title": "GRAND PRIX",
+        "dateStart": "2025-05-02",
+        "dateEnd": "2025-05-04",
+        "location": "Душанбе, Таджикистан",
+        "type": "international"
+      },
+      {
+        "id": 39,
+        "title": "Кубок Європи U18",
+        "dateStart": "2025-05-03",
+        "dateEnd": "2025-05-05",
+        "location": "Баку, Азербайджан",
+        "type": "international"
+      },
+      {
+        "id": 40,
+        "title": "GRAND SLAM",
+        "dateStart": "2025-05-09",
+        "dateEnd": "2025-05-11",
+        "location": "Алмати, Казахстан",
+        "type": "international"
+      },
+      {
+        "id": 41,
+        "title": "EUROPEAN OPEN",
+        "dateStart": "2025-05-17",
+        "dateEnd": "2025-05-18",
+        "location": "Мадрид, Іспанія",
+        "type": "international"
+      },
+      {
+        "id": 42,
+        "title": "Кубок Європи U18",
+        "dateStart": "2025-05-17",
+        "dateEnd": "2025-05-18",
+        "location": "Бельсько-Бяла, Польща",
+        "type": "international"
+      },
+      {
+        "id": 43,
+        "title": "ВТ «LION JUDO CUP»",
+        "dateStart": "2025-05-17",
+        "dateEnd": "2025-05-18",
+        "location": "Львів",
+        "type": "national"
+      },
+      {
+        "id": 44,
+        "title": "Міжнародний тренувальний табір",
+        "dateStart": "2025-05-19",
+        "dateEnd": "2025-05-23",
+        "location": "Бенідорм, Іспанія",
+        "type": "training"
+      },
+      {
+        "id": 45,
+        "title": "Чемпіонат Європи серед ветеранів",
+        "dateStart": "2025-05-22",
+        "dateEnd": "2025-05-25",
+        "location": "Рига, Латвія",
+        "type": "international"
+      },
+      {
+        "id": 46,
+        "title": "ВТ «Кубок Поділля» до міжнародного дня захисту дітей серед юнаків та дівчат 2010-2011, 2012-2013 р.н.",
+        "dateStart": "2025-05-23",
+        "dateEnd": "2025-05-25",
+        "location": "Хмельницький",
+        "type": "national"
+      },
+      {
+        "id": 47,
+        "title": "ВТ «Кубок Придніпров'я» (чоловіки, жінки)",
+        "dateStart": "2025-05-23",
+        "dateEnd": "2025-05-24",
+        "location": "Кам'янське",
+        "type": "national"
+      },
+      {
+        "id": 48,
+        "title": "Кубок Європи U21",
+        "dateStart": "2025-05-24",
+        "dateEnd": "2025-05-25",
+        "location": "Каунас, Литва",
+        "type": "international"
+      },
+      {
+        "id": 49,
+        "title": "ВТ «Кубок Шашкевича» серед юнаків та дівчат",
+        "dateStart": "2025-05-30",
+        "dateEnd": "2025-06-01",
+        "location": "Золочів, Львівська обл.",
+        "type": "national"
+      },
+      {
+        "id": 50,
+        "title": "ВТ \"Кодокан\" серед юнаків та дівчат",
+        "dateStart": "2025-05-30",
+        "dateEnd": "2025-06-01",
+        "location": "Одеса",
+        "type": "national"
+      },
+      {
+        "id": 51,
+        "title": "Кубок Європи U21",
+        "dateStart": "2025-05-31",
+        "dateEnd": "2025-06-01",
+        "location": "Грац, Австрія",
+        "type": "international"
+      },
+      {
+        "id": 52,
+        "title": "ВТ пам'яті І. Момота серед юнаків та дівчат",
+        "dateStart": "2025-05-01",
+        "dateEnd": "2025-05-03",
+        "location": "Черкаси",
+        "type": "national"
+      }
+    ],
+    "06": [
+      {
+        "id": 53,
+        "title": "Міжнародний тренувальний табір",
+        "dateStart": "2025-06-10",
+        "dateEnd": "2025-06-17",
+        "location": "Пореч, Хорватія",
+        "type": "training"
+      },
+      {
+        "id": 54,
+        "title": "Чемпіонат світу",
+        "dateStart": "2025-06-13",
+        "dateEnd": "2025-06-20",
+        "location": "Будапешт, Угорщина",
+        "type": "international"
+      },
+      {
+        "id": 55,
+        "title": "ВТ на призи ЗМС Р. Машуренка серед молоді",
+        "dateStart": "2025-06-14",
+        "dateEnd": "2025-06-16",
+        "location": "Луцьк",
+        "type": "national"
+      },
+      {
+        "id": 56,
+        "title": "Кубок Європи U21",
+        "dateStart": "2025-06-21",
+        "dateEnd": "2025-06-22",
+        "location": "Берлін, Німеччина",
+        "type": "international"
+      },
+      {
+        "id": 57,
+        "title": "Чемпіонат Європи U18",
+        "dateStart": "2025-06-26",
+        "dateEnd": "2025-06-29",
+        "location": "Скоп'є, Північна Македонія",
+        "type": "international"
+      },
+      {
+        "id": 58,
+        "title": "Чемпіонат України U23",
+        "dateStart": "2025-06-20",
+        "dateEnd": "2025-06-22",
+        "location": "Львів",
+        "type": "national"
+      }
+    ],
+    "07": [
+      {
+        "id": 59,
+        "title": "EUROPEAN OPEN",
+        "dateStart": "2025-07-05",
+        "dateEnd": "2025-07-06",
+        "location": "Таллінн, Естонія",
+        "type": "international"
+      },
+      {
+        "id": 60,
+        "title": "Кубок Європи U21",
+        "dateStart": "2025-07-05",
+        "dateEnd": "2025-07-06",
+        "location": "Прага, Чехія",
+        "type": "international"
+      },
+      {
+        "id": 61,
+        "title": "Кубок Європи U21",
+        "dateStart": "2025-07-12",
+        "dateEnd": "2025-07-13",
+        "location": "Пакш, Угорщина",
+        "type": "international"
+      },
+      {
+        "id": 62,
+        "title": "ХVІІІ літній Європейський юнацький олімпійський фестиваль",
+        "dateStart": "2025-07-19",
+        "dateEnd": "2025-07-27",
+        "location": "Скоп'є, Північна Македонія",
+        "type": "international"
+      },
+      {
+        "id": 63,
+        "title": "GRAND SLAM",
+        "dateStart": "2025-07-25",
+        "dateEnd": "2025-07-27",
+        "location": "Улан-Батор, Монголія",
+        "type": "international"
+      }
+    ],
+    "08": [
+      {
+        "id": 64,
+        "title": "Кубок Європи U21",
+        "dateStart": "2025-08-02",
+        "dateEnd": "2025-08-03",
+        "location": "Скоп'є, Північна Македонія",
+        "type": "international"
+      },
+      {
+        "id": 65,
+        "title": "Чемпіонат світу U18",
+        "dateStart": "2025-08-27",
+        "dateEnd": "2025-08-31",
+        "location": "Софія, Болгарія",
+        "type": "international"
+      },
+      {
+        "id": 66,
+        "title": "ВТ пам'яті міського голови м. Кременчука Бабаєва О. (чоловіки, жінки)",
+        "dateStart": "2025-08-30",
+        "dateEnd": "2025-08-31",
+        "location": "Кременчук",
+        "type": "national"
+      }
+    ],
+    "09": [
+      {
+        "id": 67,
+        "title": "Чемпіонат Європи U21",
+        "dateStart": "2025-09-04",
+        "dateEnd": "2025-09-07",
+        "location": "Словаччина",
+        "type": "international"
+      },
+      {
+        "id": 68,
+        "title": "Чемпіонат України",
+        "dateStart": "2025-09-11",
+        "dateEnd": "2025-09-13",
+        "location": "Вінниця",
+        "type": "national"
+      },
+      {
+        "id": 69,
+        "title": "ВТ «Дитячий фестиваль»",
+        "dateStart": "2025-09-26",
+        "dateEnd": "2025-09-28",
+        "location": "Київ",
+        "type": "national"
+      },
+      {
+        "id": 70,
+        "title": "ВТ, присвячений пам'яті загиблих воїнів, Героя України полковника Олександра Аніщенка та народного Героя капітана Максима Савченка серед юнаків та дівчат 2009–2011, 2012-2013 р.н.",
+        "dateStart": "2025-09-27",
+        "dateEnd": "2025-09-28",
+        "location": "Суми",
+        "type": "national"
+      },
+      {
+        "id": 71,
+        "title": "EUROPEAN OPEN",
+        "dateStart": "2025-09-27",
+        "dateEnd": "2025-09-28",
+        "location": "Прага, Чехія",
+        "type": "international"
+      },
+      {
+        "id": 72,
+        "title": "Чемпіонат світу U21",
+        "dateStart": "2025-09-24",
+        "dateEnd": "2025-09-28",
+        "location": "За призначенням",
+        "type": "international"
+      },
+      {
+        "id": 73,
+        "title": "Відкритий чемпіонат ВФСТ \"Україна\" серед юнаків та дівчат",
+        "dateStart": "2025-09-20",
+        "dateEnd": "2025-09-21",
+        "location": "Чернівці",
+        "type": "national"
+      }
+    ],
+    "10": [
+      {
+        "id": 74,
+        "title": "ВТ «Кубок Закарпаття», присвячений пам'яті А.А. Шерегія серед юнаків та дівчат 2009-2011 р.н.",
+        "dateStart": "2025-10-03",
+        "dateEnd": "2025-10-05",
+        "location": "Ужгород",
+        "type": "national"
+      },
+      {
+        "id": 75,
+        "title": "ВТ \"Stronger Together Cup\" серед юнаків 2011-2012, 2013-2014, 2015-2016 та дівчат 2011-2012, 2013-2014",
+        "dateStart": "2025-10-11",
+        "dateEnd": "2025-10-12",
+        "location": "Київ",
+        "type": "national"
+      },
+      {
+        "id": 76,
+        "title": "Кубок Європи",
+        "dateStart": "2025-10-11",
+        "dateEnd": "2025-10-12",
+        "location": "Малага, Іспанія",
+        "type": "international"
+      },
+      {
+        "id": 77,
+        "title": "GRAND SLAM",
+        "dateStart": "2025-10-17",
+        "dateEnd": "2025-10-19",
+        "location": "Абу-Дабі, ОАЕ",
+        "type": "international"
+      },
+      {
+        "id": 78,
+        "title": "Кубок Європи U18",
+        "dateStart": "2025-10-18",
+        "dateEnd": "2025-10-19",
+        "location": "Рига, Латвія",
+        "type": "international"
+      },
+      {
+        "id": 79,
+        "title": "ВТ «Патріот», присвячений Дню захисника та захисниць України серед юнаків 2011-2012 р.н.",
+        "dateStart": "2025-10-24",
+        "dateEnd": "2025-10-25",
+        "location": "Дніпро",
+        "type": "national"
+      },
+      {
+        "id": 80,
+        "title": "ВТ «LVIV OPEN CUP» (юнаки, дівчата)",
+        "dateStart": "2025-10-24",
+        "dateEnd": "2025-10-25",
+        "location": "Львів",
+        "type": "national"
+      },
+      {
+        "id": 81,
+        "title": "EUROPEAN OPEN",
+        "dateStart": "2025-10-25",
+        "dateEnd": "2025-10-26",
+        "location": "Сараєво, Боснія і Герцеговина",
+        "type": "international"
+      },
+      {
+        "id": 82,
+        "title": "Кубок Європи U18",
+        "dateStart": "2025-10-25",
+        "dateEnd": "2025-10-26",
+        "location": "Краньська Гора, Словенія",
+        "type": "international"
+      },
+      {
+        "id": 83,
+        "title": "GRAND PRIX",
+        "dateStart": "2025-10-29",
+        "dateEnd": "2025-11-02",
+        "location": "Португалія",
+        "type": "international"
+      },
+      {
+        "id": 84,
+        "title": "Чемпіонат Європи U23",
+        "dateStart": "2025-10-31",
+        "dateEnd": "2025-11-02",
+        "location": "Кишинів, Молдова",
+        "type": "international"
+      },
+      {
+        "id": 85,
+        "title": "Чемпіонат України U17 (2009-2011 р.н.)",
+        "dateStart": "2025-10-15",
+        "dateEnd": "2025-10-17",
+        "location": "За призначенням",
+        "type": "national"
+      },
+      {
+        "id": 86,
+        "title": "ВТ «Кубок Федерації дзюдо Києва» серед юніорів та юніорок",
+        "dateStart": "2025-10-18",
+        "dateEnd": "2025-10-19",
+        "location": "Київ",
+        "type": "national"
+      },
+      {
+        "id": 87,
+        "title": "Відкритий чемпіонат ВФСТ \"Україна\" за програмою \"Хто ти майбутній олімпієць?\" серед юніорів та юніорок",
+        "dateStart": "2025-10-22",
+        "dateEnd": "2025-10-23",
+        "location": "Чернівці",
+        "type": "national"
+      }
+    ],
+    "11": [
+      {
+        "id": 88,
+        "title": "EUROPEAN OPEN",
+        "dateStart": "2025-11-08",
+        "dateEnd": "2025-11-09",
+        "location": "Рим, Італія",
+        "type": "international"
+      },
+      {
+        "id": 89,
+        "title": "Кубок Європи U18",
+        "dateStart": "2025-11-08",
+        "dateEnd": "2025-11-09",
+        "location": "Дьор, Угорщина",
+        "type": "international"
+      },
+      {
+        "id": 90,
+        "title": "GRAND PRIX",
+        "dateStart": "2025-11-14",
+        "dateEnd": "2025-11-16",
+        "location": "Загреб, Хорватія",
+        "type": "international"
+      },
+      {
+        "id": 91,
+        "title": "ВТ «Українка» серед дівчат 2010-2011, 2012-2013, 2014-2015 р.н.",
+        "dateStart": "2025-11-21",
+        "dateEnd": "2025-11-22",
+        "location": "Дніпро",
+        "type": "national"
+      },
+      {
+        "id": 92,
+        "title": "ВТ, присвячений пам'яті волинських майстрів дзюдо",
+        "dateStart": "2025-11-15",
+        "dateEnd": "2025-11-16",
+        "location": "Луцьк",
+        "type": "national"
+      },
+      {
+        "id": 93,
+        "title": "Чемпіонат України U15 (2009-2011 р.н.)",
+        "dateStart": "2025-11-25",
+        "dateEnd": "2025-11-27",
+        "location": "За призначенням",
+        "type": "national"
+      }
+    ],
+    "12": [
+      {
+        "id": 94,
+        "title": "ВТ «Кубок Лева» серед ветеранів",
+        "dateStart": "2025-12-05",
+        "dateEnd": "2025-12-06",
+        "location": "Львів",
+        "type": "national"
+      },
+      {
+        "id": 95,
+        "title": "ХХІІ ВТ \"Кубок федерації дзюдо Одеської області\" серед юнаків та дівчат, присвячений воїнам ЗСУ",
+        "dateStart": "2025-12-05",
+        "dateEnd": "2025-12-06",
+        "location": "Одеса",
+        "type": "national"
+      },
+      {
+        "id": 96,
+        "title": "ВТ «Кубок Новатора 2025» присвячений пам'яті президента СК «Новатор» Юрія ЖИЖАНОВА серед кадетів до 17 років (2009-2011 р.н.), юнаків та дівчат до 14 років (2012-2013 р.н.), юнаків до 12 років (2014-2015 р.н.)",
+        "dateStart": "2025-12-05",
+        "dateEnd": "2025-12-07",
+        "location": "Хмельницький",
+        "type": "national"
+      },
+      {
+        "id": 97,
+        "title": "GRAND SLAM",
+        "dateStart": "2025-12-06",
+        "dateEnd": "2025-12-07",
+        "location": "Токіо, Японія",
+        "type": "international"
+      },
+      {
+        "id": 98,
+        "title": "ВТ «Randori Winter Cup-2024» серед юнаків та дівчат 2013-2014, 2015-2016 р.н.",
+        "dateStart": "2025-12-12",
+        "dateEnd": "2025-12-13",
+        "location": "Ужгород",
+        "type": "national"
+      },
+      {
+        "id": 99,
+        "title": "ВТ, присвячений пам'яти загиблих воїнів-афганців, інтернаціоналістів",
+        "dateStart": "2025-12-13",
+        "dateEnd": "2025-12-14",
+        "location": "Луцьк",
+        "type": "national"
+      },
+      {
+        "id": 100,
+        "title": "ВТ на підтримку ЗСУ",
+        "dateStart": "2025-12-13",
+        "dateEnd": "2025-12-14",
+        "location": "Черкаси",
+        "type": "national"
+      },
+      {
+        "id": 101,
+        "title": "ВТ, присвячений воїнам ССО серед юнаків 2011–2012, 2013-2014 р.н.",
+        "dateStart": "2025-12-19",
+        "dateEnd": "2025-12-21",
+        "location": "Кропивницький",
+        "type": "national"
+      },
+      {
+        "id": 102,
+        "title": "ВТ, присвячений 82-й річниці визволення міста Києва",
+        "dateStart": "2025-12-07",
+        "dateEnd": "2025-12-08",
+        "location": "Київ",
+        "type": "national"
+      }
+    ]
+  }
+} 

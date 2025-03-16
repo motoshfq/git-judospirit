@@ -1,0 +1,422 @@
+/* Специальные стили для страницы Дарьи Билодид */
+
+/* Стили для биографии как у Зантарая */
+.athlete-biography {
+    margin-bottom: 60px;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.athlete-biography h2 {
+    color: #2c3e50;
+    font-size: 32px;
+    margin-bottom: 30px;
+    font-family: 'Playfair Display', serif;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.athlete-biography h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #e74c3c;
+}
+
+.biography-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+.biography-text {
+    color: #34495e;
+}
+
+.biography-intro {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.biography-text h3 {
+    color: #2c3e50;
+    font-size: 24px;
+    margin: 30px 0 15px;
+    font-weight: 600;
+}
+
+.biography-text p {
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.biography-text a {
+    color: #e74c3c;
+    text-decoration: none;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 1px dashed rgba(231, 76, 60, 0.3);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.biography-text a:hover {
+    color: #c0392b;
+    border-bottom: 1px solid rgba(231, 76, 60, 0.7);
+}
+
+.biography-timeline {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 12px;
+    position: relative;
+}
+
+.biography-timeline h3 {
+    color: #2c3e50;
+    font-size: 20px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 8px;
+    height: 100%;
+    width: 2px;
+    background-color: #e74c3c;
+}
+
+.timeline-item {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.timeline-date {
+    position: absolute;
+    left: -30px;
+    background-color: #e74c3c;
+    color: #fff;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 16px;
+    font-weight: bold;
+    font-size: 0;
+}
+
+.timeline-date::after {
+    content: attr(data-year);
+    position: absolute;
+    left: -40px;
+    top: -8px;
+    font-size: 16px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.timeline-content {
+    background-color: #fff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.timeline-content h4 {
+    margin: 0 0 10px;
+    color: #2c3e50;
+    font-size: 18px;
+}
+
+.timeline-content p {
+    margin: 0;
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+/* Адаптивность для биографии */
+@media (max-width: 1200px) {
+    .biography-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .athlete-biography h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .athlete-biography h2 {
+        text-align: center;
+    }
+}
+
+/* Улучшенные стили для галереи */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item img {
+    transition: transform 0.6s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-caption {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    color: #fff;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover .gallery-caption {
+    transform: translateY(0);
+}
+
+.gallery-caption h4 {
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.gallery-caption p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+}
+
+/* Улучшенные стили для достижений */
+.medal-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.medal-item:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.medal-item.gold {
+    background-color: rgba(255, 215, 0, 0.08);
+    border-left: 5px solid gold;
+}
+
+.medal-item.gold:hover {
+    background-color: rgba(255, 215, 0, 0.15);
+}
+
+.medal-item.silver {
+    background-color: rgba(192, 192, 192, 0.08);
+    border-left: 5px solid silver;
+}
+
+.medal-item.silver:hover {
+    background-color: rgba(192, 192, 192, 0.15);
+}
+
+.medal-item.bronze {
+    background-color: rgba(205, 127, 50, 0.08);
+    border-left: 5px solid #cd7f32;
+}
+
+.medal-item.bronze:hover {
+    background-color: rgba(205, 127, 50, 0.15);
+}
+
+/* Улучшенные стили для цитат */
+blockquote {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+blockquote:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+blockquote::before {
+    content: '"';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 120px;
+    color: rgba(209, 10, 17, 0.1);
+    font-family: 'Georgia', serif;
+    line-height: 1;
+}
+
+blockquote p {
+    position: relative;
+    z-index: 1;
+    font-size: 18px;
+    line-height: 1.7;
+    font-style: italic;
+}
+
+/* Специальные стили для героя */
+.athlete-hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-background {
+    transition: transform 10s ease;
+}
+
+.athlete-hero:hover .hero-background {
+    transform: scale(1.1);
+}
+
+.athlete-portrait img {
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.athlete-portrait img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Стили для государственных наград */
+.athlete-awards {
+    margin-bottom: 60px;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.athlete-awards h2 {
+    color: #2c3e50;
+    font-size: 32px;
+    margin-bottom: 30px;
+    font-family: 'Playfair Display', serif;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.athlete-awards h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #e74c3c;
+}
+
+.awards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.award-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 25px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 4px solid #e74c3c;
+}
+
+.award-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.award-icon {
+    font-size: 36px;
+    color: #e74c3c;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.award-details h4 {
+    color: #2c3e50;
+    font-size: 20px;
+    margin: 0 0 10px;
+    font-weight: 600;
+}
+
+.award-date {
+    color: #7f8c8d;
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.award-description {
+    color: #34495e;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .award-item {
+        flex-direction: column;
+    }
+    
+    .award-icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .athlete-awards h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .athlete-awards h2 {
+        text-align: center;
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .gallery-caption {
+        position: static;
+        transform: none;
+        background: #fff;
+        color: #333;
+    }
+    
+    .gallery-caption h4 {
+        color: #333;
+    }
+    
+    .gallery-caption p {
+        color: #666;
+    }
+} 

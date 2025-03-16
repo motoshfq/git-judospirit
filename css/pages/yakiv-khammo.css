@@ -1,0 +1,709 @@
+/* Специальные стили для страницы Якова Хаммо */
+
+/* Стили для секции героя */
+.athlete-hero {
+    background: linear-gradient(135deg, rgba(44, 62, 80, 0.85) 0%, rgba(26, 37, 47, 0.90) 100%), url('../../assets/images/athletes/yakiv-khammo-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: var(--card-border-radius);
+    overflow: hidden;
+    margin-bottom: 3rem;
+    box-shadow: var(--box-shadow);
+}
+
+.athlete-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(52, 152, 219, 0.3), transparent 60%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    padding: 3rem;
+    gap: 3rem;
+}
+
+.athlete-portrait {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.athlete-portrait img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+    transition: all 0.5s ease;
+}
+
+.athlete-portrait:hover img {
+    transform: scale(1.05);
+    border-color: var(--secondary-color);
+}
+
+.athlete-decorative-circle {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: calc(100% + 30px);
+    height: calc(100% + 30px);
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: rotate 60s linear infinite;
+    z-index: 1;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.athlete-intro {
+    color: white;
+}
+
+.athlete-intro h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: white;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    display: inline-block;
+}
+
+.athlete-intro h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+.athlete-titles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.title {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.title:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+.athlete-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.1rem;
+}
+
+.stat i {
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+}
+
+/* Стили для секции быстрой информации */
+.quick-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.info-card {
+    background-color: white;
+    border-radius: var(--card-border-radius);
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow);
+}
+
+.info-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: 0.8rem;
+}
+
+.info-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+.info-card ul {
+    list-style: none;
+}
+
+.info-card ul li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.info-card ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+}
+
+.info-card.achievements ul li {
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+}
+
+.info-card.achievements ul li::before {
+    display: none;
+}
+
+.info-card.achievements ul li i {
+    margin-right: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.medal-gold {
+    color: #FFD700;
+}
+
+.medal-silver {
+    color: #C0C0C0;
+}
+
+.medal-bronze {
+    color: #CD7F32;
+}
+
+/* Стили для секции биографии */
+.biography {
+    background-color: white;
+    border-radius: var(--card-border-radius);
+    padding: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: var(--box-shadow);
+}
+
+.biography h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.biography h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+.biography-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--primary-color);
+}
+
+.biography-content p {
+    margin-bottom: 1.5rem;
+}
+
+.biography-content h3 {
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem;
+    color: var(--primary-color);
+}
+
+.biography-content ul {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+}
+
+.biography-content ul li {
+    margin-bottom: 0.8rem;
+    position: relative;
+}
+
+.biography-content ul li::marker {
+    color: var(--secondary-color);
+}
+
+/* Стили для галереи */
+.gallery {
+    margin-bottom: 3rem;
+}
+
+.gallery h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.gallery h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+.gallery-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.gallery-tab {
+    padding: 0.8rem 1.5rem;
+    background-color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-tab:hover, .gallery-tab.active {
+    background-color: var(--secondary-color);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-content {
+    display: none;
+}
+
+.gallery-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: var(--card-border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: all 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+    font-size: 0.9rem;
+    transform: translateY(100%);
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover .gallery-caption {
+    transform: translateY(0);
+}
+
+/* Стили для видео */
+.videos {
+    background-color: white;
+    border-radius: var(--card-border-radius);
+    padding: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: var(--box-shadow);
+}
+
+.videos h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.videos h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+.video-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.video-tab {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--light-color);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.video-tab:hover, .video-tab.active {
+    background-color: var(--secondary-color);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.video-container {
+    position: relative;
+    border-radius: var(--card-border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.video-caption {
+    padding: 1rem;
+    background-color: var(--light-color);
+    color: var(--primary-color);
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* Стили для цитат */
+.quotes {
+    margin-bottom: 3rem;
+}
+
+.quotes h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.quotes h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+.quotes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.quote {
+    background-color: white;
+    border-radius: var(--card-border-radius);
+    padding: 3rem 2rem 2rem;
+    box-shadow: var(--box-shadow);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.quote:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow);
+}
+
+.quote-mark {
+    position: absolute;
+    top: 1rem;
+    left: 2rem;
+    font-size: 4rem;
+    color: var(--secondary-color);
+    opacity: 0.2;
+    font-family: 'Georgia', serif;
+    line-height: 1;
+}
+
+blockquote {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--primary-color);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.quote-author {
+    text-align: right;
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+/* Стили для социальных сетей */
+.social-media {
+    background-color: white;
+    border-radius: var(--card-border-radius);
+    padding: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+}
+
+.social-media h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.social-media h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+.social-links-large {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.social-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1.5rem;
+    background-color: var(--light-color);
+    border-radius: var(--card-border-radius);
+    transition: all 0.3s ease;
+    width: 150px;
+}
+
+.social-link:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow);
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.social-link i {
+    font-size: 2.5rem;
+}
+
+.social-link span {
+    font-weight: 600;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 992px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+    }
+    
+    .athlete-intro h1::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .athlete-stats {
+        justify-content: center;
+    }
+    
+    .info-card h3 {
+        text-align: center;
+    }
+    
+    .info-card h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .social-links-large {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 768px) {
+    .athlete-portrait img {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .athlete-intro h1 {
+        font-size: 2.8rem;
+    }
+    
+    .biography, .videos, .social-media {
+        padding: 2rem;
+    }
+    
+    .gallery-tab, .video-tab {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .quotes-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .athlete-portrait img {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .athlete-intro h1 {
+        font-size: 2.2rem;
+    }
+    
+    .title {
+        font-size: 0.8rem;
+    }
+    
+    .stat {
+        font-size: 1rem;
+    }
+    
+    .biography, .videos, .social-media {
+        padding: 1.5rem;
+    }
+    
+    .biography h2, .gallery h2, .videos h2, .quotes h2, .social-media h2 {
+        font-size: 2rem;
+    }
+    
+    .gallery-tabs, .video-tabs {
+        flex-wrap: wrap;
+    }
+    
+    .gallery-tab, .video-tab {
+        flex: 1;
+        min-width: 120px;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .social-link {
+        width: 120px;
+        padding: 1.2rem;
+    }
+} 

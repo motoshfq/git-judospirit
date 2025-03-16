@@ -1,0 +1,279 @@
+/* Стили для страницы "Атлети" */
+
+/* Заголовок страницы */
+.page-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-family: 'Playfair Display', serif;
+}
+
+.page-header .subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    font-family: 'Noto Serif', serif;
+    font-style: italic;
+}
+
+/* Фильтры */
+.athletes-filter {
+    margin-bottom: 2.5rem;
+    background-color: #f8f8f8;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+}
+
+.filter-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #555;
+}
+
+.filter-group select {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+}
+
+.filter-button {
+    background-color: #1a3c6e;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    margin-top: 1.5rem;
+    align-self: flex-end;
+}
+
+.filter-button:hover {
+    background-color: #0f2a50;
+}
+
+/* Сетка атлетов */
+.athletes-grid {
+    margin-bottom: 3rem;
+}
+
+.athlete-category {
+    margin-bottom: 3rem;
+}
+
+.athlete-category h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #1a3c6e;
+    font-family: 'Playfair Display', serif;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 0.5rem;
+}
+
+.athletes-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Карточки атлетов */
+.athlete-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.athlete-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.athlete-image {
+    height: 350px;
+    overflow: hidden;
+    position: relative;
+}
+
+.athlete-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.5s;
+}
+
+.athlete-card:hover .athlete-image img {
+    transform: scale(1.05);
+}
+
+.athlete-info {
+    padding: 1.5rem;
+}
+
+.athlete-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.athlete-country {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.athlete-achievement {
+    color: #444;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.read-more {
+    display: inline-block;
+    color: #1a3c6e;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.read-more::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #1a3c6e;
+    transition: width 0.3s;
+}
+
+.read-more:hover {
+    color: #0f2a50;
+}
+
+.read-more:hover::after {
+    width: 100%;
+}
+
+/* Пагинация */
+.pagination {
+    margin: 3rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pagination-item, .pagination-next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination-item:hover, .pagination-next:hover {
+    background-color: #f0f0f0;
+}
+
+.pagination-item.active {
+    background-color: #1a3c6e;
+    color: white;
+}
+
+.pagination-dots {
+    color: #555;
+    margin: 0 0.5rem;
+}
+
+.pagination-next {
+    width: auto;
+    padding: 0 1rem;
+    border-radius: 20px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .filter-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filter-group {
+        width: 100%;
+    }
+    
+    .filter-button {
+        width: 100%;
+        margin-top: 1rem;
+    }
+    
+    .athletes-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    
+    .athlete-image {
+        height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pagination-item, .pagination-next {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+    
+    .athlete-info h3 {
+        font-size: 1.2rem;
+    }
+    
+    .athlete-image {
+        height: 350px;
+    }
+} 

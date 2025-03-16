@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дар'я Білодід | JUDO SPIRIT</title>
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/pages/athlete-detail.css">
+    <link rel="stylesheet" href="../../css/pages/daria-bilodid.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,500&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Стили для секции достижений */
+        .athlete-achievements {
+            margin: 3rem 0;
+            padding: 2rem;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+        }
+
+        .achievements-subtitle {
+            font-size: 1.1rem;
+            color: #555;
+            margin-top: -0.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .achievement-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            padding: 1.5rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .achievement-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .achievement-header i {
+            font-size: 1.5rem;
+            margin-right: 0.8rem;
+            color: #d4af37;
+        }
+
+        .achievement-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .achievement-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .achievement-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .medal-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            margin-right: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .medal-icon i {
+            font-size: 0.9rem;
+        }
+
+        .medal-icon.gold {
+            background: linear-gradient(145deg, #ffd700, #f0c000);
+            color: #5e4c00;
+        }
+
+        .medal-icon.silver {
+            background: linear-gradient(145deg, #e0e0e0, #c0c0c0);
+            color: #333;
+        }
+
+        .medal-icon.bronze {
+            background: linear-gradient(145deg, #cd7f32, #a05a2c);
+            color: #fff;
+        }
+
+        .medal-icon.record {
+            background: linear-gradient(145deg, #4a90e2, #3a70b2);
+            color: #fff;
+        }
+
+        @media (max-width: 992px) {
+            .achievements-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Стили для навигации с иконками */
+        .nav-links li a {
+            position: relative;
+            padding-left: 35px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links li a::before {
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #d4af37;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links li:nth-child(1) a::before {
+            content: '\f015'; /* Иконка дома */
+        }
+        
+        .nav-links li:nth-child(2) a::before {
+            content: '\f073'; /* Иконка календаря */
+        }
+        
+        .nav-links li:nth-child(3) a::before {
+            content: '\f5d0'; /* Иконка кимоно */
+        }
+        
+        .nav-links li:nth-child(4) a::before {
+            content: '\f5ca'; /* Иконка медали */
+        }
+        
+        .nav-links li:nth-child(5) a::before {
+            content: '\f03e'; /* Иконка галереи */
+        }
+        
+        .nav-links li:nth-child(6) a::before {
+            content: '\f129'; /* Иконка информации */
+        }
+        
+        .nav-links li a:hover::before,
+        .nav-links li a.active::before {
+            transform: translateY(-50%) scale(1.2);
+            color: #ffffff;
+        }
+        
+        .nav-links li a:hover,
+        .nav-links li a.active {
+            padding-left: 40px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Кнопка мобільного меню -->
+    <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <i class="fas fa-bars"></i>
+        <i class="fas fa-times"></i>
+    </div>
+    
+    <!-- Затемнення фону при відкритому меню -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+ 
+    <div class="page-container">
+        <!-- Бокова навігація -->
+        <nav class="side-nav">
+            <div class="logo">
+                <h1>JUDO<span>SPIRIT</span></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Головна</a></li>
+                <li><a href="../calendar.html">Календар</a></li>
+                <li><a href="../techniques.html">Техніки</a></li>
+                <li><a href="../athletes.html" class="active">Атлети</a></li>
+                <li><a href="../gallery.html">Галерея</a></li>
+                <li><a href="../about.html">Про блог</a></li>
+            </ul>
+            <div class="social-links">
+                <a href="#" class="social-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook"></a>
+                <a href="#" class="social-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram"></a>
+                <a href="#" class="social-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram"></a>
+            </div>
+        </nav>
+
+        <!-- Основний контент -->
+        <main class="main-content">
+            <div class="breadcrumbs">
+                <a href="../../index.html">Головна</a> &gt; 
+                <a href="../athletes.html">Атлети</a> &gt;
+                <span>Дар'я Білодід</span>
+            </div>
+
+            <!-- Герой-секція -->
+            <section class="athlete-hero">
+                <div class="hero-background" style="background-image: url('../../assets/images/athletes/bilodid-hero.jpg');">
+                    <div class="hero-overlay"></div>
+                </div>
+                <div class="hero-content">
+                    <div class="athlete-portrait">
+                        <img src="../../assets/images/athletes/daria-bilodid.jpg" alt="Дар'я Білодід">
+                    </div>
+                    <div class="athlete-intro">
+                        <h1>Дар'я Білодід</h1>
+                        <div class="athlete-titles">
+                            <span class="title-badge">Бронзова призерка Олімпійських ігор</span>
+                            <span class="title-badge">Дворазова чемпіонка світу</span>
+                            <span class="title-badge">Триразова чемпіонка Європи</span>
+                        </div>
+                        <div class="athlete-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-medal"></i>
+                                <span class="stat-value">10+</span>
+                                <span class="stat-label">Золотих медалей</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-trophy"></i>
+                                <span class="stat-value">20+</span>
+                                <span class="stat-label">Міжнародних турнірів</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span class="stat-value">15+</span>
+                                <span class="stat-label">Років у спорті</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="athlete-content-wrapper">
+                <!-- Швидка інформація -->
+                <section class="athlete-quick-info">
+                    <div class="info-card">
+                        <h3><i class="fas fa-user"></i> Особиста інформація</h3>
+                        <ul>
+                            <li><strong>Повне ім'я:</strong> Дар'я Геннадіївна Білодід</li>
+                            <li><strong>Дата народження:</strong> 10 жовтня 2000</li>
+                            <li><strong>Місце народження:</strong> Київ, Україна</li>
+                            <li><strong>Громадянство:</strong> Україна</li>
+                            <li><strong>Зріст:</strong> 172 см</li>
+                            <li><strong>Вагова категорія:</strong> 48 кг, 57 кг</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fas fa-dumbbell"></i> Спортивна кар'єра</h3>
+                        <ul>
+                            <li><strong>Клуб:</strong> Спартаковець (Київ)</li>
+                            <li><strong>Тренери:</strong> Геннадій Білодід, Світлана Кузнецова</li>
+                            <li><strong>Стиль:</strong> Технічний, атакуючий</li>
+                            <li><strong>Коронні прийоми:</strong> <a href="../../pages/technique/details-article-2.html">Учі-мата</a>, <a href="../../pages/technique/details-article-8.html">О-учі-гарі</a></li>
+                            <li><strong>Дебют:</strong> 2015 рік</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fas fa-award"></i> Найвищі досягнення</h3>
+                        <ul>
+                            <li><strong>Олімпійські ігри:</strong> Бронза (Токіо 2020)</li>
+                            <li><strong>Чемпіонат світу:</strong> Золото (2018, 2019)</li>
+                            <li><strong>Чемпіонат Європи:</strong> Золото (2017, 2019, 2024)</li>
+                            <li><strong>Європейські ігри:</strong> Золото (2019)</li>
+                            <li><strong>Чемпіонат світу U18:</strong> Золото (2015)</li>
+                            <li><strong>Чемпіонат Європи U18:</strong> Золото (2015, 2016)</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Біографія -->
+                <section class="athlete-biography">
+                    <h2>Шлях чемпіонки</h2>
+                    
+                    <div class="biography-content">
+                        <div class="biography-text">
+                            <p class="biography-intro">Дар'я Білодід — феноменальна українська дзюдоїстка, яка у надзвичайно молодому віці встановила численні рекорди та стала однією з найяскравіших зірок світового дзюдо.</p>
+                            
+                            <h3>Ранні роки та початок кар'єри</h3>
+                            <p>Дар'я Білодід народилася 10 жовтня 2000 року в Києві в родині професійних дзюдоїстів. Її батько, Геннадій Білодід, є чемпіоном Європи з дзюдо, а мати, Світлана Кузнєцова, — призеркою чемпіонатів Європи. Дар'я почала займатися дзюдо у віці 6 років під керівництвом своїх батьків.</p>
+                            
+                            <p>Вже в ранньому віці Дар'я демонструвала виняткові здібності та дисципліну. У 2014 році вона виграла чемпіонат України серед юнаків до 17 років у ваговій категорії до 44 кг, що стало початком її вражаючої кар'єри.</p>
+                            
+                            <h3>Юніорські досягнення та прорив</h3>
+                            <p>2015 рік став проривним для молодої спортсменки. У віці лише 14 років Дар'я виграла золоті медалі на чемпіонатах Європи та світу серед кадетів (U18). Вона продовжила свій успіх у 2016 році, знову вигравши чемпіонат Європи серед кадетів, а також додавши до своєї колекції золоту медаль чемпіонату Європи серед юніорів.</p>
+                            
+                            <p>У 2017 році, у віці 16 років, Дар'я здійснила успішний перехід до дорослих змагань, вигравши золоту медаль на чемпіонаті Європи у Варшаві. Цей тріумф зробив її наймолодшою чемпіонкою Європи з дзюдо в історії.</p>
+                            
+                            <h3>Світове домінування</h3>
+                            <p>2018 рік став історичним для Дар'ї. У віці 17 років вона виграла золоту медаль на чемпіонаті світу в Баку, ставши наймолодшою чемпіонкою світу з дзюдо в історії. Вона продовжила своє домінування, вигравши престижні турніри Grand Slam у Парижі та Дюссельдорфі.</p>
+                            
+                            <p>У 2019 році Дар'я підтвердила свій статус найкращої дзюдоїстки світу у ваговій категорії до 48 кг, захистивши свій титул чемпіонки світу в Токіо. Вона також виграла золоті медалі на Європейських іграх у Мінську та чемпіонаті Європи, завершивши рік як беззаперечний лідер світового рейтингу.</p>
+                            
+                            <h3>Олімпійські ігри та зміна вагової категорії</h3>
+                            <p>На Олімпійських іграх у Токіо 2020 (проведених у 2021 році через пандемію COVID-19) Дар'я виборола бронзову медаль у ваговій категорії до 48 кг, здобувши свою першу олімпійську нагороду у віці 20 років.</p>
+                            
+                            <p>Після Олімпіади Дар'я прийняла сміливе рішення змінити вагову категорію, перейшовши з 48 кг до 57 кг. Цей перехід був викликаний проблемами зі здоров'ям, пов'язаними з постійним зниженням ваги, і бажанням нових викликів у кар'єрі.</p>
+                            
+                            <h3>Стиль боротьби та техніка</h3>
+                            <p>Дар'я Білодід відома своїм технічним стилем боротьби, який поєднує блискавичну швидкість, точну техніку та тактичну майстерність. Її фірмові прийоми включають Sode-tsurikomi-goshi (кидок через стегно з захопленням рукава) та Uchi-mata (кидок через стегно з захопленням зсередини), які вона виконує з винятковою точністю.</p>
+                            
+                            <p>Завдяки своєму високому зросту (172 см) та довгим рукам, Дар'я має перевагу в захопленнях та дистанційному контролі, що дозволяє їй ефективно нейтралізувати атаки суперниць та проводити власні атаки з мінімальним ризиком.</p>
+                            
+                            <h3>Вплив на українське дзюдо</h3>
+                            <p>Дар'я Білодід стала джерелом натхнення для молодих дзюдоїстів по всьому світу, особливо в Україні, де її успіхи сприяли популяризації дзюдо серед дівчат. Її досягнення у такому молодому віці переписали книги рекордів дзюдо та встановили нові стандарти для майбутніх поколінь.</p>
+                            
+                            <p>Поза спортивною кар'єрою Дар'я здобуває вищу освіту в Національному університеті фізичного виховання і спорту України. Вона також бере активну участь у популяризації дзюдо та здоровому способу життя серед молоді, регулярно проводячи майстер-класи та мотиваційні зустрічі.</p>
+                        </div>
+                        
+                        <div class="biography-timeline">
+                            <h3>Ключові моменти кар'єри</h3>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2015"></div>
+                                    <div class="timeline-content">
+                                        <h4>Перші світові перемоги</h4>
+                                        <p>Золоті медалі на чемпіонатах світу та Європи U18</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2017"></div>
+                                    <div class="timeline-content">
+                                        <h4>Наймолодша чемпіонка Європи</h4>
+                                        <p>Золота медаль на дорослому чемпіонаті Європи у віці 16 років</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2018"></div>
+                                    <div class="timeline-content">
+                                        <h4>Наймолодша чемпіонка світу</h4>
+                                        <p>Золота медаль на чемпіонаті світу в Баку у віці 17 років</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2019"></div>
+                                    <div class="timeline-content">
+                                        <h4>Потрійна корона</h4>
+                                        <p>Золоті медалі на чемпіонатах світу, Європи та Європейських іграх</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2021"></div>
+                                    <div class="timeline-content">
+                                        <h4>Олімпійська медаль</h4>
+                                        <p>Бронзова медаль на Олімпійських іграх у Токіо</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2024"></div>
+                                    <div class="timeline-content">
+                                        <h4>Чемпіонка Європи в новій вазі</h4>
+                                        <p>Золота медаль на чемпіонаті Європи в категорії до 57 кг</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Досягнення -->
+                <section class="athlete-achievements">
+                    <h2>Досягнення</h2>
+                    <p class="achievements-subtitle">Наймолодша чемпіонка світу в історії дзюдо: 2 золоті медалі чемпіонатів світу, бронза Олімпійських ігор та численні перемоги на міжнародних турнірах</p>
+                    <div class="achievements-grid">
+                        <!-- Олімпійські ігри та Чемпіонати світу -->
+                        <div class="achievement-card">
+                            <div class="achievement-header">
+                                <i class="fas fa-trophy"></i>
+                                <h3>Головні турніри</h3>
+                            </div>
+                            <ul class="achievement-list">
+                                <li>
+                                    <span class="medal-icon bronze"><i class="fas fa-medal"></i></span>
+                                    <span>Олімпійські ігри, Токіо 2021 — до 48 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Чемпіонат світу, Баку 2018 — до 48 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Чемпіонат світу, Токіо 2019 — до 48 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Європейські ігри, Мінськ 2019 — до 48 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Чемпіонат Європи, Варшава 2017 — до 48 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Чемпіонат Європи, Мінськ 2019 — до 48 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon silver"><i class="fas fa-medal"></i></span>
+                                    <span>Чемпіонат Європи, Лісабон 2021 — до 48 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Чемпіонат Європи, Загреб 2024 — до 57 кг</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Grand Slam і Grand Prix -->
+                        <div class="achievement-card">
+                            <div class="achievement-header">
+                                <i class="fas fa-globe"></i>
+                                <h3>Grand Slam і Grand Prix</h3>
+                            </div>
+                            <ul class="achievement-list">
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Grand Slam, Париж 2018 — до 48 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Grand Slam, Дюссельдорф 2018 — до 48 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Grand Slam, Абу-Дабі 2019 — до 48 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Grand Slam, Париж 2020 — до 48 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon silver"><i class="fas fa-medal"></i></span>
+                                    <span>Grand Slam, Тель-Авів 2021 — до 48 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon bronze"><i class="fas fa-medal"></i></span>
+                                    <span>Grand Slam, Угорщина 2020 — до 52 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon bronze"><i class="fas fa-medal"></i></span>
+                                    <span>Grand Slam, Париж 2023 — до 57 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon bronze"><i class="fas fa-medal"></i></span>
+                                    <span>Grand Slam, Баку 2024 — до 57 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Grand Prix, Гаага 2017 — до 48 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Grand Prix, Туніс 2018 — до 48 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Grand Prix, Загреб 2018 — до 48 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon silver"><i class="fas fa-medal"></i></span>
+                                    <span>Grand Prix, Тбілісі 2019 — до 48 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon bronze"><i class="fas fa-medal"></i></span>
+                                    <span>Grand Prix, Хух-Хото 2017 — до 48 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon bronze"><i class="fas fa-medal"></i></span>
+                                    <span>Grand Prix, Лінц 2023 — до 57 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon bronze"><i class="fas fa-medal"></i></span>
+                                    <span>Grand Prix, Загреб 2023 — до 57 кг</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Інші досягнення -->
+                        <div class="achievement-card">
+                            <div class="achievement-header">
+                                <i class="fas fa-star"></i>
+                                <h3>Інші досягнення</h3>
+                            </div>
+                            <ul class="achievement-list">
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>European Judo Open, Прага 2017 — до 48 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Continental Cup, Подчетртек 2018 — до 48 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>European Cup, Рига 2022 — до 57 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon bronze"><i class="fas fa-medal"></i></span>
+                                    <span>Masters, Доха 2021 — до 48 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon bronze"><i class="fas fa-medal"></i></span>
+                                    <span>Masters, Будапешт 2023 — до 57 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Чемпіонат світу серед кадетів, Сараєво 2015 — до 44 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Чемпіонат Європи серед кадетів, Софія 2015 — до 44 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Чемпіонат Європи серед кадетів, Вантаа 2016 — до 48 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Чемпіонат Європи серед юніорів, Малага 2016 — до 48 кг</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon record"><i class="fas fa-award"></i></span>
+                                    <span>Наймолодша чемпіонка світу в історії дзюдо (2018)</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon record"><i class="fas fa-award"></i></span>
+                                    <span>Краща дзюдоїстка сезону 2019/2020 (IJF)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Галерея -->
+                <section class="athlete-gallery">
+                    <h2>Галерея</h2>
+                    <div class="gallery-tabs">
+                        <button class="gallery-tab active" data-tab="competitions">Змагання</button>
+                        <button class="gallery-tab" data-tab="training">Тренування</button>
+                        <button class="gallery-tab" data-tab="personal">Особисте</button>
+                    </div>
+                    
+                    <div class="gallery-content active" id="competitions">
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/bilodid-1.jpg" alt="Дар'я Білодід на чемпіонаті світу">
+                                <div class="gallery-caption">
+                                    <h4>Чемпіонат світу 2019</h4>
+                                    <p>Момент перемоги у фінальному поєдинку</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/bilodid-2.jpg" alt="Дар'я Білодід на Олімпійських іграх">
+                                <div class="gallery-caption">
+                                    <h4>Олімпійські ігри 2020</h4>
+                                    <p>Бронзова медаль у Токіо</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/bilodid-3.jpg" alt="Дар'я Білодід під час поєдинку">
+                                <div class="gallery-caption">
+                                    <h4>Чемпіонат світу 2018</h4>
+                                    <p>Наймолодша чемпіонка світу в історії</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-content" id="training">
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/bilodid-train-1.webp" alt="Дар'я Білодід на тренуванні">
+                                <div class="gallery-caption">
+                                    <h4>Тренувальний збір</h4>
+                                    <p>Підготовка до міжнародних змагань</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/bilodid-train-2.jpg" alt="Дар'я Білодід на тренуванні">
+                                <div class="gallery-caption">
+                                    <h4>Щоденні тренування</h4>
+                                    <p>Відпрацювання техніки з партнером</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/bilodid-train-3.jpg" alt="Дар'я Білодід на тренуванні">
+                                <div class="gallery-caption">
+                                    <h4>Фізична підготовка</h4>
+                                    <p>Силові тренування для підтримки форми</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-content" id="personal">
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/bilodid-personal-1.jpg" alt="Дар'я Білодід у повсякденному житті">
+                                <div class="gallery-caption">
+                                    <h4>Поза татамі</h4>
+                                    <p>Дар'я у повсякденному житті</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/bilodid-personal-2.jpg" alt="Дар'я Білодід на інтерв'ю">
+                                <div class="gallery-caption">
+                                    <h4>Медіа-активність</h4>
+                                    <p>Інтерв'ю для спортивного видання</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/gallery/bilodid-personal-3.jpg" alt="Дар'я Білодід на відпочинку">
+                                <div class="gallery-caption">
+                                    <h4>Відпочинок</h4>
+                                    <p>Рідкісні моменти відпочинку між змаганнями</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Відео -->
+                <section class="athlete-video">
+                    <h2>Відео</h2>
+                    <div class="video-tabs">
+                        <button class="video-tab active" data-video="5kaCUtGGg8E">Найкращі моменти</button>
+                        <button class="video-tab" data-video="m9oal650Pis">Інтерв'ю</button>
+                        <button class="video-tab" data-video="vtlHbrTBgu0">Олімпійська медаль</button>
+                    </div>
+                    
+                    <div class="video-container">
+                        <iframe id="video-frame" width="560" height="315" src="https://www.youtube.com/embed/5kaCUtGGg8E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p class="video-caption" id="video-caption">Найкращі моменти в кар'єрі Дар'ї Білодід</p>
+                </section>
+
+                <!-- Цитати та інтерв'ю -->
+                <section class="athlete-quotes">
+                    <h2>Цитати та думки</h2>
+                    <div class="quotes-container">
+                        <blockquote>
+                            <p>"Я завжди прагну до перемоги. Для мене немає іншого варіанту. Я виходжу на татамі, щоб перемагати."</p>
+                            <footer>Інтерв'ю після чемпіонату світу, 2019</footer>
+                        </blockquote>
+                        
+                        <blockquote>
+                            <p>"Перехід у нову вагову категорію — це виклик, але я люблю виклики. Вони змушують мене ставати сильнішою."</p>
+                            <footer>Спортивний журнал, 2022</footer>
+                        </blockquote>
+                        
+                        <blockquote>
+                            <p>"Мої батьки — мої найкращі тренери. Вони розуміють мене не лише як спортсменку, але й як людину. Це дуже важливо."</p>
+                            <footer>З інтерв'ю після Олімпійських ігор, 2021</footer>
+                        </blockquote>
+                        
+                    </div>
+                </section>
+
+                <!-- Державні нагороди -->
+                <section class="athlete-awards">
+                    <h2>Державні нагороди</h2>
+                    <div class="awards-container">
+                        <div class="award-item">
+                            <div class="award-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="award-details">
+                                <h4>Орден княгині Ольги III ступеня</h4>
+                                <p class="award-date">15 липня 2019 року</p>
+                                <p class="award-description">За досягнення високих спортивних результатів на II Європейських іграх у м. Мінську (Республіка Білорусь), виявлені самовідданість та волю до перемоги.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="award-item">
+                            <div class="award-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="award-details">
+                                <h4>Орден княгині Ольги II ступеня</h4>
+                                <p class="award-date">16 серпня 2021 року</p>
+                                <p class="award-description">За досягнення високих спортивних результатів на ХХХІІ літніх Олімпійських іграх у місті Токіо (Японія), виявлені самовідданість та волю до перемоги, утвердження міжнародного авторитету України.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Контакти та соціальні мережі -->
+                <section class="athlete-social">
+                    <div class="social-container">
+                        <a href="https://www.instagram.com/dariabilodid7/" class="social-button instagram">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="https://www.facebook.com/Bilodid.Daria" class="social-button facebook">
+                            <i class="fab fa-facebook-f"></i>
+                            <span>Facebook</span>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>JUDO<span>SPIRIT</span></h2>
+                <p>Ваш провідник у світі дзюдо</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Розділи</h4>
+                    <ul>
+                        <li><a href="../../index.html">Головна</a></li>
+                        <li><a href="../calendar.html">Календар</a></li>
+                        <li><a href="../techniques.html">Техніки</a></li>
+                        <li><a href="../athletes.html">Атлети</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Інформація</h4>
+                    <ul>
+                        <li><a href="../about.html">Про блог</a></li>
+                        <li><a href="../contact.html">Контакти</a></li>
+                        <li><a href="../privacy.html">Політика конфіденційності</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Контакти</h4>
+                    <ul class="contact-info">
+                        <li><a href="mailto:info@judospirit.ua">info@judospirit.ua</a></li>
+                        <li><a href="tel:+380501234567">+38 (050) 123-45-67</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 JUDOSPIRIT. Всі права захищені.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Галерея табів
+        const galleryTabs = document.querySelectorAll('.gallery-tab');
+        const galleryContents = document.querySelectorAll('.gallery-content');
+        
+        galleryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Видаляємо активний клас з усіх табів
+                galleryTabs.forEach(t => t.classList.remove('active'));
+                // Додаємо активний клас до поточного табу
+                tab.classList.add('active');
+                
+                // Ховаємо всі контенти
+                galleryContents.forEach(content => content.classList.remove('active'));
+                // Показуємо потрібний контент
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Відео табів
+        const videoTabs = document.querySelectorAll('.video-tab');
+        const videoFrame = document.getElementById('video-frame');
+        const videoCaption = document.getElementById('video-caption');
+        
+        videoTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Видаляємо активний клас з усіх табів
+                videoTabs.forEach(t => t.classList.remove('active'));
+                // Додаємо активний клас до поточного табу
+                tab.classList.add('active');
+                
+                // Змінюємо відео
+                const videoId = tab.getAttribute('data-video');
+                videoFrame.src = `https://www.youtube.com/embed/${videoId}`;
+                
+                // Змінюємо підпис
+                videoCaption.textContent = tab.textContent;
+            });
+        });
+        
+        // Досягнення табів
+        const achievementTabs = document.querySelectorAll('.achievement-tab');
+        const achievementContents = document.querySelectorAll('.achievements-tab-content');
+        
+        achievementTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Видаляємо активний клас з усіх табів
+                achievementTabs.forEach(t => t.classList.remove('active'));
+                // Додаємо активний клас до поточного табу
+                tab.classList.add('active');
+                
+                // Ховаємо всі контенти
+                achievementContents.forEach(content => content.classList.remove('active'));
+                // Показуємо потрібний контент
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html> 
