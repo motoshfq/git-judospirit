@@ -291,15 +291,15 @@
 
 /* Применяем SVG иконки в зависимости от типа события */
 .event-item[data-type="international"] .event-svg::before {
-    background-image: url('../../assets/images/SVG/event-icon-international.svg');
+    background-image: url('../../../../assets/images/SVG/event-icon-international.svg');
 }
 
 .event-item[data-type="national"] .event-svg::before {
-    background-image: url('../../assets/images/SVG/event-icon-national.svg');
+    background-image: url('../../../../assets/images/SVG/event-icon-national.svg');
 }
 
 .event-item[data-type="training"] .event-svg::before {
-    background-image: url('../../assets/images/SVG/event-icon-training.svg');
+    background-image: url('../../../../assets/images/SVG/event-icon-training.svg');
 }
 
 /* Стили для тегов */
