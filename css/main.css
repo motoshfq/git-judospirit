@@ -197,6 +197,21 @@ img {
     transition: all 0.3s ease;
 }
 
+.nav-links a i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+    font-size: 0.9em;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover i, .nav-links a.active i {
+    opacity: 1;
+    color: var(--secondary-color);
+    transform: scale(1.1);
+}
+
 .nav-links a:hover, .nav-links a.active {
     background-color: rgba(255, 255, 255, 0.1);
     color: var(--secondary-color);
