@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Календар змагань з дзюдо | JUDO SPIRIT</title>
+    <title>Техніки дзюдо | JUDO SPIRIT</title>
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/pages/calendar/calendar.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap">
+    <link rel="stylesheet" href="../css/pages/techniques/techniques.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,500&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -19,7 +19,7 @@
     
     <!-- Затемнення фону при відкритому меню -->
     <div class="menu-overlay" id="menu-overlay"></div>
-
+    
     <div class="page-container">
         <!-- Бокова навігація -->
         <nav class="side-nav">
@@ -27,12 +27,12 @@
                 <h1>JUDO<span>SPIRIT</span></h1>
             </div>
             <ul class="nav-links">
-                <li><a href="../index.html">Головна</a></li>
-                <li><a href="calendar.html" class="active">Календар</a></li>
-                <li><a href="techniques.html">Техніки</a></li>
-                <li><a href="athletes.html">Атлети</a></li>
-                <li><a href="gallery.html">Галерея</a></li>
-                <li><a href="about.html">Про блог</a></li>
+                <li><a href="../index.html"><i class="fas fa-home"></i> Головна</a></li>
+                <li><a href="calendar.html"><i class="fas fa-calendar-alt"></i> Календар</a></li>
+                <li><a href="techniques.html" class="active"><i class="fas fa-fist-raised"></i> Техніки</a></li>
+                <li><a href="athletes.html"><i class="fas fa-medal"></i> Атлети</a></li>
+                <li><a href="gallery.html"><i class="fas fa-images"></i> Галерея</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> Про блог</a></li>
             </ul>
             <div class="social-links">
                 <a href="#" class="social-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook"></a>
@@ -43,38 +43,210 @@
 
         <!-- Основний контент -->
         <main class="main-content">
-
-            <section class="page-hero">
-                <div class="page-hero-content">
-                    <h1>Календар змагань з дзюдо на 2025 рік</h1>
-                    <p>Офіційний календар спортивних заходів з дзюдо в Україні та світі</p>
+            <section class="hero techniques-hero">
+                <div class="hero-content">
+                    <h2>Техніки дзюдо</h2>
+                    <p>Вивчайте основні прийоми та техніки дзюдо — від базових кидків до складних комбінацій та утримань.</p>
+                </div>
+                <div class="hero-image">
+                    <img src="../assets/images/techniques-hero.jpg" alt="Техніки дзюдо">
                 </div>
             </section>
 
-            <section class="calendar-container">
-                <!-- Фільтри подій -->
-                
-                <!-- Прихований селектор місяців для навігації -->
-                <div class="month-selector" style="display: none;">
-                    <button class="month-btn" data-month="01">Січень</button>
-                    <button class="month-btn" data-month="02">Лютий</button>
-                    <button class="month-btn" data-month="03">Березень</button>
-                    <button class="month-btn" data-month="04">Квітень</button>
-                    <button class="month-btn" data-month="05">Травень</button>
-                    <button class="month-btn" data-month="06">Червень</button>
-                    <button class="month-btn" data-month="07">Липень</button>
-                    <button class="month-btn" data-month="08">Серпень</button>
-                    <button class="month-btn" data-month="09">Вересень</button>
-                    <button class="month-btn" data-month="10">Жовтень</button>
-                    <button class="month-btn" data-month="11">Листопад</button>
-                    <button class="month-btn" data-month="12">Грудень</button>
+            <section class="featured-techniques">
+                <h3 class="section-title">Популярні техніки</h3>
+                <div class="techniques-grid" id="techniques-grid">
+                    <article class="technique-card">
+                        <div class="technique-image">
+                            <img src="../assets/images/techniques/seoi-nage.jpg " alt="Сеоі-наге">
+                            <span class="technique-category">Наге-вадза</span>
+                        </div>
+                        <div class="technique-content">
+                            <h4>Сеоі-наге (背負投)</h4>
+                            <p>Кидок через спину з захопленням руки на плече. Один з найпопулярніших кидків у дзюдо.</p>
+                            <a href="technique/details-article-1.html" class="btn-outline">Детальніше</a>
+                        </div>
+                    </article>
+                    <article class="technique-card">
+                        <div class="technique-image">
+                            <img src="../assets/images/techniques/uchi-mata.jpg" alt="Учі-мата">
+                            <span class="technique-category">Наге-вадза</span>
+                        </div>
+                        <div class="technique-content">
+                            <h4>Учі-мата (内股)</h4>
+                            <p>Кидок через стегно з підбивом зсередини. Ефективний прийом для змагань високого рівня.</p>
+                            <a href="technique/details-article-2.html" class="btn-outline">Детальніше</a>
+                        </div>
+                    </article>
+                    <article class="technique-card">
+                        <div class="technique-image">
+                            <img src="../assets/images/techniques/juji-gatame.jpg" alt="Джуджі-гатаме">
+                            <span class="technique-category">Катаме-вадза</span>
+                        </div>
+                        <div class="technique-content">
+                            <h4>Джуджі-гатаме (十字固)</h4>
+                            <p>Больовий прийом на ліктьовий суглоб з положення поперек тіла супротивника.</p>
+                            <a href="technique/details-article-3.html" class="btn-outline">Детальніше</a>
+                        </div>
+                    </article>
+                    <article class="technique-card">
+                        <div class="technique-image">
+                            <img src="../assets/images/techniques/o-soto-gari.jpg" alt="О-сото-гарі">
+                            <span class="technique-category">Наге-вадза</span>
+                        </div>
+                        <div class="technique-content">
+                            <h4>О-сото-гарі (大外刈)</h4>
+                            <p>Велике зовнішнє підсікання. Базова техніка, яка вивчається на початкових етапах.</p>
+                            <a href="technique/details-article-6.html" class="btn-outline">Детальніше</a>
+                        </div>
+                    </article>
+                    <article class="technique-card">
+                        <div class="technique-image">
+                            <img src="../assets/images/techniques/kesa-gatame.jpg" alt="Кеса-гатаме">
+                            <span class="technique-category">Катаме-вадза</span>
+                        </div>
+                        <div class="technique-content">
+                            <h4>Кеса-гатаме (袈裟固)</h4>
+                            <p>Утримання збоку з захопленням голови та руки. Основна техніка утримання в дзюдо.</p>
+                            <a href="technique/details-article-4.html" class="btn-outline">Детальніше</a>
+                        </div>
+                    </article>
+                    <article class="technique-card">
+                        <div class="technique-image">
+                            <img src="../assets/images/techniques/Tomoyo-nage.jpg" alt="Томое-наге">
+                            <span class="technique-category">Наге-вадза</span>
+                        </div>
+                        <div class="technique-content">
+                            <h4>Томое-наге (巴投)</h4>
+                            <p>Кидок через голову з упором стопи в живіт. Видовищна техніка, що вимагає гарної координації.</p>
+                            <a href="technique/details-article-9.html" class="btn-outline">Детальніше</a>
+                        </div>
+                    </article>
+                    <!-- Скрытые техники, которые будут показаны при нажатии на кнопку "Всі техніки" -->
+                    <article class="technique-card hidden">
+                        <div class="technique-image">
+                            <img src="../assets/images/techniques/Sankaku-Jime.jpg" alt="Уде-гарамі">
+                            <span class="technique-category">Катаме-вадза</span>
+                        </div>
+                        <div class="technique-content">
+                            <h4>Санкаку-джіме (三角絞)</h4>
+                            <p>Задушливий прийом з використанням ніг у формі трикутника</p>
+                            <a href="technique/details-article-5.html" class="btn-outline">Детальніше</a>
+                        </div>
+                    </article>
+                    <article class="technique-card hidden">
+                        <div class="technique-image">
+                            <img src="../assets/images/techniques/Osaekomi-waza.jpg" alt="Осаекомі-вадза">
+                            <span class="technique-category">Катаме-вадза</span>
+                        </div>
+                        <div class="technique-content">
+                            <h4>Осаекомі-вадза (押込技)</h4>
+                            <p>Техніки утримання, які часто використовуються перед переходом до болевих прийомів.</p>
+                            <a href="technique/details-article-4.html" class="btn-outline">Детальніше</a>
+                        </div>
+                    </article>
+                    <article class="technique-card hidden">
+                        <div class="technique-image">
+                            <img src="../assets/images/techniques/o-uchi-gari.jpg" alt="Сумі-гаеші">
+                            <span class="technique-category">Наге-вадза</span>
+                        </div>
+                        <div class="technique-content">
+                            <h4>О-учі-гарі (大内刈)</h4>
+                            <p>Кидок через себе з захопленням ноги супротивника. Належить до групи Масутемі-вадза.</p>
+                            <a href="technique/details-article-8.html" class="btn-outline">Детальніше</a>
+                        </div>
+                    </article>
                 </div>
-                
-                <!-- Календар буде динамічно заповнюватися з JavaScript -->
-                <div class="calendar-loading">
-                    <div class="spinner"></div>
-                    <p>Завантаження календаря...</p>
+                <a href="#" class="btn-secondary" id="show-all-techniques">Всі техніки</a>
+            </section>
+
+            <section class="technique-levels">
+                <h3 class="section-title">Рівні майстерності</h3>
+                <div class="levels-container">
+                    <div class="level">
+                        <div class="belt white-belt">
+                            <span class="belt-name">6 кю</span>
+                        </div>
+                        <h4>Білий пояс</h4>
+                        <p>Початковий рівень. Вивчення базових стійок, захватів та падінь.</p>
+                    </div>
+                    <div class="level">
+                        <div class="belt yellow-belt">
+                            <span class="belt-name">5 кю</span>
+                        </div>
+                        <h4>Жовтий пояс</h4>
+                        <p>Освоєння основних кидків та утримань.</p>
+                    </div>
+                    <div class="level">
+                        <div class="belt orange-belt">
+                            <span class="belt-name">4 кю</span>
+                        </div>
+                        <h4>Оранжевий пояс</h4>
+                        <p>Розвиток техніки та вивчення комбінацій.</p>
+                    </div>
+                    <div class="level">
+                        <div class="belt green-belt">
+                            <span class="belt-name">3 кю</span>
+                        </div>
+                        <h4>Зелений пояс</h4>
+                        <p>Удосконалення техніки та вивчення контрприйомів.</p>
+                    </div>
+                    <div class="level">
+                        <div class="belt blue-belt">
+                            <span class="belt-name">2 кю</span>
+                        </div>
+                        <h4>Синій пояс</h4>
+                        <p>Поглиблене вивчення техніки та тактики.</p>
+                    </div>
+                    <div class="level">
+                        <div class="belt brown-belt">
+                            <span class="belt-name">1 кю</span>
+                        </div>
+                        <h4>Коричневий пояс</h4>
+                        <p>Підготовка до чорного поясу, вдосконалення всіх аспектів.</p>
+                    </div>
+                    <div class="level">
+                        <div class="belt black-belt">
+                            <span class="belt-name">1-10 дан</span>
+                        </div>
+                        <h4>Чорний пояс</h4>
+                        <p>Майстерність та постійне вдосконалення.</p>
+                    </div>
                 </div>
+            </section>
+
+            <section class="video-tutorials">
+                <h3 class="section-title">Відео-уроки</h3>
+                <div class="videos-grid">
+                    <div class="video-card">
+                        <div class="video-embed">
+                            <iframe width="100%" height="215" src="https://www.youtube.com/embed/zIq0xI0ogxk" title="Як правильно виконувати Сеоі-наге" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-info">
+                            <h4>Як правильно виконувати Сеоі-наге</h4>
+                            <p>Детальний розбір техніки від майстра спорту</p>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-embed">
+                            <iframe width="100%" height="215" src="https://www.youtube.com/embed/VoktcQAxEPg" title="Основи безпечного падіння (Укемі)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-info">
+                            <h4>Основи безпечного падіння (Укемі)</h4>
+                            <p>Базові техніки для початківців</p>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-embed">
+                            <iframe width="100%" height="215" src="https://www.youtube.com/embed/eV3Qe0xwIyQ" title="Тренування в партері (Не-ваза)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-info">
+                            <h4>Тренування в партері (Не-ваза)</h4>
+                            <p>Ефективні вправи для розвитку навичок боротьби лежачи</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn-secondary">Всі відео</a>
             </section>
         </main>
     </div>
@@ -117,7 +289,78 @@
         </div>
     </footer>
 
-    <script src="../js/main.js"></script>
-    <script type="module" src="../js/pages/calendar/calendar.js"></script>
+    <script src="../js/main.js" type="module"></script>
+    <script src="../js/techniques.js" type="module"></script>
+    <script>
+        // Функциональность для кнопки "Всі техніки"
+        document.addEventListener('DOMContentLoaded', function() {
+            const showAllButton = document.getElementById('show-all-techniques');
+            const hiddenTechniques = document.querySelectorAll('.technique-card.hidden');
+            let techniquesVisible = false;
+            
+            showAllButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (!techniquesVisible) {
+                    // Показать все скрытые техники
+                    hiddenTechniques.forEach(card => {
+                        card.classList.remove('hidden');
+                    });
+                    showAllButton.textContent = 'Згорнути';
+                    techniquesVisible = true;
+                } else {
+                    // Скрыть техники
+                    hiddenTechniques.forEach(card => {
+                        card.classList.add('hidden');
+                    });
+                    showAllButton.textContent = 'Всі техніки';
+                    techniquesVisible = false;
+                    
+                    // Прокрутить к началу секции
+                    document.querySelector('.featured-techniques').scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        
+        // Галерея табів
+        const galleryTabs = document.querySelectorAll('.gallery-tab');
+        const galleryContents = document.querySelectorAll('.gallery-content');
+        
+        galleryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Видаляємо активний клас з усіх табів
+                galleryTabs.forEach(t => t.classList.remove('active'));
+                // Додаємо активний клас до поточного табу
+                tab.classList.add('active');
+                
+                // Ховаємо всі контенти
+                galleryContents.forEach(content => content.classList.remove('active'));
+                // Показуємо потрібний контент
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Відео табів
+        const videoTabs = document.querySelectorAll('.video-tab');
+        const videoFrame = document.getElementById('video-frame');
+        const videoCaption = document.getElementById('video-caption');
+        
+        videoTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Видаляємо активний клас з усіх табів
+                videoTabs.forEach(t => t.classList.remove('active'));
+                // Додаємо активний клас до поточного табу
+                tab.classList.add('active');
+                
+                // Змінюємо відео
+                const videoId = tab.getAttribute('data-video');
+                videoFrame.src = `https://www.youtube.com/embed/${videoId}`;
+                
+                // Змінюємо підпис
+                videoCaption.textContent = tab.textContent;
+            });
+        });
+    </script>
 </body>
 </html> 
