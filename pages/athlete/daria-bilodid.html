@@ -126,60 +126,6 @@
                 grid-template-columns: 1fr;
             }
         }
-        
-        /* Стили для навигации с иконками */
-        .nav-links li a {
-            position: relative;
-            padding-left: 35px;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-links li a::before {
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 18px;
-            color: #d4af37;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-links li:nth-child(1) a::before {
-            content: '\f015'; /* Иконка дома */
-        }
-        
-        .nav-links li:nth-child(2) a::before {
-            content: '\f073'; /* Иконка календаря */
-        }
-        
-        .nav-links li:nth-child(3) a::before {
-            content: '\f5d0'; /* Иконка кимоно */
-        }
-        
-        .nav-links li:nth-child(4) a::before {
-            content: '\f5ca'; /* Иконка медали */
-        }
-        
-        .nav-links li:nth-child(5) a::before {
-            content: '\f03e'; /* Иконка галереи */
-        }
-        
-        .nav-links li:nth-child(6) a::before {
-            content: '\f129'; /* Иконка информации */
-        }
-        
-        .nav-links li a:hover::before,
-        .nav-links li a.active::before {
-            transform: translateY(-50%) scale(1.2);
-            color: #ffffff;
-        }
-        
-        .nav-links li a:hover,
-        .nav-links li a.active {
-            padding-left: 40px;
-        }
     </style>
 </head>
 <body>
