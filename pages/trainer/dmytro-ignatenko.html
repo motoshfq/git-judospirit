@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дмитро Ігнатенко | JUDO SPIRIT</title>
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/pages/athlete-detail.css">
+    <link rel="stylesheet" href="../../css/pages/trainer.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,500&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Кнопка мобільного меню -->
+    <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <i class="fas fa-bars"></i>
+        <i class="fas fa-times"></i>
+    </div>
+    
+    <!-- Затемнення фону при відкритому меню -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+
+    <div class="page-container">
+        <!-- Бокова навігація -->
+        <nav class="side-nav">
+            <div class="logo">
+                <h1>JUDO<span>SPIRIT</span></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../../index.html"><i class="fas fa-home"></i> Головна</a></li>
+                <li><a href="../calendar.html"><i class="fas fa-calendar-alt"></i> Календар</a></li>
+                <li><a href="../techniques.html"><i class="fas fa-fist-raised"></i> Техніки</a></li>
+                <li><a href="../athletes.html"><i class="fas fa-medal"></i> Атлети</a></li>
+                <li><a href="../gallery.html"><i class="fas fa-images"></i> Галерея</a></li>
+                <li><a href="../about.html"><i class="fas fa-info-circle"></i> Про блог</a></li>
+            </ul>
+            <div class="social-links">
+                <a href="#" class="social-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook"></a>
+                <a href="#" class="social-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram"></a>
+                <a href="#" class="social-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram"></a>
+            </div>
+        </nav>
+
+        <!-- Основний контент -->
+        <main class="main-content">
+            <div class="breadcrumbs">
+                <a href="../../index.html">Головна</a> &gt; 
+                <a href="../trainers.html">Тренери та судді</a> &gt;
+                <span>Дмитро Ігнатенко</span>
+            </div>
+
+            <!-- Герой-секція -->
+            <section class="trainer-hero">
+                <div class="hero-background" style="background-image: url('../../assets/images/trainers/ignatenko-4.jpg');">
+                    <div class="hero-overlay"></div>
+                </div>
+                <div class="hero-content">
+                    <div class="trainer-portrait">
+                        <img src="../../assets/images/trainers/ignatenko-1.jpg" alt="Дмитро Ігнатенко">
+                    </div>
+                    <div class="trainer-intro">
+                        <h1>Дмитро Ігнатенко</h1>
+                        <div class="trainer-titles">
+                            <span class="title-badge">Суддя міжнародної категорії «A»</span>
+                            <span class="title-badge">Член суддівської комісії ФДУ</span>
+                            <span class="title-badge">Президент Донецької обласної федерації дзюдо</span>
+                        </div>
+                        <div class="trainer-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span class="stat-value">03.01.1976</span>
+                                <span class="stat-label">Дата народження</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-gavel"></i>
+                                <span class="stat-value">IJF «A»</span>
+                                <span class="stat-label">Суддівська ліцензія</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span class="stat-value">Україна</span>
+                                <span class="stat-label">Країна</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="trainer-content-wrapper">
+                <!-- Швидка інформація -->
+                <section class="trainer-quick-info">
+                    <div class="info-card">
+                        <h3><i class="fas fa-user"></i> Особиста інформація</h3>
+                        <ul>
+                            <li><strong>Повне ім'я:</strong> Дмитро Ігнатенко</li>
+                            <li><strong>Дата народження:</strong> 03 січня 1976</li>
+                            <li><strong>Громадянство:</strong> Україна</li>
+                            <li><strong>Освіта:</strong> Слов'янський державний педагогічний університет</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fas fa-gavel"></i> Суддівська діяльність</h3>
+                        <ul>
+                            <li><strong>Категорія:</strong> Міжнародна категорія «A»</li>
+                            <li><strong>Рівень ліцензії:</strong> IJF континентальна ліцензія</li>
+                            <li><strong>Досвід:</strong> З 2000 року</li>
+                            <li><strong>Національна категорія:</strong> З 2007 року</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fas fa-briefcase"></i> Посади та обов'язки</h3>
+                        <ul>
+                            <li><strong>Посада в ФДУ:</strong> Член суддівської комісії</li>
+                            <li><strong>Відповідальність:</strong> Змагання серед молодших вікових груп</li>
+            
+                            <li><strong>Інші обов'язки:</strong> Формування суддівської колегії ФДУ</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Карта територіальної відповідальності -->
+                <section class="trainer-territory-map">
+                    <div class="section-header">
+                        <h2>Територіальна відповідальність</h2>
+                        <p>Дмитро Ігнатенко здійснює територіальну відповідальність за наступними областями України:</p>
+                    </div>
+                    <div class="ukraine-map-container">
+                        <div class="ukraine-map" id="ukraine-map">
+                            <!-- Карта будет загружена из внешнего источника -->
+                            <div class="map-loading">
+                                <i class="fas fa-spinner fa-spin"></i> Завантаження карти...
+                            </div>
+                        </div>
+                        <div class="map-tooltip" id="map-tooltip"></div>
+                        <div class="map-instruction">
+                            <i class="fas fa-info-circle"></i> Наведіть курсор для перегляду областей, клікніть для детальної інформації
+                        </div>
+                    </div>
+                    <div class="map-legend">
+                        <div class="map-legend-item">
+                            <div class="legend-color legend-active"></div>
+                            <span>Територія відповідальності</span>
+                        </div>
+                        <div class="map-legend-item">
+                            <div class="legend-color legend-president"></div>
+                            <span>Президент федерації</span>
+                        </div>
+                        <div class="map-legend-item">
+                            <div class="legend-color" style="background-color: #f0f0f0; border: 1px solid #d0d0d0;"></div>
+                            <span>Інші області</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Біографія -->
+                <section class="trainer-biography">
+                    <h2>Біографія</h2>
+                    <div class="biography-content">
+                        <div class="biography-text">
+                            <p class="biography-intro">Дмитро Ігнатенко — висококваліфікований суддя міжнародної категорії з дзюдо, член суддівської комісії Федерації дзюдо України та Президент Донецької обласної федерації дзюдо.</p>
+                            
+                            <h3>Освіта та початок кар'єри</h3>
+                            <p>Дмитро Ігнатенко здобув освіту в Слов'янському державному педагогічному університеті, що стало надійним фундаментом для його подальшої професійної діяльності. Свою суддівську кар'єру розпочав у 2000 році, проявивши себе як перспективний та уважний до деталей фахівець. Завдяки наполегливості та відданості справі, вже у 2007 році йому було присвоєно національну категорію судді з дзюдо.</p>
+                            
+                            <h3>Розвиток суддівської кар'єри</h3>
+                            <p>Професійний шлях Дмитра Ігнатенка позначений стабільним зростанням та розширенням професійних обов'язків. З 2008 по 2012 рік він обіймав посаду голови суддівської комісії Донецької області, де проявив свої організаторські здібності та глибоке розуміння суддівської справи.</p>
+                            
+                            <p>Починаючи з 2008 року, Дмитро Ігнатенко бере активну участь в обслуговуванні міжнародних турнірів EJU серед кадетів та юніорів на території різних європейських країн, включаючи Польщу, Чехію, Угорщину, Росію та Україну. Це дозволило йому накопичити значний міжнародний досвід та вдосконалити свої професійні навички.</p>
+                            
+                            <h3>Міжнародне визнання</h3>
+                            <p>Визначальним моментом у кар'єрі Дмитра Ігнатенка став 2014 рік, коли 18 квітня він успішно склав іспит під час Кубка Європи з дзюдо в Санкт-Петербурзі та здобув IJF континентальну ліцензію категорії «B». Це досягнення відкрило нові можливості для професійного розвитку та підтвердило високий рівень його суддівської майстерності на міжнародній арені.</p>
+                            
+                            <p>Згодом Дмитро Ігнатенко продовжив вдосконалювати свої навички та підвищувати кваліфікацію, що дозволило йому отримати найвищу суддівську категорію «A» від Міжнародної федерації дзюдо (IJF).</p>
+                            
+                            <h3>Керівна діяльність</h3>
+                            <p>Окрім суддівської діяльності, Дмитро Ігнатенко займає важливу керівну посаду, будучи Президентом Донецької обласної федерації дзюдо. На цій посаді він активно сприяє розвитку дзюдо в регіоні, організації змагань та підготовці молодих спортсменів.</p>
+                            
+                            <p>Як член суддівської комісії Федерації дзюдо України, він відповідає за змагання серед молодших вікових груп, бере участь у формуванні суддівської колегії ФДУ на календарний рік та окремих змагань, а також здійснює територіальну відповідальність за Луганську, Харківську, Сумську та Полтавську області.</p>
+                        </div>
+                        <div class="biography-timeline">
+                            <h3>Ключові етапи кар'єри</h3>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="1976"></div>
+                                    <div class="timeline-content">
+                                        <h4>Народження</h4>
+                                        <p>03 січня 1976 року</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2000"></div>
+                                    <div class="timeline-content">
+                                        <h4>Початок суддівської кар'єри</h4>
+                                        <p>Старт діяльності як судді з дзюдо</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2007"></div>
+                                    <div class="timeline-content">
+                                        <h4>Національна категорія</h4>
+                                        <p>Присвоєння національної категорії судді</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2008"></div>
+                                    <div class="timeline-content">
+                                        <h4>Голова суддівської комісії</h4>
+                                        <p>Очолив суддівську комісію Донецької області (до 2012)</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2008"></div>
+                                    <div class="timeline-content">
+                                        <h4>Міжнародні турніри</h4>
+                                        <p>Початок обслуговування міжнародних турнірів EJU</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2014"></div>
+                                    <div class="timeline-content">
+                                        <h4>IJF ліцензія «B»</h4>
+                                        <p>Здобуття IJF континентальної ліцензії категорії «B»</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date" data-year="2023"></div>
+                                    <div class="timeline-content">
+                                        <h4>Суддя категорії «A»</h4>
+                                        <p>Отримання найвищої суддівської категорії «A» від IJF</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Фотогалерея -->
+                <section class="trainer-gallery">
+                    <div class="gallery-header">
+                        <h2>Фотогалерея</h2>
+                        <div class="gallery-filter">
+                            <button class="filter-btn active" data-filter="all">Всі фото</button>
+                            <button class="filter-btn" data-filter="competitions">Змагання</button>
+                            <button class="filter-btn" data-filter="judging">Суддівство</button>
+                        </div>
+                    </div>
+                    <div class="gallery-container">
+                        <div class="gallery-grid">
+                            <div class="gallery-item landscape" data-category="competitions">
+                                <div class="gallery-image-container">
+                                    <img src="../../assets/images/trainers/ignatenko.jpg" alt="Дмитро Ігнатенко" class="gallery-image">
+                                    <div class="gallery-overlay"></div>
+                                </div>
+                                <div class="gallery-caption">
+                                    <h4>Дмитро Ігнатенко</h4>
+                                    <p>Офіційний портрет. Суддя міжнародної категорії «A»</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item landscape" data-category="judging">
+                                <div class="gallery-image-container">
+                                    <img src="../../assets/images/trainers/ignatenko-6.jpg" alt="Дмитро Ігнатенко на змаганнях" class="gallery-image">
+                                    <div class="gallery-overlay"></div>
+                                </div>
+                                <div class="gallery-caption">
+                                    <h4>Міжнародний турнір EJU</h4>
+                                    <p>Суддівство кадетських змагань</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item landscape" data-category="judging">
+                                <div class="gallery-image-container">
+                                    <img src="../../assets/images/trainers/ignatenko-2.jpg" alt="Дмитро Ігнатенко як суддя" class="gallery-image">
+                                    <div class="gallery-overlay"></div>
+                                </div>
+                                <div class="gallery-caption">
+                                    <h4>Український чемпіонат</h4>
+                                    <p>Головний суддя молодіжного турніру</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item landscape" data-category="competitions">
+                                <div class="gallery-image-container">
+                                    <img src="../../assets/images/trainers/ignatenko-1.jpg" alt="Дмитро Ігнатенко під час турніру" class="gallery-image">
+                                    <div class="gallery-overlay"></div>
+                                </div>
+                                <div class="gallery-caption">
+                                    <h4>IJF Continental Cup</h4>
+                                    <p>Міжнародне суддівство з ліцензією категорії «A»</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item landscape" data-category="competitions">
+                                <div class="gallery-image-container">
+                                    <img src="../../assets/images/trainers/ignatenko-7.jpg" alt="Дмитро Ігнатенко з суддівською колегією" class="gallery-image">
+                                    <div class="gallery-overlay"></div>
+                                </div>
+                                <div class="gallery-caption">
+                                    <h4>Федерація дзюдо України</h4>
+                                    <p>Засідання суддівської комісії ФДУ</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item portrait" data-category="judging">
+                                <div class="gallery-image-container">
+                                    <img src="../../assets/images/trainers/ignatenko-3.jpg" alt="Дмитро Ігнатенко в суддівській формі" class="gallery-image">
+                                    <div class="gallery-overlay"></div>
+                                </div>
+                                <div class="gallery-caption">
+                                    <h4>Суддівська діяльність</h4>
+                                    <p>Суддя міжнародної категорії на змаганнях</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item landscape" data-category="competitions">
+                                <div class="gallery-image-container">
+                                    <img src="../../assets/images/trainers/ignatenko-4.jpg" alt="Дмитро Ігнатенко на татамі" class="gallery-image">
+                                    <div class="gallery-overlay"></div>
+                                </div>
+                                <div class="gallery-caption">
+                                    <h4>Тренерська робота</h4>
+                                    <p>Проведення майстер-класу з техніки дзюдо</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item landscape" data-category="judging">
+                                <div class="gallery-image-container">
+                                    <img src="../../assets/images/trainers/ignatenko-5.jpg" alt="Дмитро Ігнатенко на змаганнях" class="gallery-image">
+                                    <div class="gallery-overlay"></div>
+                                </div>
+                                <div class="gallery-caption">
+                                    <h4>IJF Refereeing Seminar</h4>
+                                    <p>Участь у міжнародному суддівському семінарі</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item portrait" data-category="competitions">
+                                <div class="gallery-image-container">
+                                    <img src="../../assets/images/trainers/ignatenko-8.jpg" alt="Дмитро Ігнатенко селфі" class="gallery-image">
+                                    <div class="gallery-overlay"></div>
+                                </div>
+                                <div class="gallery-caption">
+                                    <h4>Олімпійська база</h4>
+                                    <p>Підготовка до міжнародних змагань</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item landscape" data-category="judging">
+                                <div class="gallery-image-container">
+                                    <img src="../../assets/images/trainers/ignatenko-9.jpg" alt="Дмитро Ігнатенко з суддівською бригадою" class="gallery-image">
+                                    <div class="gallery-overlay"></div>
+                                </div>
+                                <div class="gallery-caption">
+                                    <h4>Суддівська бригада</h4>
+                                    <p>Міжнародний турнір IJF Refereeing Coaching Seminar</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item landscape" data-category="competitions">
+                                <div class="gallery-image-container">
+                                    <img src="../../assets/images/trainers/ignatenko-10.jpg" alt="Дмитро Ігнатенко з колегами" class="gallery-image">
+                                    <div class="gallery-overlay"></div>
+                                </div>
+                                <div class="gallery-caption">
+                                    <h4>Суддівський корпус України</h4>
+                                    <p>Разом з колегами після успішного турніру</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>JUDO<span>SPIRIT</span></h2>
+                <p>Ваш провідник у світі дзюдо</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Розділи</h4>
+                    <ul>
+                        <li><a href="../../index.html">Головна</a></li>
+                        <li><a href="../calendar.html">Календар</a></li>
+                        <li><a href="../techniques.html">Техніки</a></li>
+                        <li><a href="../athletes.html">Атлети</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Інформація</h4>
+                    <ul>
+                        <li><a href="../about.html">Про блог</a></li>
+                        <li><a href="../contact.html">Контакти</a></li>
+                        <li><a href="../privacy.html">Політика конфіденційності</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Контакти</h4>
+                    <ul class="contact-info">
+                        <li><a href="mailto:info@judospirit.ua">info@judospirit.ua</a></li>
+                        <li><a href="tel:+380501234567">+38 (050) 123-45-67</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 JUDOSPIRIT. Всі права захищені.</p>
+        </div>
+    </footer>
+
+    <!-- Лайтбокс для фотогалереи -->
+    <div class="lightbox" id="gallery-lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close">&times;</button>
+            <button class="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="lightbox-next"><i class="fas fa-chevron-right"></i></button>
+            <div class="lightbox-loading" id="lightbox-loading"></div>
+            <img src="" alt="" class="lightbox-image" id="lightbox-image">
+            <div class="lightbox-counter" id="lightbox-counter">1 / 5</div>
+        </div>
+    </div>
+
+    <script src="../../js/main.js"></script>
+    <script>
+        // Мобильное меню и галерея
+        document.addEventListener('DOMContentLoaded', function() {
+            // Автоопределение ориентации изображений в галерее
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            galleryItems.forEach(item => {
+                const img = item.querySelector('.gallery-image');
+                
+                // Функция для установки класса в зависимости от пропорций изображения
+                function setItemClass() {
+                    // Если элемент уже имеет класс large, сохраняем его формат
+                    if (item.classList.contains('large')) {
+                        return;
+                    }
+                    
+                    // Получаем естественные размеры изображения
+                    const width = img.naturalWidth;
+                    const height = img.naturalHeight;
+                    
+                    // Удаляем предыдущие классы ориентации
+                    item.classList.remove('portrait', 'landscape');
+                    
+                    // Определяем ориентацию и добавляем соответствующий класс
+                    if (height > width) {
+                        item.classList.add('portrait');
+                    } else {
+                        item.classList.add('landscape');
+                    }
+                }
+                
+                // Проверяем загружено ли изображение
+                if (img.complete) {
+                    setItemClass();
+                } else {
+                    // Если изображение еще не загружено, добавляем обработчик
+                    img.addEventListener('load', setItemClass);
+                }
+            });
+            
+            // Мобильное меню
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const sideNav = document.querySelector('.side-nav');
+            const menuOverlay = document.getElementById('menu-overlay');
+            
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    sideNav.classList.toggle('active');
+                    menuOverlay.classList.toggle('active');
+                    document.body.classList.toggle('menu-open');
+                });
+            }
+            
+            if (menuOverlay) {
+                menuOverlay.addEventListener('click', function() {
+                    mobileMenuToggle.classList.remove('active');
+                    sideNav.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                });
+            }
+
+            // Инициализация карты Украины
+            const mapContainer = document.getElementById('ukraine-map');
+            const tooltip = document.getElementById('map-tooltip');
+            
+            if (mapContainer) {
+                // URL локальной карты Украины (SVG)
+                const mapUrl = '../../assets/maps/ukraine.svg';
+                
+                // Загружаем SVG карту
+                fetch(mapUrl)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Не вдалося завантажити карту');
+                        }
+                        return response.text();
+                    })
+                    .then(svgContent => {
+                        // Удаляем индикатор загрузки
+                        const loadingElement = mapContainer.querySelector('.map-loading');
+                        if (loadingElement) {
+                            loadingElement.remove();
+                        }
+                        
+                        // Вставляем SVG в контейнер
+                        mapContainer.innerHTML = svgContent;
+                        
+                        // Получаем SVG элемент
+                        const svgElement = mapContainer.querySelector('svg');
+                        
+                        if (svgElement) {
+                            // Устанавливаем размер SVG на 100%
+                            svgElement.setAttribute('width', '100%');
+                            svgElement.setAttribute('height', '100%');
+                            svgElement.style.maxHeight = '400px'; // Увеличено с 300px до 400px
+                            
+                            // Области ответственности Дмитра Ігнатенка
+                            const responsibleRegions = ['luhansk', 'kharkiv', 'sumy', 'poltava'];
+                            
+                            // Область, где он является президентом федерации
+                            const presidentRegion = 'donetsk';
+                            
+                            // Словарь с названиями областей на украинском
+                            const regionNames = {
+                                'luhansk': 'Луганська область',
+                                'kharkiv': 'Харківська область', 
+                                'sumy': 'Сумська область',
+                                'poltava': 'Полтавська область',
+                                'donetsk': 'Донецька область'
+                                // Можно добавить остальные области при необходимости
+                            };
+                            
+                            // Находим все пути в SVG (области Украины)
+                            const allPaths = svgElement.querySelectorAll('path');
+                            
+                            // Обрабатываем каждый путь
+                            allPaths.forEach(path => {
+                                const regionId = path.getAttribute('id');
+                                
+                                // Сопоставляем ID с названием области
+                                if (regionId) {
+                                    const regionName = regionNames[regionId] || `Область ${regionId}`;
+                                    path.setAttribute('title', regionName);
+                                    
+                                    // Если это область ответственности
+                                    if (responsibleRegions.includes(regionId)) {
+                                        path.classList.add('active');
+                                        path.setAttribute('data-region', regionId);
+                                        
+                                        // Добавляем обработчики событий
+                                        path.addEventListener('mousemove', showTooltip);
+                                        path.addEventListener('mouseout', hideTooltip);
+                                        path.addEventListener('click', handleRegionClick);
+                                    } 
+                                    // Если это область, где он президент федерации
+                                    else if (regionId === presidentRegion) {
+                                        path.classList.add('president');
+                                        path.setAttribute('data-region', regionId);
+                                        
+                                        // Добавляем обработчики событий
+                                        path.addEventListener('mousemove', showTooltip);
+                                        path.addEventListener('mouseout', hideTooltip);
+                                        path.addEventListener('click', handlePresidentRegionClick);
+                                    }
+                                    else {
+                                        // Для областей, не в зоне ответственности
+                                        path.addEventListener('mousemove', showTooltip);
+                                        path.addEventListener('mouseout', hideTooltip);
+                                        path.addEventListener('click', handleNonResponsibleRegion);
+                                    }
+                                }
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Ошибка при загрузке карты:', error);
+                        mapContainer.innerHTML = `<div class="map-error">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <p>Не вдалося завантажити карту: ${error.message}</p>
+                        </div>`;
+                    });
+                
+                // Функция для отображения всплывающей подсказки
+                function showTooltip(e) {
+                    const element = e.currentTarget;
+                    const regionName = element.getAttribute('title');
+                    
+                    if (regionName) {
+                        // Определяем, является ли область зоной ответственности или презид. областью
+                        let statusText = '';
+                        if (element.classList.contains('active')) {
+                            statusText = ' — зона відповідальності';
+                        } else if (element.classList.contains('president')) {
+                            statusText = ' — президент федерації';
+                        }
+                        
+                        // Отображаем подсказку
+                        tooltip.textContent = regionName + statusText;
+                        tooltip.style.left = (e.pageX - mapContainer.getBoundingClientRect().left + 10) + 'px';
+                        tooltip.style.top = (e.pageY - mapContainer.getBoundingClientRect().top - 25) + 'px';
+                        tooltip.classList.add('visible');
+                    }
+                }
+                
+                // Функция для скрытия всплывающей подсказки
+                function hideTooltip() {
+                    tooltip.classList.remove('visible', 'info');
+                }
+                
+                // Функция для обработки клика по области ответственности
+                function handleRegionClick(e) {
+                    const element = e.currentTarget;
+                    const region = element.getAttribute('data-region');
+                    
+                    if (region) {
+                        // Информация о регионах ответственности
+                        const regionInfo = {
+                            'luhansk': 'Луганська область: проведення регіональних змагань, суддівські семінари',
+                            'kharkiv': 'Харківська область: координація міжрегіональних турнірів',
+                            'sumy': 'Сумська область: підготовка молодих суддів, атестація',
+                            'poltava': 'Полтавська область: організація чемпіонатів, розвиток дзюдо'
+                        };
+                        
+                        // Отображаем детальную информацию в подсказке
+                        tooltip.textContent = regionInfo[region];
+                        tooltip.style.left = (e.pageX - mapContainer.getBoundingClientRect().left + 10) + 'px';
+                        tooltip.style.top = (e.pageY - mapContainer.getBoundingClientRect().top - 25) + 'px';
+                        tooltip.classList.add('visible', 'info');
+                        
+                        // Скрываем подсказку через 3 секунды
+                        setTimeout(() => {
+                            tooltip.classList.remove('visible', 'info');
+                        }, 3000);
+                    }
+                }
+                
+                // Функция для обработки клика по области, не являющейся зоной ответственности
+                function handleNonResponsibleRegion(e) {
+                    const element = e.currentTarget;
+                    element.classList.add('pulse');
+                    
+                    setTimeout(() => {
+                        element.classList.remove('pulse');
+                    }, 800);
+                }
+                
+                // Функция для обработки клика по области, где он президент федерации
+                function handlePresidentRegionClick(e) {
+                    const element = e.currentTarget;
+                    const region = element.getAttribute('data-region');
+                    
+                    if (region) {
+                        // Информация для Донецкой области
+                        tooltip.innerHTML = '<strong>Донецька область</strong>: Президент Донецької обласної федерації дзюдо<br>Організація змагань, розвиток дзюдо в регіоні, робота з молоддю';
+                        tooltip.style.left = (e.pageX - mapContainer.getBoundingClientRect().left + 10) + 'px';
+                        tooltip.style.top = (e.pageY - mapContainer.getBoundingClientRect().top - 25) + 'px';
+                        tooltip.classList.add('visible', 'info');
+                        
+                        // Скрываем подсказку через 3 секунды
+                        setTimeout(() => {
+                            tooltip.classList.remove('visible', 'info');
+                        }, 3000);
+                    }
+                }
+            }
+
+            // Фильтр галереи
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Удаляем активный класс у всех кнопок
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Добавляем активный класс нажатой кнопке
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    galleryItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = '';
+                            }, 50);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'scale(0.95)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+
+            // Лайтбокс для фотогалереи
+            const lightbox = document.getElementById('gallery-lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            const lightboxClose = document.querySelector('.lightbox-close');
+            const lightboxPrev = document.querySelector('.lightbox-prev');
+            const lightboxNext = document.querySelector('.lightbox-next');
+            const lightboxLoading = document.getElementById('lightbox-loading');
+            const lightboxCounter = document.getElementById('lightbox-counter');
+            
+            let currentImageIndex = 0;
+            let isAnimating = false;
+            const images = Array.from(galleryItems).map(item => ({
+                src: item.querySelector('img').src,
+                alt: item.querySelector('img').alt,
+                title: item.querySelector('.gallery-caption h4').textContent,
+                description: item.querySelector('.gallery-caption p').textContent
+            }));
+            
+            // Обновление счетчика
+            function updateCounter() {
+                lightboxCounter.textContent = `${currentImageIndex + 1} / ${images.length}`;
+            }
+            
+            // Открытие лайтбокса
+            galleryItems.forEach((item, index) => {
+                item.addEventListener('click', function() {
+                    currentImageIndex = index;
+                    
+                    // Показываем индикатор загрузки
+                    lightboxLoading.classList.add('active');
+                    
+                    // Сначала устанавливаем src изображения без анимации
+                    lightboxImage.classList.add('changing');
+                    lightboxImage.src = images[index].src;
+                    lightboxImage.alt = images[index].alt;
+                    lightboxImage.setAttribute('data-title', images[index].title);
+                    lightboxImage.setAttribute('data-description', images[index].description);
+                    
+                    // Обновляем счетчик
+                    updateCounter();
+                    
+                    // Показываем лайтбокс
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    
+                    // После того как изображение загрузится
+                    lightboxImage.onload = function() {
+                        setTimeout(() => {
+                            lightboxLoading.classList.remove('active');
+                            lightboxImage.classList.remove('changing');
+                        }, 300);
+                    };
+                });
+            });
+            
+            // Закрытие лайтбокса
+            lightboxClose.addEventListener('click', closeLightbox);
+            
+            // Закрытие лайтбокса по клику вне изображения
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+            
+            // Функция закрытия лайтбокса
+            function closeLightbox() {
+                if (isAnimating) return;
+                isAnimating = true;
+                
+                lightboxImage.classList.add('changing');
+                lightbox.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+                lightbox.style.backdropFilter = 'blur(0px)';
+                
+                setTimeout(() => {
+                    lightbox.classList.remove('active');
+                    document.body.style.overflow = '';
+                    
+                    setTimeout(() => {
+                        lightbox.style.backgroundColor = '';
+                        lightbox.style.backdropFilter = '';
+                        lightboxImage.classList.remove('changing');
+                        isAnimating = false;
+                    }, 300);
+                }, 300);
+            }
+            
+            // Функция для отображения изображения
+            function showImage(index) {
+                if (isAnimating) return;
+                isAnimating = true;
+                
+                // Обновляем счетчик
+                updateCounter();
+                
+                lightboxImage.classList.add('changing');
+                lightboxLoading.classList.add('active');
+                
+                setTimeout(() => {
+                    lightboxImage.src = images[index].src;
+                    lightboxImage.alt = images[index].alt;
+                    lightboxImage.setAttribute('data-title', images[index].title);
+                    lightboxImage.setAttribute('data-description', images[index].description);
+                    
+                    // Когда изображение загрузится
+                    lightboxImage.onload = function() {
+                        setTimeout(() => {
+                            lightboxLoading.classList.remove('active');
+                            lightboxImage.classList.remove('changing');
+                            isAnimating = false;
+                        }, 100);
+                    };
+                    
+                    // Если изображение уже в кеше и onload не сработает
+                    setTimeout(() => {
+                        lightboxLoading.classList.remove('active');
+                        lightboxImage.classList.remove('changing');
+                        isAnimating = false;
+                    }, 500);
+                }, 300);
+            }
+            
+            // Переключение на предыдущее изображение
+            lightboxPrev.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (isAnimating) return;
+                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                showImage(currentImageIndex);
+            });
+            
+            // Переключение на следующее изображение
+            lightboxNext.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (isAnimating) return;
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                showImage(currentImageIndex);
+            });
+            
+            // Обработка клавиш
+            document.addEventListener('keydown', function(e) {
+                if (!lightbox.classList.contains('active')) return;
+                
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowLeft' && !isAnimating) {
+                    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                    showImage(currentImageIndex);
+                } else if (e.key === 'ArrowRight' && !isAnimating) {
+                    currentImageIndex = (currentImageIndex + 1) % images.length;
+                    showImage(currentImageIndex);
+                }
+            });
+            
+            // Обработка свайпов для мобильных устройств
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            lightbox.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            
+            lightbox.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+            
+            function handleSwipe() {
+                if (isAnimating) return;
+                
+                const swipeThreshold = 50;
+                if (touchEndX < touchStartX - swipeThreshold) {
+                    // Свайп влево - следующее изображение
+                    currentImageIndex = (currentImageIndex + 1) % images.length;
+                    showImage(currentImageIndex);
+                }
+                
+                if (touchEndX > touchStartX + swipeThreshold) {
+                    // Свайп вправо - предыдущее изображение
+                    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                    showImage(currentImageIndex);
+                }
+            }
+        });
+    </script>
+</body>
+</html> 
