@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мирослава Химчик | JUDO SPIRIT</title>
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/pages/athlete-detail.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,500&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Стили для секции достижений */
+        .athlete-achievements {
+            margin: 3rem 0;
+            padding: 2rem;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+        }
+
+        .achievements-subtitle {
+            font-size: 1.1rem;
+            color: #555;
+            margin-top: -0.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .achievement-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            padding: 1.5rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .achievement-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .achievement-header i {
+            font-size: 1.5rem;
+            margin-right: 0.8rem;
+            color: #d4af37;
+        }
+
+        .achievement-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .achievement-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .achievement-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .medal-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            margin-right: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .medal-icon i {
+            font-size: 0.9rem;
+        }
+
+        .medal-icon.gold {
+            background: linear-gradient(145deg, #ffd700, #f0c000);
+            color: #5e4c00;
+        }
+
+        .medal-icon.silver {
+            background: linear-gradient(145deg, #e0e0e0, #c0c0c0);
+            color: #333;
+        }
+
+        .medal-icon.bronze {
+            background: linear-gradient(145deg, #cd7f32, #a05a2c);
+            color: #fff;
+        }
+
+        .medal-icon.record {
+            background: linear-gradient(145deg, #4a90e2, #3a70b2);
+            color: #fff;
+        }
+
+        /* Стили для фотогалереи */
+        .athlete-gallery {
+            margin: 3rem 0;
+            padding: 2.5rem;
+            background: linear-gradient(120deg, #f8f9fa, #fdf1f0);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.05);
+            border-top: 3px solid #e74c3c;
+        }
+        
+        .gallery-container {
+            margin-top: 2rem;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 0;
+            padding-bottom: 100%; /* Соотношение сторон 1:1 */
+            position: relative;
+            cursor: pointer;
+            transform-origin: center;
+            border: 3px solid transparent;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(231, 76, 60, 0.15);
+            z-index: 2;
+            border-color: rgba(231, 76, 60, 0.3);
+        }
+        
+        .gallery-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            filter: brightness(0.95);
+        }
+        
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.08);
+            filter: brightness(1.05);
+        }
+        
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(to top, rgba(231, 76, 60, 0.3), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+        
+        /* Заголовок галереи */
+        .athlete-gallery h2 {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .athlete-gallery h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40%;
+            height: 3px;
+            background-color: #e74c3c;
+            border-radius: 2px;
+        }
+
+        /* Стили для лайтбокса и медиа-запросов скопированы с alesia.html */
+        @media (min-width: 1200px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .lightbox-content {
+                max-width: 95%;
+            }
+            
+            .lightbox-close {
+                top: -40px;
+                right: 0;
+            }
+            
+            .lightbox-prev, 
+            .lightbox-next {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+            
+            .lightbox-prev {
+                left: 10px;
+            }
+            
+            .lightbox-next {
+                right: 10px;
+            }
+            
+            .athlete-hero {
+                margin-bottom: 40px;
+                border-radius: 8px;
+            }
+            
+            .section-spacing {
+                margin-bottom: 30px;
+            }
+            
+            blockquote {
+                padding: 20px;
+            }
+            
+            blockquote p {
+                font-size: 16px;
+            }
+            
+            blockquote::before {
+                font-size: 30px;
+            }
+            
+            .athlete-stats {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                margin: 20px auto 0;
+            }
+            
+            .stat-item {
+                width: 200px;
+                max-width: 80%;
+                margin-bottom: 15px;
+            }
+            
+            .athlete-titles {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .title-badge {
+                margin: 5px 0;
+                text-align: center;
+                width: fit-content;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .gallery-item {
+                border-radius: 8px;
+            }
+            
+            .gallery-item:hover {
+                transform: translateY(-5px) scale(1.01);
+            }
+            
+            .lightbox-prev, 
+            .lightbox-next {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+                background: rgba(231, 76, 60, 0.6);
+            }
+            
+            .lightbox-loading {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .lightbox-counter {
+                bottom: -35px;
+                font-size: 12px;
+                padding: 4px 12px;
+            }
+            
+            .breadcrumbs {
+                font-size: 12px;
+                margin-bottom: 15px;
+                padding: 0 5px;
+            }
+            
+            blockquote {
+                padding: 15px;
+                border-left-width: 3px;
+            }
+            
+            blockquote p {
+                font-size: 15px;
+                padding-left: 5px;
+            }
+            
+            blockquote::before {
+                font-size: 24px;
+                top: 10px;
+                left: 10px;
+            }
+            
+            blockquote footer {
+                font-size: 12px;
+            }
+            
+            /* Оптимизация скролла на мобильных */
+            html, body {
+                scroll-padding-top: 10px;
+                scroll-behavior: smooth;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .achievements-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Стили для лайтбокса */
+        .lightbox {
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: background-color 0.5s cubic-bezier(0.19, 1, 0.22, 1), 
+                        opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1), 
+                        visibility 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            backdrop-filter: blur(0px);
+        }
+        
+        .lightbox.active {
+            background-color: rgba(0, 0, 0, 0.92);
+            opacity: 1;
+            visibility: visible;
+            backdrop-filter: blur(5px);
+        }
+        
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            transform: scale(0.9);
+            opacity: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), 
+                        opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        
+        .lightbox.active .lightbox-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+        
+        .lightbox-image {
+            display: block;
+            max-width: 100%;
+            max-height: 90vh;
+            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        
+        .lightbox-image.changing {
+            opacity: 0;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            color: white;
+            font-size: 32px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
+            transform: translateY(10px) rotate(0deg);
+            z-index: 10;
+        }
+        
+        .lightbox.active .lightbox-close {
+            opacity: 0.8;
+            transform: translateY(0) rotate(0deg);
+        }
+        
+        .lightbox-close:hover {
+            opacity: 1;
+            transform: translateY(0) rotate(90deg);
+            color: #e74c3c;
+        }
+        
+        .lightbox-prev,
+        .lightbox-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%) scale(0.9);
+            color: white;
+            font-size: 26px;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease, transform 0.4s ease, background-color 0.4s ease;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .lightbox.active .lightbox-prev,
+        .lightbox.active .lightbox-next {
+            opacity: 0.6;
+        }
+        
+        .lightbox.active .lightbox-prev:hover,
+        .lightbox.active .lightbox-next:hover {
+            opacity: 1;
+            transform: translateY(-50%) scale(1.05);
+            background-color: rgba(231, 76, 60, 0.8);
+            box-shadow: 0 0 30px rgba(231, 76, 60, 0.4);
+        }
+        
+        .lightbox-prev {
+            left: 20px;
+        }
+        
+        .lightbox-next {
+            right: 20px;
+        }
+        
+        .lightbox-prev i,
+        .lightbox-next i {
+            transition: transform 0.3s ease;
+        }
+        
+        .lightbox-prev:hover i {
+            transform: translateX(-5px);
+        }
+        
+        .lightbox-next:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Индикатор загрузки */
+        .lightbox-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top-color: #e74c3c;
+            animation: spin 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            box-shadow: 0 0 20px rgba(231, 76, 60, 0.4);
+        }
+        
+        .lightbox-loading.active {
+            opacity: 1;
+        }
+        
+        @keyframes spin {
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+        
+        /* Индикатор номера текущего изображения */
+        .lightbox-counter {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+        
+        .lightbox.active .lightbox-counter {
+            opacity: 0.8;
+            transform: translateX(-50%) translateY(-10px);
+        }
+
+        /* Улучшения для блоков цитат */
+        .athlete-quotes {
+            margin-bottom: 40px;
+        }
+        
+        blockquote {
+            background-color: #ffffff;
+            padding: 25px;
+            border-left: 4px solid #e74c3c;
+            border-radius: 10px;
+            margin: 0 0 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        blockquote:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        blockquote::before {
+            content: '"';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 40px;
+            color: rgba(231, 76, 60, 0.1);
+            font-family: 'Georgia', serif;
+            line-height: 1;
+        }
+        
+        blockquote p {
+            font-size: 17px;
+            color: #333;
+            line-height: 1.6;
+            font-style: italic;
+            margin: 0 0 15px;
+            position: relative;
+            z-index: 1;
+            padding-left: 10px;
+        }
+        
+        blockquote footer {
+            color: #777;
+            font-size: 14px;
+            text-align: right;
+            font-style: normal;
+        }
+
+        /* Дополнительные медиа-запросы для мобильных устройств */
+        @media (max-width: 360px) {
+            .lightbox-prev, 
+            .lightbox-next {
+                width: 30px;
+                height: 30px;
+                font-size: 14px;
+            }
+            
+            .lightbox-close {
+                font-size: 24px;
+                top: -35px;
+            }
+            
+            .gallery-item {
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+            
+            .gallery-item:hover {
+                box-shadow: 0 8px 15px rgba(231, 76, 60, 0.1);
+            }
+        }
+
+        /* Стили для рейтинга техник */
+        .techniques-rating {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin: 3rem 0;
+        }
+
+        .rating-container {
+            margin-top: 1.5rem;
+        }
+
+        .technique-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .technique-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .technique-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .technique-value {
+            font-weight: 500;
+            color: #e74c3c;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, #e74c3c, #f39c12);
+            border-radius: 10px;
+            transition: width 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+            width: 0;
+        }
+
+        /* Интерактивный таймлайн */
+        .timeline-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-button {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-button:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        .timeline-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .timeline-item {
+            opacity: 0.4;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: scale(0.95);
+        }
+
+        .timeline-item.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Видео-секция */
+        .athlete-videos {
+            margin: 3rem 0;
+            background: linear-gradient(to right, #f5f7fa, #f1f1f1);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 1.5rem;
+        }
+
+        .video-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .video-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .video-play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(231, 76, 60, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .video-item:hover .video-play {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: rgba(231, 76, 60, 1);
+        }
+
+        .video-info {
+            padding: 15px;
+            background: #fff;
+        }
+
+        .video-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .video-date {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        /* Социальные медиа и взаимодействие */
+        .social-interaction {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .interaction-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 1.5rem;
+        }
+
+        .social-follow {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .follow-button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .follow-button.instagram {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+
+        .follow-button.telegram {
+            background: #0088cc;
+        }
+
+        .follow-button.facebook {
+            background: #3b5998;
+        }
+
+        .follow-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .subscribe-form {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .form-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #e74c3c;
+            outline: none;
+        }
+
+        .submit-button {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-button:hover {
+            background: #c0392b;
+        }
+
+        /* Popup для видео */
+        .video-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .video-popup.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .video-popup-content {
+            width: 80%;
+            max-width: 900px;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .video-popup-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: white;
+            background: rgba(231, 76, 60, 0.8);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .video-popup-close:hover {
+            background: rgba(231, 76, 60, 1);
+            transform: rotate(90deg);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            .interaction-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Кнопка мобільного меню -->
+    <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <i class="fas fa-bars"></i>
+        <i class="fas fa-times"></i>
+    </div>
+    
+    <!-- Затемнення фону при відкритому меню -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+ 
+    <div class="page-container">
+        <!-- Бокова навігація -->
+        <nav class="side-nav">
+            <div class="logo">
+                <h1>JUDO<span>SPIRIT</span></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../../index.html"><i class="fas fa-home"></i> Головна</a></li>
+                <li><a href="../calendar.html"><i class="fas fa-calendar-alt"></i> Календар</a></li>
+                <li><a href="../techniques.html"><i class="fas fa-fist-raised"></i> Техніки</a></li>
+                <li><a href="../athletes.html" class="active"><i class="fas fa-medal"></i> Атлети</a></li>
+                <li><a href="../gallery.html"><i class="fas fa-images"></i> Галерея</a></li>
+                <li><a href="../about.html"><i class="fas fa-info-circle"></i> Про блог</a></li>
+            </ul>
+            <div class="social-links">
+                <a href="#" class="social-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook"></a>
+                <a href="#" class="social-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram"></a>
+                <a href="#" class="social-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram"></a>
+            </div>
+        </nav>
+
+        <!-- Основний контент -->
+        <main class="main-content">
+            <div class="breadcrumbs">
+                <a href="../../index.html">Головна</a> &gt; 
+                <a href="../athletes.html">Атлети</a> &gt;
+                <span>Мирослава Химчик</span>
+            </div>
+
+            <!-- Герой-секція -->
+            <section class="athlete-hero">
+                <div class="hero-background" style="background-image: url('../../assets/images/athletes/ximchik-2.jpg');">
+                    <div class="hero-overlay"></div>
+                </div>
+                <div class="hero-content">
+                    <div class="athlete-portrait">
+                        <img src="../../assets/images/athletes/ximchik-1.jpg" alt="Мирослава Химчик">
+                    </div>
+                    <div class="athlete-intro">
+                        <h1>Мирослава Химчик</h1>
+                        <div class="athlete-titles">
+                            <span class="title-badge">Срібна призерка Чемпіонату України</span>
+                            <span class="title-badge">Чемпіонка Києва</span>
+                            <span class="title-badge">Представниця Києва</span>
+                        </div>
+                        <div class="athlete-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-medal"></i>
+                                <span class="stat-value">Коричневий</span>
+                                <span class="stat-label">Пояс</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-trophy"></i>
+                                <span class="stat-value">63 кг</span>
+                                <span class="stat-label">Вагова категорія</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span class="stat-value">2007</span>
+                                <span class="stat-label">Рік народження</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="athlete-content-wrapper">
+                <!-- Швидка інформація -->
+                <section class="athlete-quick-info">
+                    <div class="info-card">
+                        <h3><i class="fas fa-user"></i> Особиста інформація</h3>
+                        <ul>
+                            <li><strong>Повне ім'я:</strong> Мирослава Химчик</li>
+                            <li><strong>Дата народження:</strong> 2007 рік</li>
+                            <li><strong>Місце народження:</strong> Київ, Україна</li>
+                            <li><strong>Громадянство:</strong> Україна</li>
+                            <li><strong>Вагова категорія:</strong> 63 кг</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fas fa-dumbbell"></i> Спортивна кар'єра</h3>
+                        <ul>
+                            <li><strong>Область:</strong> Київ</li>
+                            <li><strong>Тренери:</strong> Ш.Ш. Халматов, Д. Ігнатенко</li>
+                            <li><strong>Рівень:</strong> Коричневий пояс</li>
+                            <li><strong>Вікова категорія:</strong> U18</li>
+                            <li><strong>Коронні прийоми:</strong> Скрутка, бедро</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fas fa-award"></i> Найвищі досягнення</h3>
+                        <ul>
+                            <li><strong>Чемпіонат України U18:</strong> Срібна призерка (2023, 2024, 2025)</li>
+                            <li><strong>Чемпіонат Києва:</strong> Чемпіонка</li>
+                            <li><strong>Міжнародні змагання:</strong> Учасниця</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Біографія -->
+                <section class="athlete-biography">
+                    <h2>Шлях у дзюдо</h2>
+                    
+                    <div class="biography-content">
+                        <div class="biography-text">
+                            <p class="biography-intro">Мирослава Химчик — талановита українська дзюдоїстка з Києва, яка попри юний вік вже досягла значних успіхів на всеукраїнському рівні та виборола звання срібної призерки Чемпіонату України в категорії U18 протягом трьох років поспіль.</p>
+                            
+                            <h3>Ранні роки та початок спортивної кар'єри</h3>
+                            <p>Мирослава народилася у 2007 році в Києві. З дитинства вона проявляла неабиякі фізичні здібності та енергійність, що спонукало батьків віддати її до спортивної секції. Вибір припав на дзюдо — вид спорту, який гармонійно поєднує фізичний розвиток та виховання дисципліни.</p>
+                            
+                            <p>Перші кроки в дзюдо Мирослава зробила ще в молодшому шкільному віці. Одразу було помітно, що дівчинка має природний талант та добру координацію рухів, що є важливими складовими для успішного розвитку в цьому виді спорту.</p>
+                            
+                            <h3>Тренування та розвиток</h3>
+                            <p>Під керівництвом досвідчених тренерів Ш.Ш. Халматова та Д. Ігнатенка Мирослава почала інтенсивно тренуватися та швидко прогресувати. Її наполегливість та працьовитість на тренуваннях не лишились непоміченими, і вже в юному віці вона почала брати участь у регіональних змаганнях, де показувала хороші результати.</p>
+                            
+                            <p>З часом тренування ставали все більш інтенсивними, а технічний арсенал Мирослави розширювався. Вона вдосконалювала такі складні прийоми як скрутка та бедро, які стали її "коронними" та часто приносили перемоги на татамі.</p>
+                            
+                            <h3>Спортивні досягнення</h3>
+                            <p>Найвизначніші досягнення Мирослави на сьогодні — це срібні медалі Чемпіонату України в категорії U18, які вона виборювала три роки поспіль — у 2023, 2024 та 2025 роках. Це свідчить про її стабільність та високий рівень майстерності в своїй ваговій категорії.</p>
+                            
+                            <p>Крім того, Мирослава є чемпіонкою Києва, що також є вагомим досягненням, враховуючи високий рівень конкуренції в столиці України. Вона також брала участь у різних міжнародних змаганнях, набуваючи безцінного досвіду боротьби з суперницями з різних країн та різними стилями ведення поєдинку.</p>
+                            
+                            <h3>Стиль боротьби та техніка</h3>
+                            <p>Стиль боротьби Мирослави відзначається технічністю та гарною тактичною підготовкою. Вона вміло використовує свої коронні прийоми, Учі-мата та Харай-гоші, часто застосовуючи їх у комбінаціях, що робить її дії на татамі менш передбачуваними для суперниць.</p>
+                            
+                            <p>Тренери відзначають її здатність швидко аналізувати поєдинок та адаптуватися до різних стилів боротьби, що є важливою якістю для успішного дзюдоїста. Мирослава також відзначається хорошою фізичною підготовкою та витривалістю, що дозволяє їй зберігати високий темп боротьби протягом усього поєдинку.</p>
+                            
+                            <h3>Представництво Києва</h3>
+                            <p>Мирослава з гордістю представляє Київ на змаганнях різного рівня. Це свідчить про її патріотизм та прихильність до столиці України, а також про стійкість характеру та здатність долати труднощі.</p>
+                            
+                            <p>Її успіхи стають особливо цінними в контексті високої конкуренції у столичному регіоні, де багато талановитих спортсменів.</p>
+                            
+                            <h3>Майбутні перспективи</h3>
+                            <p>Мирослава Химчик має значний потенціал для подальшого розвитку в дзюдо. Її стабільні результати на всеукраїнському рівні та юний вік дають підстави сподіватися на майбутні успіхи на міжнародній арені.</p>
+                            
+                            <p>Найближчими цілями спортсменки є здобуття золотої медалі на Чемпіонаті України, а також успішні виступи на міжнародних турнірах. У довгостроковій перспективі, Мирослава має шанси стати однією з провідних дзюдоїсток України та гідно представляти країну на найпрестижніших світових змаганнях.</p>
+                        </div>
+                        
+                        <div class="biography-timeline">
+                            <h3>Ключові моменти кар'єри</h3>
+                            
+                            <div class="timeline">
+                                <div class="timeline-item" data-year="2007">
+                                    <div class="timeline-date" data-year="2007"></div>
+                                    <div class="timeline-content">
+                                        <h4>Народження</h4>
+                                        <p>Народилася в Києві, Україна</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item" data-year="2015">
+                                    <div class="timeline-date" data-year="2015"></div>
+                                    <div class="timeline-content">
+                                        <h4>Початок шляху в дзюдо</h4>
+                                        <p>Перші тренування та знайомство з дзюдо</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item" data-year="2020">
+                                    <div class="timeline-date" data-year="2020"></div>
+                                    <div class="timeline-content">
+                                        <h4>Перші значні успіхи</h4>
+                                        <p>Перемоги на регіональних змаганнях</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item" data-year="2023">
+                                    <div class="timeline-date" data-year="2023"></div>
+                                    <div class="timeline-content">
+                                        <h4>Срібна призерка ЧУ</h4>
+                                        <p>Вперше здобула срібну медаль на Чемпіонаті України U18</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item" data-year="2025">
+                                    <div class="timeline-date" data-year="2025"></div>
+                                    <div class="timeline-content">
+                                        <h4>Стабільні результати</h4>
+                                        <p>Повторення успіху на Чемпіонаті України протягом двох років поспіль</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Добавляем секцию рейтинга техник после биографии -->
+                <section class="techniques-rating">
+                    <h2>Оцінка технік</h2>
+                    <p>Візуалізація рівня майстерності Мирослави у різних елементах дзюдо за оцінкою тренерів</p>
+                    
+                    <div class="rating-container">
+                        <div class="technique-item" data-rating="90">
+                            <div class="technique-header">
+                                <span class="technique-name">Скрутка</span>
+                                <span class="technique-value">90%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="technique-item" data-rating="85">
+                            <div class="technique-header">
+                                <span class="technique-name">Бедро</span>
+                                <span class="technique-value">85%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="technique-item" data-rating="75">
+                            <div class="technique-header">
+                                <span class="technique-name">Підсічка</span>
+                                <span class="technique-value">75%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="technique-item" data-rating="80">
+                            <div class="technique-header">
+                                <span class="technique-name">Утримання</span>
+                                <span class="technique-value">80%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="technique-item" data-rating="70">
+                            <div class="technique-header">
+                                <span class="technique-name">Больові прийоми</span>
+                                <span class="technique-value">70%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Досягнення -->
+                <section class="athlete-achievements">
+                    <h2>Досягнення</h2>
+                    <p class="achievements-subtitle">Перспективна дзюдоїстка з Києва, якій вдалося тричі поспіль стати срібною призеркою Чемпіонату України U18</p>
+                    <div class="achievements-grid">
+                        <!-- Національні змагання -->
+                        <div class="achievement-card">
+                            <div class="achievement-header">
+                                <i class="fas fa-flag"></i>
+                                <h3>Національні змагання</h3>
+                            </div>
+                            <ul class="achievement-list">
+                                <li>
+                                    <span class="medal-icon silver"><i class="fas fa-medal"></i></span>
+                                    <span>Чемпіонат України U18 — 2 місце (2023)</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon silver"><i class="fas fa-medal"></i></span>
+                                    <span>Чемпіонат України U18 — 2 місце (2024)</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon silver"><i class="fas fa-medal"></i></span>
+                                    <span>Чемпіонат України U18 — 2 місце (2025)</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Регіональні змагання -->
+                        <div class="achievement-card">
+                            <div class="achievement-header">
+                                <i class="fas fa-trophy"></i>
+                                <h3>Регіональні змагання</h3>
+                            </div>
+                            <ul class="achievement-list">
+                                <li>
+                                    <span class="medal-icon gold"><i class="fas fa-medal"></i></span>
+                                    <span>Чемпіонат міста Києва — 1 місце</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Спортивні досягнення -->
+                        <div class="achievement-card">
+                            <div class="achievement-header">
+                                <i class="fas fa-award"></i>
+                                <h3>Спортивні досягнення</h3>
+                            </div>
+                            <ul class="achievement-list">
+                                <li>
+                                    <span class="medal-icon"><i class="fas fa-certificate"></i></span>
+                                    <span>Коричневий пояс з дзюдо</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon"><i class="fas fa-dumbbell"></i></span>
+                                    <span>Майстерність у техніках скрутки та бедра</span>
+                                </li>
+                                <li>
+                                    <span class="medal-icon"><i class="fas fa-users"></i></span>
+                                    <span>Учасниця національної збірної команди області</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Цитати та інтерв'ю -->
+                <section class="athlete-quotes">
+                    <h2>Цитати та думки</h2>
+                    <div class="quotes-container">
+                        <blockquote>
+                            <p>"Дзюдо навчило мене дисципліні та витримці. На татамі я розумію, що кожна мить важлива і потрібно бути максимально сконцентрованою."</p>
+                            <footer>З інтерв'ю після Чемпіонату України 2024</footer>
+                        </blockquote>
+                        
+                        <blockquote>
+                            <p>"Представляти Київ — це особлива честь та відповідальність для мене. Я хочу, щоб через мої досягнення люди бачили, що талант та наполегливість можуть долати будь-які перешкоди."</p>
+                            <footer>З розмови про спортивний шлях</footer>
+                        </blockquote>
+                        
+                        <blockquote>
+                            <p>"Моя мрія — стати чемпіонкою України, а потім і досягти успіху на міжнародному рівні. Я розумію, скільки праці це вимагає, але готова працювати щодня, щоб досягти цієї мети."</p>
+                            <footer>Про плани на майбутнє</footer>
+                        </blockquote>
+                    </div>
+                </section>
+
+                <!-- Фотогалерея -->
+                <section class="athlete-gallery">
+                    <h2>Фотогалерея</h2>
+                    <div class="gallery-container">
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/ximchik-1.jpg" alt="Мирослава Химчик" class="gallery-image">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/ximchik-2.jpg" alt="Мирослава на змаганнях" class="gallery-image">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/ximchik-3.jpg" alt="Мирослава з тренером" class="gallery-image">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/ximchik-4.jpg" alt="Мирослава після перемоги" class="gallery-image">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/ximchik-5.jpg" alt="Командне фото" class="gallery-image">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../assets/images/athletes/ximchik-6.jpg" alt="Мирослава на тренуванні" class="gallery-image">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Добавляем секцию социальных медиа и взаимодействия перед футером -->
+                <section class="social-interaction">
+                    <h2>Слідкуйте за Мирославою</h2>
+                    <p>Підписуйтесь на соціальні мережі Мирослави та отримуйте оновлення про її спортивну кар'єру</p>
+                    
+                    <div class="interaction-grid">
+                        <div class="social-follow">
+                            <a href="https://www.instagram.com/miroslava_khimchik/" target="_blank" class="follow-button instagram">
+                                <i class="fab fa-instagram"></i> Підписатися в Instagram
+                            </a>
+                            <a href="https://t.me/miroslava_khimchik" target="_blank" class="follow-button telegram">
+                                <i class="fab fa-telegram"></i> Приєднатися до Telegram
+                            </a>
+                            <a href="https://www.facebook.com/miroslava.khimchik" target="_blank" class="follow-button facebook">
+                                <i class="fab fa-facebook-f"></i> Стежити у Facebook
+                            </a>
+                        </div>
+                        
+                    </div>
+                </section>
+
+                <!-- Добавляем всплывающее окно для видео -->
+                <div class="video-popup" id="video-popup">
+                    <div class="video-popup-content">
+                        <div class="video-popup-close" id="video-popup-close">&times;</div>
+                        <div class="video-container">
+                            <iframe id="video-frame" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>JUDO<span>SPIRIT</span></h2>
+                <p>Ваш провідник у світі дзюдо</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Розділи</h4>
+                    <ul>
+                        <li><a href="../../index.html">Головна</a></li>
+                        <li><a href="../calendar.html">Календар</a></li>
+                        <li><a href="../techniques.html">Техніки</a></li>
+                        <li><a href="../athletes.html">Атлети</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Інформація</h4>
+                    <ul>
+                        <li><a href="../about.html">Про блог</a></li>
+                        <li><a href="../contact.html">Контакти</a></li>
+                        <li><a href="../privacy.html">Політика конфіденційності</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Контакти</h4>
+                    <ul class="contact-info">
+                        <li><a href="mailto:info@judospirit.ua">info@judospirit.ua</a></li>
+                        <li><a href="tel:+380501234567">+38 (050) 123-45-67</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 JUDOSPIRIT. Всі права захищені.</p>
+        </div>
+    </footer>
+
+    <!-- Лайтбокс для фотогалереи -->
+    <div class="lightbox" id="gallery-lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close">&times;</button>
+            <button class="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="lightbox-next"><i class="fas fa-chevron-right"></i></button>
+            <div class="lightbox-loading" id="lightbox-loading"></div>
+            <img src="" alt="" class="lightbox-image" id="lightbox-image">
+            <div class="lightbox-counter" id="lightbox-counter">1 / 6</div>
+        </div>
+    </div>
+
+    <script>
+        // Мобильное меню и галерея
+        document.addEventListener('DOMContentLoaded', function() {
+            // Мобильное меню
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const sideNav = document.querySelector('.side-nav');
+            const menuOverlay = document.getElementById('menu-overlay');
+            
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    sideNav.classList.toggle('active');
+                    menuOverlay.classList.toggle('active');
+                    document.body.classList.toggle('menu-open');
+                });
+            }
+            
+            if (menuOverlay) {
+                menuOverlay.addEventListener('click', function() {
+                    mobileMenuToggle.classList.remove('active');
+                    sideNav.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                });
+            }
+
+            // Лайтбокс для фотогалереи
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const lightbox = document.getElementById('gallery-lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            const lightboxClose = document.querySelector('.lightbox-close');
+            const lightboxPrev = document.querySelector('.lightbox-prev');
+            const lightboxNext = document.querySelector('.lightbox-next');
+            const lightboxLoading = document.getElementById('lightbox-loading');
+            const lightboxCounter = document.getElementById('lightbox-counter');
+            
+            let currentImageIndex = 0;
+            let isAnimating = false;
+            const images = Array.from(galleryItems).map(item => ({
+                src: item.querySelector('img').src,
+                alt: item.querySelector('img').alt
+            }));
+            
+            // Обновление счетчика
+            function updateCounter() {
+                lightboxCounter.textContent = `${currentImageIndex + 1} / ${images.length}`;
+            }
+            
+            // Открытие лайтбокса
+            galleryItems.forEach((item, index) => {
+                item.addEventListener('click', function() {
+                    currentImageIndex = index;
+                    
+                    // Показываем индикатор загрузки
+                    lightboxLoading.classList.add('active');
+                    
+                    // Сначала устанавливаем src изображения без анимации
+                    lightboxImage.classList.add('changing');
+                    lightboxImage.src = images[index].src;
+                    lightboxImage.alt = images[index].alt;
+                    
+                    // Обновляем счетчик
+                    updateCounter();
+                    
+                    // Показываем лайтбокс
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    
+                    // После того как изображение загрузится
+                    lightboxImage.onload = function() {
+                        setTimeout(() => {
+                            lightboxLoading.classList.remove('active');
+                            lightboxImage.classList.remove('changing');
+                        }, 300);
+                    };
+                });
+            });
+            
+            // Закрытие лайтбокса
+            lightboxClose.addEventListener('click', closeLightbox);
+            
+            // Закрытие лайтбокса по клику вне изображения
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+            
+            // Функция закрытия лайтбокса
+            function closeLightbox() {
+                if (isAnimating) return;
+                isAnimating = true;
+                
+                lightboxImage.classList.add('changing');
+                lightbox.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+                lightbox.style.backdropFilter = 'blur(0px)';
+                
+                setTimeout(() => {
+                    lightbox.classList.remove('active');
+                    document.body.style.overflow = '';
+                    
+                    setTimeout(() => {
+                        lightbox.style.backgroundColor = '';
+                        lightbox.style.backdropFilter = '';
+                        lightboxImage.classList.remove('changing');
+                        isAnimating = false;
+                    }, 300);
+                }, 300);
+            }
+            
+            // Функция для отображения изображения
+            function showImage(index) {
+                if (isAnimating) return;
+                isAnimating = true;
+                
+                // Обновляем счетчик
+                updateCounter();
+                
+                lightboxImage.classList.add('changing');
+                lightboxLoading.classList.add('active');
+                
+                setTimeout(() => {
+                    lightboxImage.src = images[index].src;
+                    lightboxImage.alt = images[index].alt;
+                    
+                    // Когда изображение загрузится
+                    lightboxImage.onload = function() {
+                        setTimeout(() => {
+                            lightboxLoading.classList.remove('active');
+                            lightboxImage.classList.remove('changing');
+                            isAnimating = false;
+                        }, 100);
+                    };
+                    
+                    // Если изображение уже в кеше и onload не сработает
+                    setTimeout(() => {
+                        lightboxLoading.classList.remove('active');
+                        lightboxImage.classList.remove('changing');
+                        isAnimating = false;
+                    }, 500);
+                }, 300);
+            }
+            
+            // Переключение на предыдущее изображение
+            lightboxPrev.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (isAnimating) return;
+                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                showImage(currentImageIndex);
+            });
+            
+            // Переключение на следующее изображение
+            lightboxNext.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (isAnimating) return;
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                showImage(currentImageIndex);
+            });
+            
+            // Обработка клавиш
+            document.addEventListener('keydown', function(e) {
+                if (!lightbox.classList.contains('active')) return;
+                
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowLeft' && !isAnimating) {
+                    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                    showImage(currentImageIndex);
+                } else if (e.key === 'ArrowRight' && !isAnimating) {
+                    currentImageIndex = (currentImageIndex + 1) % images.length;
+                    showImage(currentImageIndex);
+                }
+            });
+            
+            // Обработка свайпов для мобильных устройств
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            lightbox.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            
+            lightbox.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+            
+            function handleSwipe() {
+                if (isAnimating) return;
+                
+                const swipeThreshold = 50;
+                if (touchEndX < touchStartX - swipeThreshold) {
+                    // Свайп влево - следующее изображение
+                    currentImageIndex = (currentImageIndex + 1) % images.length;
+                    showImage(currentImageIndex);
+                }
+                
+                if (touchEndX > touchStartX + swipeThreshold) {
+                    // Свайп вправо - предыдущее изображение
+                    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                    showImage(currentImageIndex);
+                }
+            }
+
+            // Код для анимации рейтинга техник
+            const techniqueItems = document.querySelectorAll('.technique-item');
+            
+            // Функция для анимации заполнения прогресс-баров при прокрутке
+            function animateRatings() {
+                techniqueItems.forEach(item => {
+                    const rating = item.dataset.rating;
+                    const progressFill = item.querySelector('.progress-fill');
+                    progressFill.style.width = rating + '%';
+                });
+            }
+            
+            // Запускаем анимацию с небольшой задержкой после загрузки страницы
+            setTimeout(animateRatings, 500);
+            
+            // Обновленный код для таймлайна - без кнопок
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            // Делаем все элементы таймлайна видимыми
+            timelineItems.forEach(item => {
+                item.classList.add('active');
+                item.style.opacity = '1';
+                item.style.transform = 'scale(1)';
+            });
+            
+            // Видео-галерея
+            const videoItems = document.querySelectorAll('.video-item');
+            const videoPopup = document.getElementById('video-popup');
+            const videoFrame = document.getElementById('video-frame');
+            const videoPopupClose = document.getElementById('video-popup-close');
+            
+            // Открытие видео
+            videoItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const videoId = this.dataset.videoId;
+                    videoFrame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                    videoPopup.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // Закрытие видео
+            videoPopupClose.addEventListener('click', function() {
+                videoPopup.classList.remove('active');
+                document.body.style.overflow = '';
+                setTimeout(() => {
+                    videoFrame.src = '';
+                }, 300);
+            });
+            
+            // Закрытие видео по клику вне контента
+            videoPopup.addEventListener('click', function(e) {
+                if (e.target === videoPopup) {
+                    videoPopupClose.click();
+                }
+            });
+            
+            // Форма подписки
+            const subscribeForm = document.getElementById('subscribe-form');
+            
+            subscribeForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                alert('Дякуємо за підписку! Ви будете отримувати оновлення про Мирославу Химчик.');
+                this.reset();
+            });
+            
+            // Кнопки социальных сетей
+            const socialButtons = document.querySelectorAll('.follow-button');
+            
+            socialButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const network = this.classList.contains('instagram') ? 'Instagram' : 
+                                    this.classList.contains('telegram') ? 'Telegram' : 'Facebook';
+                    alert(`Ви будете перенаправлені на сторінку Мирослави Химчик у ${network}`);
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
