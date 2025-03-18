@@ -889,6 +889,21 @@ blockquote footer {
     }
 }
 
+@media (max-width: 992px) {
+    .athlete-quick-info {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .athlete-content-wrapper {
+        padding: 0 15px;
+    }
+    
+    .medals-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
     .athlete-portrait img {
         width: 250px;
@@ -898,6 +913,15 @@ blockquote footer {
     .athlete-stats {
         flex-direction: column;
         gap: 15px;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin: 20px auto 0;
+    }
+    
+    .stat-item {
+        width: 80%;
+        max-width: 300px;
     }
     
     .gallery-tabs,
@@ -924,11 +948,31 @@ blockquote footer {
     .medals-list {
         grid-template-columns: 1fr;
     }
+    
+    .athlete-biography,
+    .athlete-achievements,
+    .athlete-video {
+        padding: 30px 20px;
+    }
+    
+    .info-card li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .info-card strong {
+        margin-bottom: 5px;
+        display: block;
+    }
+    
+    .quotes-container {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 480px) {
     .hero-content {
-        padding: 30px 20px;
+        padding: 30px 15px;
     }
     
     .athlete-portrait img {
@@ -938,17 +982,24 @@ blockquote footer {
     
     .athlete-intro h1 {
         font-size: 28px;
+        margin-bottom: 15px;
     }
     
     .title-badge {
         font-size: 12px;
         padding: 6px 12px;
+        margin-bottom: 5px;
+    }
+    
+    .athlete-titles {
+        margin-bottom: 20px;
     }
     
     .athlete-biography,
     .athlete-video,
     .athlete-achievements {
-        padding: 30px 20px;
+        padding: 25px 15px;
+        margin-bottom: 40px;
     }
     
     .gallery-tab,
@@ -966,21 +1017,105 @@ blockquote footer {
     .athlete-social h2,
     .athlete-achievements h2 {
         font-size: 24px;
+        margin-bottom: 20px;
     }
     
     .biography-intro {
-        font-size: 18px;
+        font-size: 16px;
+        margin-bottom: 20px;
     }
     
     .biography-text h3 {
         font-size: 20px;
+        margin: 20px 0 10px;
+    }
+    
+    .biography-text p {
+        font-size: 15px;
+        margin-bottom: 15px;
+        line-height: 1.6;
     }
     
     blockquote {
-        padding: 25px 20px;
+        padding: 20px 15px;
     }
     
     blockquote p {
+        font-size: 15px;
+    }
+    
+    .timeline-date::after {
+        left: -30px;
+        font-size: 14px;
+    }
+    
+    .timeline-content h4 {
         font-size: 16px;
+    }
+    
+    .timeline-content p {
+        font-size: 13px;
+    }
+    
+    .achievement-card {
+        padding: 15px;
+    }
+    
+    .achievement-header i {
+        font-size: 1.2rem;
+    }
+    
+    .achievement-header h3 {
+        font-size: 1rem;
+    }
+    
+    .achievement-list li {
+        font-size: 0.9rem;
+    }
+    
+    .breadcrumbs {
+        font-size: 13px;
+        margin-bottom: 15px;
+    }
+}
+
+/* Исправления для очень маленьких экранов */
+@media (max-width: 360px) {
+    .athlete-portrait img {
+        width: 180px;
+        height: 250px;
+    }
+    
+    .athlete-intro h1 {
+        font-size: 24px;
+    }
+    
+    .stat-value {
+        font-size: 22px;
+    }
+    
+    .stat-label {
+        font-size: 12px;
+    }
+    
+    .stat-item i {
+        font-size: 20px;
+    }
+    
+    .info-card {
+        padding: 20px 15px;
+    }
+    
+    .info-card h3 {
+        font-size: 18px;
+    }
+    
+    .athlete-biography h2::after,
+    .athlete-gallery h2::after,
+    .athlete-video h2::after,
+    .athlete-quotes h2::after,
+    .athlete-social h2::after,
+    .athlete-achievements h2::after {
+        width: 40px;
     }
 }
