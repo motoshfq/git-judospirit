@@ -1,0 +1,560 @@
+/* Стили для страницы тренеров и судей */
+
+/* Заголовок страницы */
+.trainers-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    flex: 1;
+    max-width: 70%;
+}
+
+.header-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-family: 'Playfair Display', serif;
+    color: #0d3c78;
+}
+
+.header-content p {
+    font-size: 1.1rem;
+    color: #545454;
+    line-height: 1.6;
+    max-width: 90%;
+}
+
+.header-badges {
+    display: flex;
+    gap: 20px;
+}
+
+.badge-count {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 25px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.badge-count:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.badge-count .count {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a5db4;
+    margin-bottom: 5px;
+}
+
+.badge-count .label {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+}
+
+/* Фильтры */
+.trainers-filter {
+    margin-bottom: 40px;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.filter-group label {
+    font-weight: 600;
+    color: #333;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e2e2e2;
+    color: #333;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+    background-color: #d0d0d0;
+}
+
+.filter-btn.active {
+    background-color: #0d3c78;
+    color: white;
+}
+
+.search-group {
+    display: flex;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#trainer-search {
+    padding: 10px 15px;
+    border: none;
+    width: 220px;
+    font-size: 0.95rem;
+}
+
+.search-btn {
+    background-color: #0d3c78;
+    color: white;
+    border: none;
+    padding: 0 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.search-btn:hover {
+    background-color: #1a5db4;
+}
+
+/* Список тренеров */
+.trainers-list {
+    margin-bottom: 50px;
+}
+
+.trainers-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.trainer-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.trainer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.trainer-photo {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+}
+
+.trainer-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.trainer-card:hover .trainer-photo img {
+    transform: scale(1.05);
+}
+
+.photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 28, 55, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.trainer-photo:hover .photo-overlay {
+    opacity: 1;
+}
+
+.view-profile {
+    display: inline-block;
+    padding: 10px 20px;
+    background: white;
+    color: #0d3c78;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.view-profile:hover {
+    background: #0d3c78;
+    color: white;
+}
+
+.trainer-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: white;
+}
+
+.trainer-info h3 {
+    font-size: 1.4rem;
+    color: #0d3c78;
+    margin-bottom: 10px;
+}
+
+.trainer-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.tag.trainer {
+    background-color: #dcf2e8;
+    color: #16a16a;
+}
+
+.tag.referee {
+    background-color: #e7e3fc;
+    color: #6d45d9;
+}
+
+.tag.position {
+    background-color: #e2e9f5;
+    color: #3374d0;
+}
+
+.trainer-description {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.trainer-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.more-link {
+    color: #0d3c78;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.2s ease;
+}
+
+.more-link:hover {
+    color: #1a5db4;
+}
+
+.more-link i {
+    font-size: 0.8rem;
+    transition: transform 0.2s ease;
+}
+
+.more-link:hover i {
+    transform: translateX(3px);
+}
+
+.trainer-social {
+    display: flex;
+    gap: 10px;
+}
+
+.trainer-social .social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    color: #333;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.trainer-social .social-icon:hover {
+    background-color: #0d3c78;
+    color: white;
+}
+
+/* Кнопка "Загрузить еще" */
+.load-more-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.load-more-btn {
+    padding: 12px 25px;
+    background-color: transparent;
+    border: 2px solid #0d3c78;
+    color: #0d3c78;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.load-more-btn:hover {
+    background-color: #0d3c78;
+    color: white;
+}
+
+.load-more-btn i {
+    font-size: 1rem;
+}
+
+/* Секция "Присоединяйтесь к команде" */
+.join-team {
+    margin-top: 60px;
+    display: flex;
+    background-color: #0d3c78;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.join-content {
+    flex: 1;
+    padding: 50px;
+    color: white;
+}
+
+.join-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+.join-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.join-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: white;
+    color: #0d3c78;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.join-btn:hover {
+    background-color: #e2e9f5;
+    transform: translateY(-3px);
+}
+
+.join-image {
+    flex: 1;
+    max-width: 45%;
+}
+
+.join-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Адаптивные стили */
+@media screen and (max-width: 1200px) {
+    .header-content {
+        max-width: 60%;
+    }
+    
+    .trainers-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .trainers-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .header-content {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+    
+    .header-badges {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .filter-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .filter-group, .search-group {
+        width: 100%;
+    }
+    
+    #trainer-search {
+        width: 100%;
+    }
+    
+    .join-team {
+        flex-direction: column;
+    }
+    
+    .join-image {
+        max-width: 100%;
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .trainers-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .header-badges {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .badge-count {
+        flex: 1;
+        min-width: 120px;
+    }
+    
+    .filter-buttons {
+        flex-wrap: wrap;
+    }
+    
+    .trainer-photo {
+        height: 250px;
+    }
+    
+    .join-content {
+        padding: 30px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .header-content h1 {
+        font-size: 2rem;
+    }
+    
+    .header-content p {
+        font-size: 1rem;
+    }
+    
+    .badge-count {
+        padding: 10px 15px;
+    }
+    
+    .badge-count .count {
+        font-size: 1.5rem;
+    }
+    
+    .badge-count .label {
+        font-size: 0.8rem;
+    }
+    
+    .filter-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .trainer-photo {
+        height: 200px;
+    }
+    
+    .trainer-info {
+        padding: 20px;
+    }
+    
+    .trainer-info h3 {
+        font-size: 1.2rem;
+    }
+    
+    .tag {
+        font-size: 0.7rem;
+    }
+    
+    .join-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .join-content p {
+        font-size: 1rem;
+    }
+}
+
+/* Стили для устройств с сенсорным экраном */
+@media (hover: none) {
+    .photo-overlay {
+        opacity: 1;
+        background: rgba(10, 28, 55, 0.5);
+    }
+    
+    .view-profile {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+    
+    .trainer-card:active {
+        transform: scale(0.98);
+    }
+} 
