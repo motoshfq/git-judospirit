@@ -544,182 +544,6 @@
     transform: translateY(-2px);
 }
 
-/* Адаптивные стили */
-@media (max-width: 1200px) {
-    .trainer-content-wrapper {
-        padding: 0 20px;
-    }
-    
-    .trainer-quick-info {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .biography-content {
-        grid-template-columns: 2fr 1fr;
-        gap: 30px;
-    }
-}
-
-@media (max-width: 992px) {
-    .hero-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        margin-top: -180px;
-    }
-    
-    .trainer-portrait {
-        margin-right: 0;
-        margin-bottom: 20px;
-        width: 240px;
-        height: 240px;
-    }
-    
-    .trainer-intro {
-        padding: 0 10px 20px;
-    }
-    
-    .trainer-titles {
-        justify-content: center;
-    }
-    
-    .trainer-stats {
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .biography-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    
-    .biography-timeline {
-        order: -1;
-    }
-    
-    .responsibilities-content {
-        grid-template-columns: 1fr;
-    }
-    
-    .responsibilities-image {
-        grid-column: 1;
-        grid-row: auto;
-        margin-top: 30px;
-    }
-    
-    .contacts-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-}
-
-@media (max-width: 768px) {
-    .trainer-hero {
-        margin-bottom: 40px;
-    }
-    
-    .hero-background {
-        height: 300px;
-    }
-    
-    .hero-content {
-        margin-top: -150px;
-        padding: 0 20px;
-    }
-    
-    .trainer-portrait {
-        width: 200px;
-        height: 200px;
-    }
-    
-    .trainer-intro h1 {
-        font-size: 2rem;
-    }
-    
-    .trainer-quick-info {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    
-    .info-card {
-        padding: 20px;
-    }
-    
-    .trainer-biography,
-    .trainer-territory-map,
-    .trainer-responsibilities,
-    .trainer-contacts {
-        padding: 25px;
-        margin-bottom: 30px;
-    }
-    
-    .trainer-responsibilities {
-        padding: 30px 20px;
-    }
-    
-    .responsibilities-list li {
-        padding: 20px;
-    }
-    
-    .contacts-info {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-}
-
-@media (max-width: 576px) {
-    .hero-background {
-        height: 250px;
-    }
-    
-    .hero-content {
-        margin-top: -120px;
-    }
-    
-    .trainer-portrait {
-        width: 180px;
-        height: 180px;
-    }
-    
-    .trainer-intro h1 {
-        font-size: 1.8rem;
-    }
-    
-    .trainer-titles .title-badge {
-        font-size: 0.8rem;
-        padding: 5px 10px;
-        margin-right: 5px;
-        margin-bottom: 5px;
-    }
-    
-    .trainer-stats {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .stat-item {
-        width: 100%;
-        max-width: 200px;
-        margin-right: 0;
-    }
-    
-    .trainer-biography,
-    .trainer-territory-map,
-    .trainer-responsibilities,
-    .trainer-contacts {
-        padding: 20px;
-        margin-bottom: 25px;
-    }
-    
-    .responsibilities-list li i {
-        font-size: 20px;
-    }
-    
-    .responsibilities-list li h3 {
-        font-size: 18px;
-    }
-}
-
 /* Стили для секции статистики */
 .trainer-stats-overview {
     padding: 30px;
@@ -794,31 +618,167 @@
     line-height: 1.4;
 }
 
+/* Адаптивные стили */
+@media (max-width: 1200px) {
+    .trainer-content-wrapper {
+        padding: 0 20px;
+    }
+    
+    .trainer-quick-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .biography-content {
+        grid-template-columns: 2fr 1fr;
+        gap: 30px;
+    }
+    
+    .stats-container {
+        gap: 15px;
+    }
+    
+    .stat-card {
+        padding: 20px;
+        min-width: 180px;
+    }
+}
+
 @media (max-width: 992px) {
+    .hero-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-top: -180px;
+    }
+    
+    .trainer-portrait {
+        margin-right: 0;
+        margin-bottom: 20px;
+        width: 240px;
+        height: 240px;
+    }
+    
+    .trainer-intro {
+        padding: 0 10px 20px;
+    }
+    
+    .trainer-titles {
+        justify-content: center;
+    }
+    
+    .trainer-stats {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .biography-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .biography-timeline {
+        order: -1;
+    }
+    
+    .responsibilities-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .responsibilities-image {
+        grid-column: 1;
+        grid-row: auto;
+        margin-top: 30px;
+    }
+    
+    .contacts-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
     .stats-container {
         justify-content: center;
     }
     
     .stat-card {
-        max-width: calc(50% - 20px);
+        flex: 1 1 calc(50% - 15px);
+        max-width: calc(50% - 15px);
+    }
+    
+    .trainer-stats-overview {
+        padding: 25px;
+        margin: 25px auto 50px;
     }
 }
 
 @media (max-width: 768px) {
+    .trainer-hero {
+        margin-bottom: 40px;
+        border-radius: 8px;
+    }
+    
+    .hero-background {
+        height: 300px;
+    }
+    
+    .hero-content {
+        margin-top: -150px;
+        padding: 0 20px;
+    }
+    
+    .trainer-portrait {
+        width: 200px;
+        height: 200px;
+        border-width: 3px;
+    }
+    
+    .trainer-intro h1 {
+        font-size: 2rem;
+    }
+    
+    .trainer-quick-info {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+    
+    .info-card {
+        padding: 20px;
+    }
+    
+    .trainer-biography,
+    .trainer-territory-map,
+    .trainer-responsibilities,
+    .trainer-contacts {
+        padding: 25px;
+        margin-bottom: 30px;
+        border-radius: 8px;
+    }
+    
+    .trainer-responsibilities {
+        padding: 25px 20px;
+        margin: 40px 0;
+    }
+    
+    .responsibilities-list li {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .contacts-info {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
     .trainer-stats-overview {
         padding: 20px;
         margin: 20px auto 40px;
+        border-radius: 8px;
     }
     
     .stat-card {
         flex: 1 1 100%;
         max-width: 100%;
-    }
-}
-
-@media (max-width: 576px) {
-    .stat-card {
-        padding: 16px;
+        padding: 18px;
     }
     
     .stat-icon {
@@ -827,10 +787,186 @@
     }
     
     .stat-value {
-        font-size: 22px;
+        font-size: 24px;
     }
     
     .stat-label {
         font-size: 13px;
+    }
+    
+    .trainer-biography h2, 
+    .trainer-territory-map h2,
+    .trainer-responsibilities .section-title,
+    .trainer-contacts .section-title {
+        font-size: 28px;
+        padding-bottom: 12px;
+    }
+    
+    .biography-text .biography-intro {
+        font-size: 1.1rem;
+        padding-left: 15px;
+    }
+    
+    .contact-form-container {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-background {
+        height: 250px;
+    }
+    
+    .hero-content {
+        margin-top: -120px;
+    }
+    
+    .trainer-portrait {
+        width: 180px;
+        height: 180px;
+        border-width: 3px;
+    }
+    
+    .trainer-intro h1 {
+        font-size: 1.8rem;
+    }
+    
+    .trainer-titles {
+        margin-bottom: 15px;
+    }
+    
+    .trainer-titles .title-badge {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+    
+    .trainer-stats {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .stat-item {
+        width: 100%;
+        max-width: 200px;
+        margin-right: 0;
+    }
+    
+    .trainer-biography,
+    .trainer-territory-map,
+    .trainer-responsibilities,
+    .trainer-contacts {
+        padding: 20px 15px;
+        margin-bottom: 25px;
+    }
+    
+    .trainer-content-wrapper {
+        padding: 0 15px;
+    }
+    
+    .responsibilities-list li {
+        padding: 15px;
+        flex-direction: column;
+    }
+    
+    .responsibilities-list li i {
+        font-size: 20px;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    .responsibilities-list li h3 {
+        font-size: 18px;
+        text-align: center;
+    }
+    
+    .trainer-stats-overview {
+        padding: 15px;
+        margin: 15px auto 30px;
+    }
+    
+    .stat-card {
+        padding: 15px;
+    }
+    
+    .stat-icon {
+        width: 45px;
+        height: 45px;
+        margin-right: 12px;
+    }
+    
+    .stat-value {
+        font-size: 20px;
+    }
+    
+    .stat-label {
+        font-size: 12px;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        padding: 10px 12px;
+        font-size: 15px;
+    }
+    
+    .submit-btn {
+        padding: 10px 20px;
+        font-size: 15px;
+    }
+    
+    .info-card h3 {
+        font-size: 18px;
+    }
+    
+    .info-card ul li {
+        font-size: 14px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .info-card ul li strong {
+        min-width: auto;
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 375px) {
+    .trainer-portrait {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .trainer-intro h1 {
+        color: var(--primary-color);
+        font-size: 1.6rem;
+    }
+    
+    .title-badge {
+        font-size: 0.75rem;
+        padding: 4px 8px;
+    }
+    
+    .stat-card {
+        padding: 12px;
+    }
+    
+    .stat-icon {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
+    
+    .stat-value {
+        font-size: 18px;
+    }
+    
+    .stat-label {
+        font-size: 11px;
+    }
+    
+    .biography-text .biography-intro {
+        font-size: 1rem;
+        padding-left: 12px;
     }
 }
