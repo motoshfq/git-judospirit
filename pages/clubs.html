@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Клуби дзюдо України | JUDO SPIRIT</title>
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/pages/clubs.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,500&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Кнопка мобільного меню -->
+    <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+    
+    <!-- Затемнення фону при відкритому меню -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+
+    <div class="page-container">
+        <!-- Бокова навігація -->
+        <nav class="side-nav">
+            <div class="logo">
+                <h1>JUDO<span>SPIRIT</span></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html"><i class="fas fa-home"></i> Головна</a></li>
+                <li><a href="calendar.html"><i class="fas fa-calendar-alt"></i> Календар</a></li>
+                <li><a href="techniques.html"><i class="fas fa-fist-raised"></i> Техніки</a></li>
+                <li><a href="athletes.html"><i class="fas fa-medal"></i> Атлети</a></li>
+                <li><a href="trainers.html"><i class="fas fa-user-tie"></i> Тренери та судді</a></li>
+                <li><a href="clubs.html" class="active"><i class="fas fa-building"></i> Клуби</a></li>
+                <li><a href="gallery.html"><i class="fas fa-images"></i> Галерея</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> Про блог</a></li>
+            </ul>
+            <div class="social-links">
+                <a href="#" class="social-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook"></a>
+                <a href="#" class="social-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram"></a>
+                <a href="#" class="social-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram"></a>
+            </div>
+        </nav>
+
+        <!-- Основний контент -->
+        <main class="main-content">
+
+            <section class="page-header">
+                <h1>Клуби дзюдо України</h1>
+                <p class="subtitle">Знайдіть клуб дзюдо поблизу або дізнайтеся більше про спортивні центри по всій Україні</p>
+            </section>
+
+            <!-- Фільтри для пошуку клубу -->
+            <section class="clubs-filter">
+                <div class="filter-container">
+                    <div class="search-group filter-group">
+                        <label for="club-search">Пошук клубу</label>
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="club-search" placeholder="Введіть назву клубу або місто...">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="region-filter">Область</label>
+                        <select id="region-filter">
+                            <option value="">Вся Україна</option>
+                            <option value="kyiv">Київ</option>
+                            <option value="kyiv-oblast">Київська область</option>
+                            <option value="lviv">Львівська область</option>
+                            <option value="kharkiv">Харківська область</option>
+                            <option value="odesa">Одеська область</option>
+                            <option value="dnipro">Дніпропетровська область</option>
+                            <!-- Інші області... -->
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="age-filter">Вікова категорія</label>
+                        <select id="age-filter">
+                            <option value="">Всі вікові категорії</option>
+                            <option value="kids">Діти (4-6 років)</option>
+                            <option value="juniors">Юніори (7-12 років)</option>
+                            <option value="teens">Підлітки (13-17 років)</option>
+                            <option value="adults">Дорослі (18+ років)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="filter-buttons">
+                    <button class="filter-button reset">Скинути фільтри</button>
+                    <button class="filter-button">Знайти клуб</button>
+                </div>
+            </section>
+
+            <!-- Сітка клубів -->
+            <section class="clubs-grid">
+                <!-- Клуб 1 -->
+                <div class="club-card">
+                    <div class="club-image">
+                        <img src="../assets/images/clubs/club1.jpg" alt="Спортивний клуб 'Динамо'">
+                    </div>
+                    <div class="club-content">
+                        <h3 class="club-title">СК "Динамо"</h3>
+                        <div class="club-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Київ, вул. Велика Васильківська, 55</span>
+                        </div>
+                        <div class="club-info">
+                            <div class="club-info-item">
+                                <i class="fas fa-users"></i>
+                                <span>Вікові групи: 5-7, 8-12, 13-17, 18+</span>
+                            </div>
+                            <div class="club-info-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+38 (044) 123-45-67</span>
+                            </div>
+                        </div>
+                        <p class="club-description">Один із найстаріших спортивних клубів дзюдо в Україні з славетними традиціями та видатними випускниками.</p>
+                        <div class="club-features">
+                            <span class="club-feature">Тренажерний зал</span>
+                            <span class="club-feature">Сауна</span>
+                            <span class="club-feature">Безкоштовне паркування</span>
+                        </div>
+                        <div class="club-actions">
+                            <div class="club-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.8/5</span>
+                            </div>
+                            <a href="club/dinamo.html" class="view-details">Детальніше</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Клуб 2 -->
+                <div class="club-card">
+                    <div class="club-image">
+                        <img src="../assets/images/clubs/club2.jpg" alt="Школа дзюдо 'Іппон'">
+                    </div>
+                    <div class="club-content">
+                        <h3 class="club-title">Школа дзюдо "Іппон"</h3>
+                        <div class="club-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Львів, вул. Шевченка, 27</span>
+                        </div>
+                        <div class="club-info">
+                            <div class="club-info-item">
+                                <i class="fas fa-users"></i>
+                                <span>Вікові групи: 4-6, 7-12, 13-16</span>
+                            </div>
+                            <div class="club-info-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+38 (032) 987-65-43</span>
+                            </div>
+                        </div>
+                        <p class="club-description">Сучасний спортивний клуб з фокусом на навчання дітей та підлітків. Професійні тренери з міжнародним досвідом.</p>
+                        <div class="club-features">
+                            <span class="club-feature">Дитячі групи</span>
+                            <span class="club-feature">Індивідуальні тренування</span>
+                            <span class="club-feature">Гнучкий графік</span>
+                        </div>
+                        <div class="club-actions">
+                            <div class="club-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.9/5</span>
+                            </div>
+                            <a href="club/ippon.html" class="view-details">Детальніше</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Клуб 3 -->
+                <div class="club-card">
+                    <div class="club-image">
+                        <img src="../assets/images/clubs/club3.jpg" alt="Спортивна академія 'Лідер'">
+                    </div>
+                    <div class="club-content">
+                        <h3 class="club-title">Спортивна академія "Лідер"</h3>
+                        <div class="club-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Харків, просп. Науки, 14</span>
+                        </div>
+                        <div class="club-info">
+                            <div class="club-info-item">
+                                <i class="fas fa-users"></i>
+                                <span>Вікові групи: 7-12, 13-17, 18+</span>
+                            </div>
+                            <div class="club-info-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+38 (057) 765-43-21</span>
+                            </div>
+                        </div>
+                        <p class="club-description">Комплексний підхід до тренувань та фізичного розвитку. Підготовка до змагань всіх рівнів.</p>
+                        <div class="club-features">
+                            <span class="club-feature">Спортивна медицина</span>
+                            <span class="club-feature">Реабілітація</span>
+                            <span class="club-feature">Харчування</span>
+                        </div>
+                        <div class="club-actions">
+                            <div class="club-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.7/5</span>
+                            </div>
+                            <a href="club/leader.html" class="view-details">Детальніше</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Клуб 4 -->
+                <div class="club-card">
+                    <div class="club-image">
+                        <img src="../assets/images/clubs/club4.jpg" alt="Центр бойових мистецтв 'Самурай'">
+                    </div>
+                    <div class="club-content">
+                        <h3 class="club-title">Центр бойових мистецтв "Самурай"</h3>
+                        <div class="club-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Одеса, вул. Дерибасівська, 19</span>
+                        </div>
+                        <div class="club-info">
+                            <div class="club-info-item">
+                                <i class="fas fa-users"></i>
+                                <span>Вікові групи: 6-10, 11-15, 16+</span>
+                            </div>
+                            <div class="club-info-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+38 (048) 234-56-78</span>
+                            </div>
+                        </div>
+                        <p class="club-description">Багатопрофільний центр бойових мистецтв, де дзюдо викладається за традиційними японськими методиками.</p>
+                        <div class="club-features">
+                            <span class="club-feature">Декілька бойових мистецтв</span>
+                            <span class="club-feature">Традиційний підхід</span>
+                            <span class="club-feature">Підготовка до змагань</span>
+                        </div>
+                        <div class="club-actions">
+                            <div class="club-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.6/5</span>
+                            </div>
+                            <a href="club/samurai.html" class="view-details">Детальніше</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Клуб 5 -->
+                <div class="club-card">
+                    <div class="club-image">
+                        <img src="../assets/images/clubs/club5.jpg" alt="Дитяча школа дзюдо 'Чемпіон'">
+                    </div>
+                    <div class="club-content">
+                        <h3 class="club-title">Дитяча школа дзюдо "Чемпіон"</h3>
+                        <div class="club-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Дніпро, вул. Святослава Хороброго, 7</span>
+                        </div>
+                        <div class="club-info">
+                            <div class="club-info-item">
+                                <i class="fas fa-users"></i>
+                                <span>Вікові групи: 4-6, 7-10, 11-14</span>
+                            </div>
+                            <div class="club-info-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+38 (056) 345-67-89</span>
+                            </div>
+                        </div>
+                        <p class="club-description">Спеціалізована школа для дітей, де заняття проводяться з урахуванням вікових особливостей та індивідуального підходу.</p>
+                        <div class="club-features">
+                            <span class="club-feature">Розвиток моторики</span>
+                            <span class="club-feature">Загальна фізична підготовка</span>
+                            <span class="club-feature">Ігрова форма навчання</span>
+                        </div>
+                        <div class="club-actions">
+                            <div class="club-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.9/5</span>
+                            </div>
+                            <a href="club/champion.html" class="view-details">Детальніше</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Клуб 6 -->
+                <div class="club-card">
+                    <div class="club-image">
+                        <img src="../assets/images/clubs/club6.jpg" alt="Спортивний комплекс 'Олімп'">
+                    </div>
+                    <div class="club-content">
+                        <h3 class="club-title">Спортивний комплекс "Олімп"</h3>
+                        <div class="club-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Запоріжжя, просп. Соборний, 29</span>
+                        </div>
+                        <div class="club-info">
+                            <div class="club-info-item">
+                                <i class="fas fa-users"></i>
+                                <span>Вікові групи: 8-12, 13-17, 18+</span>
+                            </div>
+                            <div class="club-info-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+38 (061) 456-78-90</span>
+                            </div>
+                        </div>
+                        <p class="club-description">Професійний спортивний комплекс з великим додзьо для дзюдо та кваліфікованими тренерами і суддями.</p>
+                        <div class="club-features">
+                            <span class="club-feature">Великий зал</span>
+                            <span class="club-feature">Професійне обладнання</span>
+                            <span class="club-feature">Змагання</span>
+                        </div>
+                        <div class="club-actions">
+                            <div class="club-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.7/5</span>
+                            </div>
+                            <a href="club/olymp.html" class="view-details">Детальніше</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Пагінація -->
+            <nav class="pagination">
+                <ul class="pagination-list">
+                    <li class="pagination-item disabled">
+                        <a href="#" aria-label="Попередня сторінка">
+                            <i class="fas fa-chevron-left"></i>
+                        </a>
+                    </li>
+                    <li class="pagination-item active">
+                        <a href="#">1</a>
+                    </li>
+                    <li class="pagination-item">
+                        <a href="#">2</a>
+                    </li>
+                    <li class="pagination-item">
+                        <a href="#">3</a>
+                    </li>
+                    <li class="pagination-item">
+                        <a href="#">4</a>
+                    </li>
+                    <li class="pagination-item">
+                        <a href="#">5</a>
+                    </li>
+                    <li class="pagination-item">
+                        <a href="#" aria-label="Наступна сторінка">
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>JUDO<span>SPIRIT</span></h2>
+                <p>Ваш провідник у світі дзюдо</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Розділи</h4>
+                    <ul>
+                        <li><a href="../index.html">Головна</a></li>
+                        <li><a href="calendar.html">Календар</a></li>
+                        <li><a href="techniques.html">Техніки</a></li>
+                        <li><a href="athletes.html">Атлети</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Інформація</h4>
+                    <ul>
+                        <li><a href="about.html">Про блог</a></li>
+                        <li><a href="contact.html">Контакти</a></li>
+                        <li><a href="privacy.html">Політика конфіденційності</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Контакти</h4>
+                    <ul class="contact-info">
+                        <li><a href="mailto:info@judospirit.ua">info@judospirit.ua</a></li>
+                        <li><a href="tel:+380501234567">+38 (050) 123-45-67</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 JUDOSPIRIT. Всі права захищені.</p>
+        </div>
+    </footer>
+
+    <!-- Подключаем основной JavaScript файл -->
+    <script src="../js/main.js"></script>
+</body>
+</html> 

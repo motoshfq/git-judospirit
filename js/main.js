@@ -3,51 +3,68 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Мобильное меню
-    /*
-    const createMobileMenu = () => {
-        if (window.innerWidth <= 768) {
-            // Создаем кнопку мобильного меню, если её еще нет
-            if (!document.querySelector('.mobile-menu-toggle')) {
-                const menuToggle = document.createElement('div');
-                menuToggle.className = 'mobile-menu-toggle';
-                menuToggle.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
-                document.body.appendChild(menuToggle);
-                
-                // Добавляем обработчик события для кнопки
-                menuToggle.addEventListener('click', function() {
-                    const sideNav = document.querySelector('.side-nav');
-                    sideNav.classList.toggle('active');
-                    
-                    // Изменяем иконку в зависимости от состояния меню
-                    if (sideNav.classList.contains('active')) {
-                        this.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
-                    } else {
-                        this.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
-                    }
-                });
-            }
-        } else {
-            // Удаляем кнопку мобильного меню, если она есть и размер экрана больше 768px
-            const menuToggle = document.querySelector('.mobile-menu-toggle');
-            if (menuToggle) {
-                menuToggle.remove();
+
+    // Удаляем создание мобильного меню, так как оно уже есть в HTML
+    // и оставляем только функциональность
+    
+    // Инициализация мобильного меню (универсальная для всех страниц)
+    function initMobileMenu() {
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const sideNav = document.querySelector('.side-nav');
+        const menuOverlay = document.getElementById('menu-overlay');
+        
+        if (mobileMenuToggle && sideNav && menuOverlay) {
+            // Функция для переключения меню
+            function toggleMenu() {
+                sideNav.classList.toggle('active');
+                mobileMenuToggle.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                document.body.classList.toggle('menu-open');
             }
             
-            // Убираем класс active у боковой навигации
-            const sideNav = document.querySelector('.side-nav');
-            if (sideNav) {
+            // Очищаем существующие обработчики, чтобы избежать дублирования
+            mobileMenuToggle.removeEventListener('click', toggleMenu);
+            menuOverlay.removeEventListener('click', toggleMenu);
+            
+            // Добавляем новые обработчики
+            mobileMenuToggle.addEventListener('click', toggleMenu);
+            menuOverlay.addEventListener('click', toggleMenu);
+            
+            // Закрытие меню при клике на ссылку
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (sideNav.classList.contains('active')) {
+                        toggleMenu();
+                    }
+                });
+            });
+            
+            // Закрытие меню при нажатии клавиши Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && sideNav.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+            
+            // Устанавливаем правильное начальное состояние меню
+            if (window.innerWidth > 992) {
                 sideNav.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.classList.remove('menu-open');
             }
         }
-    };
+    }
 
-    // Вызываем функцию при загрузке страницы
-    createMobileMenu();
+    // Инициализируем мобильное меню при загрузке страницы
+    initMobileMenu();
     
-    // Вызываем функцию при изменении размера окна
-    window.addEventListener('resize', createMobileMenu);
-    */
+    // Также инициализируем меню при изменении размера окна
+    window.addEventListener('resize', function() {
+        initMobileMenu();
+    });
+    
 
     // Инициализация слайдера событий
     initEventSlider();
@@ -187,17 +204,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     behavior: 'smooth',
                     block: 'start'
                 });
-                
-                // Закрываем мобильное меню при клике на ссылку
-                const sideNav = document.querySelector('.side-nav');
-                if (sideNav && sideNav.classList.contains('active')) {
-                    sideNav.classList.remove('active');
-                    
-                    const menuToggle = document.querySelector('.mobile-menu-toggle');
-                    if (menuToggle) {
-                        menuToggle.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
-                    }
-                }
             }
         });
     });
@@ -211,42 +217,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Инициализация модального окна для просмотра изображений
     initImageModal();
-
-    // Инициализация мобильного меню
-    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-    const sideNav = document.querySelector('.side-nav');
-    const menuOverlay = document.getElementById('menu-overlay');
-    
-    if (mobileMenuToggle && sideNav && menuOverlay) {
-        // Функция для переключения меню
-        function toggleMenu() {
-            sideNav.classList.toggle('active');
-            mobileMenuToggle.classList.toggle('active');
-            menuOverlay.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
-        }
-        
-        // Обработчики событий
-        mobileMenuToggle.addEventListener('click', toggleMenu);
-        menuOverlay.addEventListener('click', toggleMenu);
-        
-        // Закрытие меню при клике на ссылку
-        const navLinks = document.querySelectorAll('.nav-links a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (sideNav.classList.contains('active')) {
-                    toggleMenu();
-                }
-            });
-        });
-        
-        // Закрытие меню при нажатии клавиши Escape
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && sideNav.classList.contains('active')) {
-                toggleMenu();
-            }
-        });
-    }
 });
 
 /**

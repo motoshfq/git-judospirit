@@ -58,15 +58,15 @@
                 </div>
                 <div class="header-badges">
                     <div class="badge-count">
-                        <span class="count">12</span>
+                        <span class="count">0</span>
                         <span class="label">Тренерів</span>
                     </div>
                     <div class="badge-count">
-                        <span class="count">8</span>
+                        <span class="count">2</span>
                         <span class="label">Суддів</span>
                     </div>
                     <div class="badge-count">
-                        <span class="count">4</span>
+                        <span class="count">2</span>
                         <span class="label">Міжнародної категорії</span>
                     </div>
                 </div>
@@ -87,12 +87,20 @@
                     <div class="search-group">
                         <input type="text" id="trainer-search" placeholder="Пошук за іменем...">
                         <button class="search-btn"><i class="fas fa-search"></i></button>
+                        <span class="search-status">Пошук...</span>
                     </div>
                 </div>
             </section>
 
             <!-- Список тренерів та суддів -->
             <section class="trainers-list">
+                <!-- Повідомлення про відсутність результатів -->
+                <div class="no-results-message">
+                    <i class="fas fa-search"></i>
+                    <h3>Нічого не знайдено</h3>
+                    <p>Спробуйте змінити параметри пошуку або фільтри</p>
+                </div>
+                
                 <!-- Перший ряд -->
                 <div class="trainers-row">
                     <!-- Дмитро Ігнатенко -->
@@ -124,7 +132,7 @@
                         <div class="trainer-photo">
                             <img src="../assets/images/trainers/sulima-2.jpg" alt="Віталій Суліма">
                             <div class="photo-overlay">
-                                <a href="#" class="view-profile">Переглянути профіль</a>
+                                <a href="trainer/vitaliy-sulima.html" class="view-profile">Переглянути профіль</a>
                             </div>
                         </div>
                         <div class="trainer-info">
@@ -193,56 +201,208 @@
             const filterBtns = document.querySelectorAll('.filter-btn');
             const trainerCards = document.querySelectorAll('.trainer-card');
             const searchInput = document.getElementById('trainer-search');
+            const searchBtn = document.querySelector('.search-btn');
+            const searchGroup = document.querySelector('.search-group');
+            const noResultsMessage = document.querySelector('.no-results-message');
+            
+            // Функція для плавної фільтрації карток
+            function filterTrainers(filter) {
+                // Приховуємо повідомлення про відсутність результатів
+                noResultsMessage.classList.remove('visible');
+                
+                let foundCount = 0;
+                
+                trainerCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-categories').includes(filter)) {
+                        // Плавно показуємо картку
+                        setTimeout(() => {
+                            card.classList.remove('hidden');
+                        }, 50 * foundCount); // Невелика затримка для ефекту каскаду
+                        
+                        foundCount++;
+                    } else {
+                        // Плавно приховуємо картку
+                        card.classList.add('hidden');
+                    }
+                });
+                
+                return foundCount;
+            }
+            
+            // Функція для очищення результатів пошуку
+            function clearSearch() {
+                searchInput.value = '';
+                searchGroup.classList.remove('has-value');
+                searchGroup.classList.remove('searching');
+                
+                // Повертаємо карточки згідно активного фільтра
+                const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+                filterTrainers(activeFilter);
+                
+                // Фокусуємо поле пошуку
+                searchInput.focus();
+            }
+            
+            // Функція для плавного пошуку
+            function searchTrainers(searchTerm) {
+                searchGroup.classList.add('searching');
+                
+                setTimeout(() => {
+                    let foundCount = 0;
+                    searchTerm = searchTerm.toLowerCase().trim();
+                    
+                    if (searchTerm === '') {
+                        // Якщо пошуковий запит порожній, показуємо всі картки
+                        const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+                        foundCount = filterTrainers(activeFilter);
+                        
+                        searchGroup.classList.remove('searching');
+                        return;
+                    }
+                    
+                    // Спочатку приховуємо всі картки
+                    trainerCards.forEach(card => {
+                        card.classList.add('hidden');
+                    });
+                    
+                    // Приховуємо повідомлення про відсутність результатів
+                    noResultsMessage.classList.remove('visible');
+                    
+                    // Потім показуємо тільки ті, що відповідають пошуку
+                    setTimeout(() => {
+                        trainerCards.forEach(card => {
+                            const trainerName = card.querySelector('h3').textContent.toLowerCase();
+                            const trainerInfo = card.querySelector('.trainer-description')?.textContent.toLowerCase() || '';
+                            const trainerTags = card.querySelector('.trainer-tags')?.textContent.toLowerCase() || '';
+                            
+                            // Перевіряємо чи містить ім'я або опис або теги пошуковий запит
+                            if (trainerName.includes(searchTerm) || 
+                                trainerInfo.includes(searchTerm) || 
+                                trainerTags.includes(searchTerm)) {
+                                    
+                                // Затримка для каскадного ефекту появи карток    
+                                setTimeout(() => {
+                                    card.classList.remove('hidden');
+                                }, 80 * foundCount);
+                                
+                                foundCount++;
+                            }
+                        });
+                        
+                        // Якщо нічого не знайдено, показуємо повідомлення
+                        if (foundCount === 0) {
+                            setTimeout(() => {
+                                noResultsMessage.classList.add('visible');
+                            }, 300);
+                        }
+                        
+                        searchGroup.classList.remove('searching');
+                    }, 300); // Затримка перед показом результатів
+                }, 300); // Симуляція пошуку для кращого UX
+            }
             
             // Обробка кліків по кнопках фільтрації
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
-                    // Видаляємо активний клас у всіх кнопок
+                    // Додаємо активний клас з затримкою для ефекту натискання
                     filterBtns.forEach(b => b.classList.remove('active'));
-                    // Додаємо активний клас поточній кнопці
+                    
+                    // Створюємо ефект натискання
                     this.classList.add('active');
                     
                     const filter = this.getAttribute('data-filter');
                     
-                    // Фільтруємо картки
-                    trainerCards.forEach(card => {
-                        if (filter === 'all' || card.getAttribute('data-categories').includes(filter)) {
-                            card.style.display = 'flex';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                });
-            });
-            
-            // Пошук за іменем
-            searchInput.addEventListener('input', function() {
-                const searchTerm = this.value.toLowerCase();
-                
-                trainerCards.forEach(card => {
-                    const trainerName = card.querySelector('h3').textContent.toLowerCase();
+                    // Скидаємо поле пошуку при зміні фільтру
+                    searchInput.value = '';
+                    searchGroup.classList.remove('has-value');
                     
-                    if (trainerName.includes(searchTerm)) {
-                        card.style.display = 'flex';
-                    } else {
-                        card.style.display = 'none';
-                    }
+                    // Фільтруємо картки з анімацією
+                    filterTrainers(filter);
                 });
             });
             
-            // Кнопка "Завантажити більше"
-            const loadMoreBtn = document.getElementById('load-more-trainers');
-            
-            loadMoreBtn.addEventListener('click', function() {
-                // Імітація завантаження
-                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Завантаження...';
-                
-                setTimeout(() => {
-                    // Після імітації завантаження ховаємо кнопку 
-                    // (в реальності тут був би код для завантаження додаткових тренерів)
-                    this.style.display = 'none';
-                }, 1500);
+            // Додаємо обробник для кнопки очищення пошуку
+            document.addEventListener('click', function(e) {
+                if (e.target === searchGroup.querySelector('::after')) {
+                    clearSearch();
+                }
             });
+            
+            // Очищення пошуку при Escape
+            searchInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    clearSearch();
+                }
+            });
+            
+            // Додаємо очищення пошуку при фокусі, якщо поле не порожнє
+            searchInput.addEventListener('focus', function() {
+                if (this.value.trim() !== '') {
+                    // Додаємо кнопку очищення
+                    searchGroup.classList.add('has-value');
+                }
+            });
+            
+            // Пошук за іменем при введенні тексту
+            searchInput.addEventListener('input', function() {
+                if (this.value.trim() !== '') {
+                    searchGroup.classList.add('has-value');
+                } else {
+                    searchGroup.classList.remove('has-value');
+                    // Повертаємо карточки згідно активного фільтра
+                    const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+                    filterTrainers(activeFilter);
+                    
+                    // Приховуємо повідомлення про відсутність результатів
+                    noResultsMessage.classList.remove('visible');
+                    return;
+                }
+                
+                // Додаємо невелику затримку для кращого UX
+                clearTimeout(this.searchTimeout);
+                this.searchTimeout = setTimeout(() => {
+                    searchTrainers(this.value);
+                }, 300);
+            });
+            
+            // Пошук при натисканні на кнопку
+            searchBtn.addEventListener('click', function() {
+                if (searchInput.value.trim() !== '') {
+                    searchTrainers(searchInput.value);
+                } else {
+                    searchInput.focus();
+                }
+            });
+            
+            // Анімація кнопки пошуку при фокусі поля
+            searchInput.addEventListener('focus', function() {
+                searchBtn.classList.add('focused');
+            });
+            
+            searchInput.addEventListener('blur', function() {
+                searchBtn.classList.remove('focused');
+            });
+            
+            // Обробка натискання Enter у полі пошуку
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchTrainers(this.value);
+                    e.preventDefault();
+                }
+            });
+            
+            // Ініціалізація - показуємо всі картки з ефектом каскаду
+            setTimeout(() => {
+                trainerCards.forEach((card, index) => {
+                    // Спочатку приховуємо всі
+                    card.classList.add('hidden');
+                    
+                    // Потім плавно показуємо з затримкою
+                    setTimeout(() => {
+                        card.classList.remove('hidden');
+                    }, 100 * index);
+                });
+            }, 100);
         });
     </script>
 </body>

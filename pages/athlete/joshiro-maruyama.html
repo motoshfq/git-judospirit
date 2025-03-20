@@ -9,125 +9,17 @@
     <link rel="stylesheet" href="../../css/pages/athlete-detail.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,500&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        /* Стили для секции достижений */
-        .athlete-achievements {
-            margin: 3rem 0;
-            padding: 2rem;
-            background-color: #f9f9f9;
-            border-radius: 10px;
-        }
-
-        .achievements-subtitle {
-            font-size: 1.1rem;
-            color: #555;
-            margin-top: -0.5rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            font-style: italic;
-        }
-
-        .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .achievement-card {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-            padding: 1.5rem;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .achievement-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-        }
-
-        .achievement-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.2rem;
-            padding-bottom: 0.8rem;
-            border-bottom: 2px solid #f0f0f0;
-        }
-
-        .achievement-header i {
-            font-size: 1.5rem;
-            margin-right: 0.8rem;
-            color: #d4af37;
-        }
-
-        .achievement-header h3 {
-            margin: 0;
-            font-size: 1.2rem;
-            color: #333;
-        }
-
-        .achievement-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .achievement-list li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.8rem;
-            font-size: 0.95rem;
-        }
-
-        .medal-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            margin-right: 0.8rem;
-            flex-shrink: 0;
-        }
-
-        .medal-icon i {
-            font-size: 0.9rem;
-        }
-
-        .medal-icon.gold {
-            background: linear-gradient(145deg, #ffd700, #f0c000);
-            color: #5e4c00;
-        }
-
-        .medal-icon.silver {
-            background: linear-gradient(145deg, #e0e0e0, #c0c0c0);
-            color: #333;
-        }
-
-        .medal-icon.bronze {
-            background: linear-gradient(145deg, #cd7f32, #a05a2c);
-            color: #fff;
-        }
-
-        .medal-icon.record {
-            background: linear-gradient(145deg, #4a90e2, #3a70b2);
-            color: #fff;
-        }
-
-        @media (max-width: 992px) {
-            .achievements-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .achievements-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
+    <!-- Кнопка мобільного меню -->
+    <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <i class="fas fa-bars"></i>
+        <i class="fas fa-times"></i>
+    </div>
+    
+    <!-- Затемнення фону при відкритому меню -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+
     <div class="page-container">
         <!-- Бокова навігація -->
         <nav class="side-nav">
@@ -587,5 +479,8 @@
             });
         });
     </script>
+
+    <!-- Подключаем основной JavaScript файл -->
+    <script src="../../js/main.js"></script>
 </body>
 </html> 

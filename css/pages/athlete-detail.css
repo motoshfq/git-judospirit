@@ -1119,3 +1119,346 @@ blockquote footer {
         width: 40px;
     }
 }
+
+/* Дополнительные стили для сверхузких экранов */
+@media (max-width: 375px) {
+    /* Общая структура страницы */
+    .main-content {
+        padding: 10px;
+    }
+    
+    .breadcrumbs {
+        font-size: 12px;
+        margin-bottom: 15px;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 5px;
+    }
+    
+    /* Герой-секция */
+    .athlete-hero {
+        margin-bottom: 30px;
+        height: auto;
+        padding-top: 60px;
+    }
+    
+    .hero-content {
+        flex-direction: column;
+        padding: 20px 10px;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .athlete-portrait {
+        margin: 0 auto 20px;
+        flex: none;
+    }
+    
+    .athlete-portrait img {
+        width: 140px;
+        height: 180px;
+    }
+    
+    .athlete-intro h1 {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+    
+    .athlete-titles {
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+    
+    .title-badge {
+        font-size: 11px;
+        padding: 4px 8px;
+        margin-bottom: 5px;
+    }
+    
+    .athlete-stats {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px;
+    }
+    
+    .stat-item {
+        width: 90%;
+        padding: 8px 10px;
+    }
+    
+    .stat-value {
+        font-size: 18px;
+    }
+    
+    .stat-label {
+        font-size: 10px;
+    }
+    
+    /* Контент */
+    .athlete-content-wrapper {
+        padding: 0 5px;
+    }
+    
+    .athlete-quick-info {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+    
+    .info-card {
+        padding: 15px 12px;
+    }
+    
+    .info-card h3 {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+    
+    .info-card li {
+        font-size: 13px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .info-card strong {
+        margin-bottom: 3px;
+        display: block;
+        width: 100%;
+    }
+    
+    /* Биография */
+    .athlete-biography,
+    .athlete-achievements,
+    .athlete-video,
+    .athlete-quotes,
+    .athlete-awards {
+        padding: 20px 15px;
+        margin-bottom: 30px;
+    }
+    
+    .athlete-biography h2,
+    .athlete-gallery h2,
+    .athlete-video h2,
+    .athlete-quotes h2,
+    .athlete-social h2,
+    .athlete-achievements h2,
+    .athlete-awards h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        text-align: center;
+    }
+    
+    .athlete-biography h2::after,
+    .athlete-gallery h2::after,
+    .athlete-video h2::after,
+    .athlete-quotes h2::after,
+    .athlete-social h2::after,
+    .athlete-achievements h2::after,
+    .athlete-awards h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .biography-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .biography-intro {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+    
+    .biography-text h3 {
+        font-size: 18px;
+        margin: 15px 0 8px;
+    }
+    
+    .biography-text p {
+        font-size: 13px;
+        margin-bottom: 12px;
+        line-height: 1.5;
+    }
+    
+    .biography-timeline {
+        padding: 15px 12px;
+    }
+    
+    .timeline {
+        padding-left: 25px;
+    }
+    
+    .timeline-date::after {
+        font-size: 12px;
+        left: -22px;
+    }
+    
+    .timeline-content {
+        padding: 10px;
+    }
+    
+    .timeline-content h4 {
+        font-size: 14px;
+    }
+    
+    .timeline-content p {
+        font-size: 12px;
+    }
+    
+    /* Галерея */
+    .gallery-tabs,
+    .achievements-tabs,
+    .video-tabs {
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 15px;
+        justify-content: center;
+    }
+    
+    .gallery-tab,
+    .achievement-tab,
+    .video-tab {
+        padding: 6px 10px;
+        font-size: 11px;
+        flex: 0 0 calc(50% - 6px);
+        text-align: center;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .gallery-item img {
+        height: 180px;
+    }
+    
+    .gallery-caption {
+        padding: 10px;
+    }
+    
+    .gallery-caption h4 {
+        font-size: 14px;
+    }
+    
+    .gallery-caption p {
+        font-size: 12px;
+    }
+    
+    /* Достижения */
+    .medals-list {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .medal-item {
+        padding: 12px 10px;
+    }
+    
+    /* Цитаты */
+    .quotes-container {
+        grid-template-columns: 1fr;
+    }
+    
+    blockquote {
+        padding: 15px;
+    }
+    
+    blockquote p {
+        font-size: 14px;
+    }
+    
+    /* Соцсети */
+    .social-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .social-button {
+        width: 90%;
+        padding: 10px 15px;
+        font-size: 14px;
+        margin: 0 auto;
+    }
+    
+    /* Видео */
+    .video-container {
+        border-radius: 8px;
+    }
+    
+    .video-caption {
+        font-size: 12px;
+        margin-top: 10px;
+    }
+    
+    /* Награды */
+    .award-item {
+        padding: 15px;
+        flex-direction: column;
+    }
+    
+    .award-icon {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    .award-details h4 {
+        font-size: 16px;
+    }
+    
+    .award-description {
+        font-size: 13px;
+    }
+}
+
+/* iPhone SE и другие очень маленькие устройства */
+@media (max-width: 320px) {
+    .athlete-portrait img {
+        width: 120px;
+        height: 160px;
+    }
+    
+    .athlete-intro h1 {
+        font-size: 20px;
+    }
+    
+    .title-badge {
+        font-size: 10px;
+        padding: 3px 6px;
+    }
+    
+    .athlete-biography h2,
+    .athlete-gallery h2,
+    .athlete-video h2,
+    .athlete-quotes h2,
+    .athlete-social h2,
+    .athlete-achievements h2 {
+        font-size: 18px;
+    }
+    
+    .gallery-tab,
+    .achievement-tab,
+    .video-tab {
+        padding: 5px 8px;
+        font-size: 10px;
+    }
+    
+    .info-card h3 {
+        font-size: 15px;
+    }
+    
+    .info-card li,
+    .biography-text p {
+        font-size: 12px;
+    }
+    
+    .gallery-item img {
+        height: 160px;
+    }
+    
+    .social-button {
+        width: 100%;
+        font-size: 13px;
+    }
+}

@@ -11,6 +11,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <!-- Кнопка мобільного меню -->
+    <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <i class="fas fa-bars"></i>
+        <i class="fas fa-times"></i>
+    </div>
+    
+    <!-- Затемнення фону при відкритому меню -->
+    <div class="menu-overlay" id="menu-overlay"></div>
     <div class="page-container">
         <!-- Бокова навігація -->
         <nav class="side-nav">
@@ -406,5 +414,7 @@
             });
         });
     </script>
+        <!-- Подключаем основной JavaScript файл -->
+    <script src="../../js/main.js"></script>
 </body>
 </html> 
