@@ -288,7 +288,7 @@ function initImageModal() {
     const closeBtn = document.querySelector('.close-modal');
     
     // Добавляем обработчики событий для всех изображений в вариациях техники
-    const variationImages = document.querySelectorAll('.variation-image');
+    const variationImages = document.querySelectorAll('.variation-image, .gallery-item');
     
     variationImages.forEach(imageContainer => {
         imageContainer.addEventListener('click', function() {

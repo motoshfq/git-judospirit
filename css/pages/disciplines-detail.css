@@ -1,0 +1,501 @@
+/* Стили для детальных страниц направлений дзюдо */
+
+.discipline-hero {
+    position: relative;
+    height: 500px;
+    margin-bottom: 60px;
+    border-radius: var(--card-border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.discipline-hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.discipline-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.discipline-hero:hover .discipline-hero-image img {
+    transform: scale(1.05);
+}
+
+.discipline-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.8) 100%);
+    z-index: 2;
+}
+
+.discipline-hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 30px;
+    color: white;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.discipline-hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.discipline-hero-content p {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.discipline-hero-badges {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.discipline-badge {
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.discipline-badge i {
+    color: var(--secondary-color);
+}
+
+.discipline-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+}
+
+.discipline-section {
+    margin-bottom: 60px;
+}
+
+.discipline-section-header {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.discipline-section-header h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: var(--dark-color);
+}
+
+.discipline-section-header p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.discipline-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.discipline-feature-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.discipline-feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.discipline-feature-icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 20px;
+    background-color: var(--light-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.discipline-feature-icon i {
+    font-size: 28px;
+    color: var(--primary-color);
+}
+
+.discipline-feature-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: var(--dark-color);
+}
+
+.discipline-feature-card p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.discipline-history {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 60px;
+    align-items: center;
+}
+
+.discipline-history-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.discipline-history-content h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: var(--dark-color);
+}
+
+.discipline-history-content p {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.discipline-history-image {
+    flex: 1;
+    min-width: 300px;
+    height: 400px;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.discipline-history-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.discipline-history:hover .discipline-history-image img {
+    transform: scale(1.05);
+}
+
+.discipline-quote {
+    background-color: var(--light-color);
+    border-radius: 15px;
+    padding: 40px;
+    margin: 40px 0;
+    position: relative;
+    text-align: center;
+}
+
+.discipline-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-family: Georgia, serif;
+    font-size: 80px;
+    color: var(--secondary-color);
+    opacity: 0.3;
+}
+
+.discipline-quote-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    line-height: 1.6;
+    color: var(--dark-color);
+    margin-bottom: 20px;
+}
+
+.discipline-quote-author {
+    font-style: italic;
+    color: #777;
+    font-size: 18px;
+}
+
+.discipline-benefits-list {
+    margin: 30px 0;
+}
+
+.discipline-benefit-item {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.discipline-benefit-icon {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    background-color: var(--light-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.discipline-benefit-icon i {
+    font-size: 22px;
+    color: var(--primary-color);
+}
+
+.discipline-benefit-content h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--dark-color);
+}
+
+.discipline-benefit-content p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.discipline-gallery {
+    margin: 60px 0;
+}
+
+.discipline-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    margin-top: 30px;
+}
+
+.discipline-gallery-item {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.discipline-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.discipline-gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.discipline-gallery-item:nth-child(1) {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    height: auto;
+}
+
+.discipline-cta {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    border-radius: 15px;
+    margin: 60px 0;
+}
+
+.discipline-cta h3 {
+    font-size: 32px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.discipline-cta p {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.discipline-cta .btn-primary {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.discipline-cta .btn-primary:hover {
+    background-color: #c0392b;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Видео-секция */
+.discipline-video {
+    margin: 60px 0;
+    text-align: center;
+}
+
+.discipline-video h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.discipline-video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* соотношение сторон 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    margin-top: 30px;
+}
+
+.discipline-video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Адаптивные стили */
+@media (max-width: 992px) {
+    .discipline-hero-content h1 {
+        font-size: 42px;
+    }
+    
+    .discipline-hero-content p {
+        font-size: 18px;
+    }
+    
+    .discipline-features-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .discipline-history {
+        flex-direction: column;
+    }
+    
+    .discipline-history-image {
+        width: 100%;
+        height: 350px;
+    }
+    
+    .discipline-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .discipline-gallery-item:nth-child(1) {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .discipline-hero {
+        height: 400px;
+    }
+    
+    .discipline-hero-content h1 {
+        font-size: 36px;
+    }
+    
+    .discipline-hero-content p {
+        font-size: 16px;
+    }
+    
+    .discipline-badge {
+        font-size: 14px;
+    }
+    
+    .discipline-section-header h2 {
+        font-size: 28px;
+    }
+    
+    .discipline-section-header p {
+        font-size: 16px;
+    }
+    
+    .discipline-features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .discipline-quote {
+        padding: 30px;
+    }
+    
+    .discipline-quote-text {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .discipline-hero {
+        height: 350px;
+    }
+    
+    .discipline-hero-content {
+        padding: 40px 20px;
+    }
+    
+    .discipline-hero-content h1 {
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+    
+    .discipline-gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .discipline-gallery-item:nth-child(1) {
+        grid-column: auto;
+        grid-row: auto;
+        height: 250px;
+    }
+    
+    .discipline-cta {
+        padding: 60px 20px;
+    }
+    
+    .discipline-cta h3 {
+        font-size: 28px;
+    }
+    
+    .discipline-cta p {
+        font-size: 16px;
+    }
+} 

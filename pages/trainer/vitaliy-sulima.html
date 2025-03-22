@@ -242,7 +242,7 @@
                     </div>
                     <div class="gallery-container">
                         <div class="gallery-grid">
-                            <div class="gallery-item portrait" data-category="judging">
+                            <div class="gallery-item landscape" data-category="judging">
                                 <div class="gallery-image-container">
                                     <img src="../../assets/images/trainers/sulima-1.jpg" alt="Віталій Суліма" class="gallery-image">
                                     <div class="gallery-overlay"></div>
@@ -262,7 +262,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="gallery-item landscape" data-category="competitions">
+                            <div class="gallery-item landscape" data-category="judging">
                                 <div class="gallery-image-container">
                                     <img src="../../assets/images/trainers/sulima-3.jpg" alt="Віталій Суліма як суддя" class="gallery-image">
                                     <div class="gallery-overlay"></div>
@@ -282,7 +282,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="gallery-item large landscape" data-category="competitions">
+                            <div class="gallery-item landscape" data-category="judging">
                                 <div class="gallery-image-container">
                                     <img src="../../assets/images/trainers/sulima-5.jpg" alt="Віталій Суліма з суддівською колегією" class="gallery-image">
                                     <div class="gallery-overlay"></div>
@@ -292,7 +292,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="gallery-item portrait" data-category="judging">
+                            <div class="gallery-item landscape" data-category="judging">
                                 <div class="gallery-image-container">
                                     <img src="../../assets/images/trainers/sulima-6.jpg" alt="Віталій Суліма в суддівській формі" class="gallery-image">
                                     <div class="gallery-overlay"></div>
@@ -302,7 +302,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="gallery-item landscape" data-category="training">
+                            <div class="gallery-item landscape" data-category="judging">
                                 <div class="gallery-image-container">
                                     <img src="../../assets/images/trainers/sulima-7.jpg" alt="Віталій Суліма проводить тренування" class="gallery-image">
                                     <div class="gallery-overlay"></div>
@@ -312,17 +312,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="gallery-item portrait" data-category="training">
+                            <div class="gallery-item landscape" data-category="judging">
                                 <div class="gallery-image-container">
                                     <img src="../../assets/images/trainers/sulima-8.jpg" alt="Віталій Суліма з учнями" class="gallery-image">
                                     <div class="gallery-overlay"></div>
-                                    <div class="gallery-caption">
+                                    <div class="gallery-caption">   
                                         <h4>Підготовка молодих спортсменів</h4>
                                         <p>Індивідуальний підхід до навчання</p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="gallery-item large landscape" data-category="training">
+                            </div>  
+                            <div class="gallery-item landscape" data-category="training">
                                 <div class="gallery-image-container">
                                     <img src="../../assets/images/trainers/sulima-9.jpg" alt="Показова демонстрація техніки" class="gallery-image">
                                     <div class="gallery-overlay"></div>
@@ -389,45 +389,12 @@
         </div>
     </div>
 
+    <!-- Подключаем основной JavaScript файл -->
+    <script src="../../js/main.js"></script>
+
+    <!-- Lightbox для галереи фотографий -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Автоопределение ориентации изображений в галерее
-            const galleryItems = document.querySelectorAll('.gallery-item');
-            
-            galleryItems.forEach(item => {
-                const img = item.querySelector('.gallery-image');
-                
-                // Функция для установки класса в зависимости от пропорций изображения
-                function setItemClass() {
-                    // Если элемент уже имеет класс large, сохраняем его формат
-                    if (item.classList.contains('large')) {
-                        return;
-                    }
-                    
-                    // Получаем естественные размеры изображения
-                    const width = img.naturalWidth;
-                    const height = img.naturalHeight;
-                    
-                    // Удаляем предыдущие классы ориентации
-                    item.classList.remove('portrait', 'landscape');
-                    
-                    // Определяем ориентацию и добавляем соответствующий класс
-                    if (height > width) {
-                        item.classList.add('portrait');
-                    } else {
-                        item.classList.add('landscape');
-                    }
-                }
-                
-                // Проверяем загружено ли изображение
-                if (img.complete) {
-                    setItemClass();
-                } else {
-                    // Если изображение еще не загружено, добавляем обработчик
-                    img.addEventListener('load', setItemClass);
-                }
-            });
-
             // Инициализация карты Украины
             const mapContainer = document.getElementById('ukraine-map');
             const tooltip = document.getElementById('map-tooltip');
@@ -596,7 +563,7 @@
                 }
             }
 
-            // Фильтр галереи
+            // Фильтрация элементов галереи
             const filterButtons = document.querySelectorAll('.filter-btn');
             
             filterButtons.forEach(button => {
@@ -607,6 +574,8 @@
                     this.classList.add('active');
                     
                     const filter = this.getAttribute('data-filter');
+                    
+                    const galleryItems = document.querySelectorAll('.gallery-item');
                     
                     galleryItems.forEach(item => {
                         if (filter === 'all' || item.getAttribute('data-category') === filter) {
@@ -637,7 +606,7 @@
             
             let currentImageIndex = 0;
             let isAnimating = false;
-            const images = Array.from(galleryItems).map(item => ({
+            const images = Array.from(document.querySelectorAll('.gallery-item')).map(item => ({
                 src: item.querySelector('img').src,
                 alt: item.querySelector('img').alt,
                 title: item.querySelector('.gallery-caption h4').textContent,
@@ -650,7 +619,7 @@
             }
             
             // Открытие лайтбокса
-            galleryItems.forEach((item, index) => {
+            document.querySelectorAll('.gallery-item').forEach((item, index) => {
                 item.addEventListener('click', function() {
                     currentImageIndex = index;
                     
@@ -827,6 +796,5 @@
             }
         });
     </script>
-    <script src="../../js/main.js"></script>
 </body>
 </html> 

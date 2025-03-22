@@ -553,19 +553,18 @@
 
 /* Медиа-запросы */
 @media (max-width: 1200px) {
-    .post-card.featured {
+    .discipline-card.featured {
         grid-column: span 1;
-        display: block;
     }
     
-    .post-card.featured .post-image {
+    .discipline-card.featured .discipline-image {
         height: 200px;
     }
 }
 
 @media (max-width: 992px) {
     .hero {
-        flex-direction: column;
+        padding: 2rem 0;
     }
     
     .hero-content {
@@ -573,10 +572,10 @@
     }
     
     .hero-content h2 {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
     
-    .posts-grid {
+    .disciplines-grid {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
     
@@ -589,11 +588,11 @@
     }
     
     .pillars-container {
-        flex-direction: column;
+        gap: 1rem;
     }
     
     .judo-code ul {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-template-columns: 1fr 1fr;
     }
 }
 
@@ -603,7 +602,7 @@
     }
     
     .philosophy-image {
-        margin-top: 2rem;
+        min-height: 300px;
     }
     
     .newsletter-form {
@@ -621,12 +620,12 @@
     
     .event-card {
         width: 100%;
-        max-width: 450px;
+        max-width: 400px;
     }
 }
 
 @media (max-width: 576px) {
-    .posts-grid {
+    .disciplines-grid {
         grid-template-columns: 1fr;
     }
     
@@ -638,6 +637,7 @@
     
     .event-date {
         width: 100%;
+        height: auto;
         padding: 1rem;
         flex-direction: row;
         justify-content: center;
@@ -645,12 +645,11 @@
     
     .event-date .day {
         font-size: 1.8rem;
-        margin-right: 0.5rem;
+        margin-right: 10px;
     }
     
     .event-date .month {
-        font-size: 1rem;
-        margin-top: 0;
+        margin-top: 3px;
     }
     
     .hero-content h2 {
