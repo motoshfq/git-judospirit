@@ -1,156 +1,181 @@
+// Функционал галереи изображений
 document.addEventListener('DOMContentLoaded', function() {
-    // Находим все элементы галереи и модальное окно
+    // Получаем элементы
     const galleryItems = document.querySelectorAll('.gallery-item');
-    const galleryModal = document.querySelector('.gallery-modal');
+    const modal = document.querySelector('.gallery-modal');
     const modalImage = document.querySelector('.modal-image');
     const modalCaption = document.querySelector('.modal-caption');
-    const modalClose = document.querySelector('.modal-close');
-    const modalPrev = document.querySelector('.modal-prev');
-    const modalNext = document.querySelector('.modal-next');
+    const closeBtn = document.querySelector('.modal-close');
+    const prevBtn = document.querySelector('.modal-prev');
+    const nextBtn = document.querySelector('.modal-next');
     
     let currentIndex = 0;
+    let startX, startY, initialTouchDistance;
+    let isScrollLocked = false;
     
-    // Функция для открытия модального окна с указанным индексом
+    // Функция для открытия модального окна
     function openModal(index) {
         const item = galleryItems[index];
-        const image = item.querySelector('.gallery-image');
-        const title = item.getAttribute('data-title');
+        const img = item.querySelector('img');
+        const title = item.querySelector('.gallery-title');
         
-        modalImage.src = image.src;
-        modalImage.alt = image.alt;
-        modalCaption.textContent = title;
-        
-        galleryModal.classList.add('open');
         currentIndex = index;
+        modalImage.src = img.src;
+        modalImage.alt = img.alt;
+        modalCaption.textContent = title ? title.textContent : '';
         
-        // Предотвращаем прокрутку страницы при открытом модальном окне
-        document.body.style.overflow = 'hidden';
+        modal.classList.add('active');
+        lockScroll();
+        
+        // Обновление кнопок навигации
+        updateNavigationButtons();
     }
     
     // Функция для закрытия модального окна
     function closeModal() {
-        galleryModal.classList.remove('open');
-        document.body.style.overflow = '';
+        modal.classList.remove('active');
+        unlockScroll();
     }
     
-    // Функция для перехода к предыдущему изображению
+    // Функция для навигации к предыдущему изображению
     function prevImage() {
         currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-        updateModal();
+        updateModalContent();
     }
     
-    // Функция для перехода к следующему изображению
+    // Функция для навигации к следующему изображению
     function nextImage() {
         currentIndex = (currentIndex + 1) % galleryItems.length;
-        updateModal();
+        updateModalContent();
     }
     
-    // Функция для обновления содержимого модального окна
-    function updateModal() {
+    // Обновление содержимого модального окна
+    function updateModalContent() {
         const item = galleryItems[currentIndex];
-        const image = item.querySelector('.gallery-image');
-        const title = item.getAttribute('data-title');
+        const img = item.querySelector('img');
+        const title = item.querySelector('.gallery-title');
         
-        // Анимация смены изображения
-        modalImage.style.opacity = '0';
-        modalCaption.style.opacity = '0';
+        modalImage.src = img.src;
+        modalImage.alt = img.alt;
+        modalCaption.textContent = title ? title.textContent : '';
         
-        setTimeout(() => {
-            modalImage.src = image.src;
-            modalImage.alt = image.alt;
-            modalCaption.textContent = title;
-            
-            modalImage.style.opacity = '1';
-            modalCaption.style.opacity = '1';
-        }, 300);
+        updateNavigationButtons();
     }
     
-    // Добавляем обработчики событий для открытия модального окна
-    galleryItems.forEach((item, index) => {
-        item.addEventListener('click', () => {
-            openModal(index);
-        });
+    // Обновление кнопок навигации
+    function updateNavigationButtons() {
+        prevBtn.style.display = galleryItems.length > 1 ? 'flex' : 'none';
+        nextBtn.style.display = galleryItems.length > 1 ? 'flex' : 'none';
+    }
+    
+    // Блокировка прокрутки страницы
+    function lockScroll() {
+        if (isScrollLocked) return;
         
-        // Анимация при появлении элементов галереи
-        if (IntersectionObserver) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        setTimeout(() => {
-                            entry.target.classList.add('visible');
-                        }, index * 100);
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.2,
-                rootMargin: '0px 0px -50px 0px'
-            });
-            
-            observer.observe(item);
-        } else {
-            item.classList.add('visible');
-        }
+        const scrollY = window.scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollY}px`;
+        document.body.style.width = '100%';
+        isScrollLocked = true;
+    }
+    
+    // Разблокировка прокрутки страницы
+    function unlockScroll() {
+        if (!isScrollLocked) return;
+        
+        const scrollY = parseInt(document.body.style.top || '0') * -1;
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        window.scrollTo(0, scrollY);
+        isScrollLocked = false;
+    }
+    
+    // Обработчики событий для элементов галереи
+    galleryItems.forEach((item, index) => {
+        item.addEventListener('click', () => openModal(index));
     });
     
-    // Обработчики для кнопок модального окна
-    modalClose.addEventListener('click', closeModal);
-    modalPrev.addEventListener('click', prevImage);
-    modalNext.addEventListener('click', nextImage);
+    // Обработчики событий для модального окна
+    closeBtn.addEventListener('click', closeModal);
+    prevBtn.addEventListener('click', prevImage);
+    nextBtn.addEventListener('click', nextImage);
     
-    // Закрытие по клику вне изображения
-    galleryModal.addEventListener('click', (e) => {
-        if (e.target === galleryModal) {
+    // Закрытие модального окна при клике вне изображения
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
             closeModal();
         }
     });
     
-    // Обработчики для клавиатуры
+    // Обработка клавиш клавиатуры
     document.addEventListener('keydown', (e) => {
-        if (!galleryModal.classList.contains('open')) return;
+        if (!modal.classList.contains('active')) return;
         
-        switch (e.key) {
-            case 'Escape':
-                closeModal();
-                break;
-            case 'ArrowLeft':
-                prevImage();
-                break;
-            case 'ArrowRight':
-                nextImage();
-                break;
+        if (e.key === 'Escape') {
+            closeModal();
+        } else if (e.key === 'ArrowLeft') {
+            prevImage();
+        } else if (e.key === 'ArrowRight') {
+            nextImage();
         }
     });
     
-    // Добавляем CSS анимации
-    document.head.insertAdjacentHTML('beforeend', `
-        <style>
-            .gallery-item {
-                opacity: 0;
-                transform: translateY(20px);
-                transition: opacity 0.5s ease, transform 0.5s ease;
-            }
-            
-            .gallery-item.visible {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            
-            .modal-image {
-                opacity: 1;
-                transition: opacity 0.3s ease;
-            }
-            
-            .modal-caption {
-                opacity: 1;
-                transition: opacity 0.3s ease;
-            }
-            
-            @media (prefers-reduced-motion: reduce) {
-                .gallery-item, .modal-image, .modal-caption {
-                    transition: none;
-                }
-            }
-        </style>
-    `);
+    // Обработка событий касания для свайпов
+    modalImage.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        
+        // Если больше одного касания, сохраняем начальное расстояние для масштабирования
+        if (e.touches.length === 2) {
+            initialTouchDistance = Math.hypot(
+                e.touches[0].clientX - e.touches[1].clientX,
+                e.touches[0].clientY - e.touches[1].clientY
+            );
+        }
+    });
+    
+    modalImage.addEventListener('touchmove', (e) => {
+        if (!startX || !startY) return;
+        
+        // Предотвращаем прокрутку страницы при свайпе
+        e.preventDefault();
+    }, { passive: false });
+    
+    modalImage.addEventListener('touchend', (e) => {
+        if (!startX || !startY) return;
+        
+        const endX = e.changedTouches[0].clientX;
+        const endY = e.changedTouches[0].clientY;
+        
+        const diffX = endX - startX;
+        const diffY = endY - startY;
+        
+        // Если вертикальное движение больше горизонтального, игнорируем
+        if (Math.abs(diffY) > Math.abs(diffX)) {
+            startX = null;
+            startY = null;
+            return;
+        }
+        
+        // Минимальное расстояние для определения свайпа
+        const threshold = 50;
+        
+        if (diffX > threshold) {
+            prevImage(); // Свайп вправо - предыдущее изображение
+        } else if (diffX < -threshold) {
+            nextImage(); // Свайп влево - следующее изображение
+        }
+        
+        startX = null;
+        startY = null;
+    });
+    
+    // Предотвращение масштабирования страницы при двойном тапе на мобильных
+    modal.addEventListener('dblclick', (e) => {
+        e.preventDefault();
+    });
+    
+    // Инициализация при загрузке страницы
+    updateNavigationButtons();
 }); 
