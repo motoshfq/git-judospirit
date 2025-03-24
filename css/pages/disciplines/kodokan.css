@@ -1,0 +1,2134 @@
+/* Kodokan Judo Page Styles */
+
+/* Custom Color Variables */
+:root {
+    --kodokan-primary: #7d0000; /* Традиционный японский красный (бордовый) */
+    --kodokan-secondary: #2c3e50; /* Темно-синий */
+    --kodokan-accent: #d4a017; /* Золотой */
+    --kodokan-bg: #f9f6f0; /* Кремовый фон, похожий на рисовую бумагу */
+    --kodokan-text: #333333; /* Темно-серый для текста */
+    --kodokan-light: #f0e9df; /* Светлый оттенок для фона карточек */
+}
+
+/* Общие стили */
+.main-content {
+    background-color: var(--kodokan-bg);
+    background-image: url("../../../assets/images/backgrounds/paper-texture.png");
+    background-blend-mode: overlay;
+    background-size: 300px;
+    background-attachment: fixed;
+}
+
+/* Стили заголовка дисциплины */
+.discipline-header {
+    position: relative;
+    width: 100%;
+    min-height: 600px;
+    margin-bottom: 70px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+    background-color: var(--kodokan-secondary);
+    border: 1px solid rgba(125, 0, 0, 0.2);
+}
+
+.discipline-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../../assets/images/backgrounds/japanese-pattern.png");
+    background-size: 200px;
+    opacity: 0.05;
+    z-index: 1;
+}
+
+/* Добавляем декоративные японские узоры по углам */
+.discipline-header::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    height: 40px;
+    background-image: url("../../../assets/images/backgrounds/brush-stroke.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 4;
+    opacity: 0.15;
+}
+
+.discipline-header-content::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 100px;
+    height: 100px;
+    background-image: url("../../../assets/images/backgrounds/japanese-corner.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top right;
+    z-index: 4;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.discipline-header-content::after {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 100px;
+    height: 100px;
+    background-image: url("../../../assets/images/backgrounds/japanese-corner.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    transform: rotate(180deg);
+    z-index: 4;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.discipline-header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(125, 0, 0, 0.9) 0%, rgba(125, 0, 0, 0.7) 30%, rgba(44, 62, 80, 0.8) 100%);
+    z-index: 2;
+}
+
+.discipline-header-content {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    z-index: 3;
+    height: 100%;
+    min-height: 600px;
+}
+
+.discipline-title-container {
+    flex: 1;
+    max-width: 50%;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1s ease-out;
+    padding-right: 40px;
+    position: relative;
+}
+
+.discipline-title-container::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 80%;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.7), transparent);
+}
+
+.discipline-category {
+    display: inline-block;
+    background-color: var(--kodokan-accent);
+    color: #fff;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    box-shadow: 0 5px 15px rgba(212, 160, 23, 0.3);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.discipline-category:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(212, 160, 23, 0.5);
+}
+
+.discipline-title-main {
+    font-size: 52px;
+    font-weight: 700;
+    margin: 0 0 25px;
+    line-height: 1.1;
+    color: #fff;
+    position: relative;
+    display: inline-block;
+    font-family: 'Playfair Display', serif;
+}
+
+.discipline-title-main::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background-color: var(--kodokan-accent);
+    transition: width 0.5s ease, background-color 0.5s ease;
+}
+
+.discipline-title-container:hover .discipline-title-main::after {
+    width: 120px;
+    background-color: #fff;
+}
+
+.discipline-subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 35px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 90%;
+    font-family: 'Noto Serif', serif;
+    font-style: italic;
+}
+
+.discipline-header-buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.header-button {
+    display: inline-block;
+    padding: 14px 30px;
+    border-radius: 40px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    text-align: center;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.header-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: width 0.4s ease;
+    z-index: -1;
+}
+
+.header-button:hover::before {
+    width: 100%;
+}
+
+.header-button.primary {
+    background-color: var(--kodokan-primary);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(125, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header-button.secondary {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header-button.primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(125, 0, 0, 0.5);
+    background-color: #900000;
+}
+
+.header-button.secondary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.discipline-image-container {
+    position: relative;
+    flex: 1;
+    max-width: 50%;
+    height: 100%;
+    min-height: 500px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(0) rotate(0deg);
+    transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.7s ease;
+    animation: fadeInRight 1s ease-out;
+    border: 5px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Добавляем стилизацию под японскую рамку */
+    position: relative;
+}
+
+/* Добавляем декоративные уголки в стиле японской рамки */
+.discipline-image-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid rgba(212, 160, 23, 0.3);
+    border-radius: 6px;
+    margin: 8px;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.discipline-image-container:hover::after {
+    opacity: 1;
+}
+
+.discipline-image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+    z-index: 1;
+    opacity: 0.7;
+    transition: opacity 0.5s ease;
+}
+
+.discipline-image-container:hover {
+    transform: translateY(-10px) rotate(1deg);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+.discipline-image-container:hover::before {
+    opacity: 0.3;
+}
+
+.discipline-main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.5s ease;
+    max-width: none;
+    min-width: 100%;
+    min-height: 100%;
+    backface-visibility: hidden;
+    will-change: transform; /* Оптимизация производительности */
+    transform-origin: center center; /* Масштабирование от центра */
+}
+
+.discipline-image-container:hover .discipline-main-image {
+    transform: scale(1.1);
+    filter: brightness(1.1) contrast(1.05);
+}
+
+/* Улучшаем эффект подсказки с источником изображения */
+.image-credit {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(10px);
+    z-index: 2;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.discipline-image-container:hover .image-credit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Анимации */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 1200px) {
+    .discipline-header-content {
+        padding: 40px;
+    }
+    
+    .discipline-title-main {
+        font-size: 46px;
+    }
+    
+    .discipline-subtitle {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 992px) {
+    .discipline-header {
+        min-height: auto;
+    }
+    
+    .discipline-header-content {
+        flex-direction: column;
+        min-height: auto;
+        padding: 40px 30px;
+    }
+    
+    .discipline-title-container {
+        max-width: 100%;
+        padding-right: 0;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    
+    .discipline-title-container::after {
+        display: none;
+    }
+    
+    .discipline-title-main {
+        font-size: 40px;
+    }
+    
+    .discipline-title-main::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .discipline-subtitle {
+        font-size: 16px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 80%;
+    }
+    
+    .discipline-image-container {
+        max-width: 90%;
+        height: 400px;
+        min-height: auto;
+        margin: 0 auto;
+    }
+    
+    .discipline-header-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .discipline-header {
+        margin-bottom: 50px;
+        min-height: auto;
+    }
+    
+    .discipline-header-content {
+        padding: 30px 20px;
+    }
+    
+    .discipline-title-main {
+        font-size: 36px;
+    }
+    
+    .discipline-subtitle {
+        font-size: 15px;
+        max-width: 100%;
+    }
+    
+    .discipline-image-container {
+        height: 350px;
+        width: 100%;
+    }
+    
+    .header-button {
+        padding: 12px 24px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .discipline-header {
+        margin-bottom: 40px;
+        border-radius: 8px;
+    }
+    
+    .discipline-title-main {
+        font-size: 30px;
+    }
+    
+    .discipline-subtitle {
+        font-size: 14px;
+        margin-bottom: 25px;
+    }
+    
+    .discipline-image-container {
+        height: 300px;
+        max-width: 100%;
+        border-width: 3px;
+    }
+    
+    .discipline-header-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .header-button {
+        width: 100%;
+        padding: 12px 20px;
+    }
+    
+    .discipline-category {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .discipline-header-content {
+        padding: 25px 15px;
+    }
+    
+    .discipline-title-main {
+        font-size: 26px;
+    }
+    
+    .discipline-image-container {
+        height: 250px;
+        border-width: 2px;
+    }
+}
+
+/* Стили для секции принципов Кодокан дзюдо */
+.kodokan-principles {
+    padding: 70px 40px;
+    background-color: var(--kodokan-light);
+    border-radius: 8px;
+    margin-bottom: 60px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    background-image: url("../../../assets/images/backgrounds/paper-pattern-light.png");
+    background-blend-mode: overlay;
+    background-size: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.kodokan-principles::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 250px;
+    height: 250px;
+    background-image: url("../../../assets/images/backgrounds/japanese-pattern-circle.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    opacity: 0.04;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.kodokan-principles h2 {
+    color: var(--kodokan-primary);
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+    position: relative;
+    font-family: 'Playfair Display', serif;
+}
+
+.kodokan-principles h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--kodokan-accent);
+    transition: width 0.5s ease, background-color 0.5s ease;
+}
+
+.kodokan-principles:hover h2::after {
+    width: 120px;
+}
+
+.principles-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    color: var(--kodokan-text);
+    line-height: 1.8;
+    font-size: 18px;
+    position: relative;
+    z-index: 2;
+}
+
+.principles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.principle-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+    border-top: 5px solid var(--kodokan-secondary);
+    display: flex;
+    flex-direction: column;
+}
+
+.principle-card.principle-primary {
+    border-top-color: var(--kodokan-primary);
+    grid-column: span 3;
+}
+
+.principle-card.principle-secondary {
+    border-top-color: var(--kodokan-accent);
+    grid-column: span 2;
+}
+
+.principle-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.principle-header {
+    padding: 25px 25px 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.principle-card.principle-primary .principle-header,
+.principle-card.principle-secondary .principle-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.principle-icon {
+    width: 60px;
+    height: 60px;
+    background-color: var(--kodokan-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.principle-card.principle-primary .principle-icon,
+.principle-card.principle-secondary .principle-icon {
+    margin-bottom: 0;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.principle-card:hover .principle-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.principle-card.principle-primary:hover .principle-icon {
+    background-color: var(--kodokan-primary);
+}
+
+.principle-card.principle-secondary:hover .principle-icon {
+    background-color: var(--kodokan-accent);
+}
+
+.principle-icon i {
+    font-size: 24px;
+    color: var(--kodokan-secondary);
+    transition: color 0.3s ease;
+}
+
+.principle-card.principle-primary .principle-icon i {
+    color: var(--kodokan-primary);
+}
+
+.principle-card.principle-secondary .principle-icon i {
+    color: var(--kodokan-accent);
+}
+
+.principle-card.principle-primary:hover .principle-icon i,
+.principle-card.principle-secondary:hover .principle-icon i {
+    color: white;
+}
+
+.principle-header h3 {
+    color: var(--kodokan-secondary);
+    margin: 0 0 10px;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    font-family: 'Noto Serif', serif;
+}
+
+.principle-card.principle-primary .principle-header h3 {
+    color: var(--kodokan-primary);
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.principle-card.principle-secondary .principle-header h3 {
+    color: var(--kodokan-accent);
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.principle-subtitle {
+    color: var(--kodokan-text);
+    margin: 0;
+    font-size: 15px;
+    opacity: 0.8;
+    font-style: italic;
+    text-align: center;
+}
+
+.principle-card.principle-primary .principle-subtitle,
+.principle-card.principle-secondary .principle-subtitle {
+    text-align: left;
+}
+
+.principle-content {
+    padding: 20px 25px 25px;
+    flex: 1;
+}
+
+.principle-content p {
+    color: var(--kodokan-text);
+    margin: 0 0 20px;
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+.principle-content p:last-child {
+    margin-bottom: 0;
+}
+
+.principle-application {
+    background-color: var(--kodokan-light);
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+}
+
+.principle-application h4 {
+    color: var(--kodokan-secondary);
+    margin: 0 0 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.principle-application ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.principle-application li {
+    margin-bottom: 8px;
+    color: var(--kodokan-text);
+    line-height: 1.6;
+}
+
+.principle-application li:last-child {
+    margin-bottom: 0;
+}
+
+.principle-quote {
+    position: relative;
+    padding-left: 25px;
+    margin-top: 15px;
+}
+
+.quote-mark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 18px;
+    color: var(--kodokan-accent);
+    opacity: 0.8;
+}
+
+.principle-quote p {
+    font-style: italic;
+    color: var(--kodokan-secondary);
+    margin: 0;
+    font-size: 15px;
+    font-family: 'Noto Serif', serif;
+}
+
+.shin-gi-tai-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.shin-gi-tai-list li {
+    background-color: var(--kodokan-light);
+    padding: 10px 15px;
+    border-radius: 6px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.shin-gi-tai-list li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.shin-gi-tai-list li strong {
+    color: var(--kodokan-primary);
+    font-weight: 600;
+}
+
+.principles-conclusion {
+    text-align: center;
+    max-width: 800px;
+    margin: 40px auto 0;
+    padding-top: 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    color: var(--kodokan-text);
+    line-height: 1.8;
+    font-size: 17px;
+    font-style: italic;
+    position: relative;
+    z-index: 2;
+}
+
+/* Адаптивные стили для секции принципов */
+@media (max-width: 1200px) {
+    .principles-container {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+    
+    .principle-card.principle-primary,
+    .principle-card.principle-secondary {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 992px) {
+    .kodokan-principles {
+        padding: 50px 30px;
+    }
+    
+    .kodokan-principles h2 {
+        font-size: 32px;
+    }
+    
+    .principles-intro {
+        font-size: 17px;
+    }
+    
+    .principles-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .kodokan-principles {
+        padding: 40px 25px;
+    }
+    
+    .kodokan-principles h2 {
+        font-size: 28px;
+    }
+    
+    .principles-intro,
+    .principles-conclusion {
+        font-size: 16px;
+    }
+    
+    .principles-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .principle-card.principle-primary .principle-header,
+    .principle-card.principle-secondary .principle-header {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .principle-card.principle-primary .principle-icon,
+    .principle-card.principle-secondary .principle-icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .principle-card.principle-primary .principle-header h3,
+    .principle-card.principle-secondary .principle-header h3,
+    .principle-card.principle-primary .principle-subtitle,
+    .principle-card.principle-secondary .principle-subtitle {
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .kodokan-principles {
+        padding: 30px 20px;
+        margin-bottom: 40px;
+    }
+    
+    .kodokan-principles h2 {
+        font-size: 24px;
+    }
+    
+    .principle-header,
+    .principle-content {
+        padding: 20px;
+    }
+    
+    .principle-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .principle-icon i {
+        font-size: 20px;
+    }
+    
+    .principle-header h3 {
+        font-size: 20px;
+    }
+    
+    .principle-subtitle {
+        font-size: 14px;
+    }
+    
+    .principle-content p,
+    .principle-application li {
+        font-size: 15px;
+    }
+    
+    .principle-application {
+        padding: 12px 15px;
+    }
+    
+    .principle-application h4 {
+        font-size: 15px;
+    }
+    
+    .principles-conclusion {
+        margin-top: 30px;
+        padding-top: 20px;
+    }
+}
+
+/* Стили для секции кат */
+.kodokan-katas {
+    padding: 70px 40px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    margin-bottom: 60px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(245, 245, 245, 0.95)), url("../../../assets/images/backgrounds/paper-texture.png");
+    background-size: cover;
+}
+
+.kodokan-katas::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background-image: url("../../../assets/images/backgrounds/japanese-circle.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top right;
+    opacity: 0.05;
+    z-index: 1;
+}
+
+.kodokan-katas h2 {
+    color: var(--kodokan-primary);
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+    position: relative;
+    font-family: 'Playfair Display', serif;
+}
+
+.kodokan-katas h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--kodokan-accent);
+    transition: width 0.5s ease;
+}
+
+.kodokan-katas:hover h2::after {
+    width: 120px;
+}
+
+/* Новые стили для обновленной секции кат */
+.kata-intro-container {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.kata-intro-text {
+    flex: 1;
+}
+
+.kata-intro {
+    color: var(--kodokan-text);
+    margin: 0 0 20px;
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+.kata-purpose {
+    color: var(--kodokan-secondary);
+    font-weight: 600;
+    margin: 20px 0 10px;
+    font-size: 17px;
+}
+
+.kata-benefits {
+    margin: 0;
+    padding-left: 25px;
+}
+
+.kata-benefits li {
+    margin-bottom: 10px;
+    color: var(--kodokan-text);
+    line-height: 1.6;
+    position: relative;
+}
+
+.kata-benefits li::before {
+    content: '•';
+    color: var(--kodokan-accent);
+    font-weight: bold;
+    position: absolute;
+    left: -20px;
+    top: 0;
+}
+
+.kata-intro-image {
+    flex: 0 0 320px;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.kata-intro-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.kata-intro-image:hover img {
+    transform: scale(1.05);
+}
+
+.kata-intro-image .image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    color: white;
+    padding: 15px 10px 10px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.kata-categories {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.kata-category {
+    flex: 1;
+    background: linear-gradient(135deg, var(--kodokan-primary), var(--kodokan-secondary));
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.kata-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.kata-category h3 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--kodokan-light);
+}
+
+.jp-text {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 80%;
+    opacity: 0.85;
+    margin-left: 5px;
+    font-weight: 400;
+}
+
+.category-desc {
+    margin: 0;
+    font-size: 15px;
+    opacity: 0.9;
+}
+
+.katas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.kata-item {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.kata-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.kata-image {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.kata-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.kata-item:hover .kata-image img {
+    transform: scale(1.08);
+}
+
+.kata-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--kodokan-accent);
+    color: white;
+    font-family: 'Noto Serif JP', serif;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.kata-content {
+    padding: 25px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.kata-content h3 {
+    color: var(--kodokan-primary);
+    margin: 0 0 15px;
+    font-size: 22px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    line-height: 1.3;
+}
+
+.kata-description {
+    color: var(--kodokan-text);
+    margin: 0 0 20px;
+    line-height: 1.6;
+    flex: 1;
+}
+
+.kata-info {
+    display: flex;
+    gap: 15px;
+    margin-top: auto;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 15px;
+}
+
+.kata-level, .kata-techniques {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--kodokan-secondary);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.kata-level i, .kata-techniques i {
+    color: var(--kodokan-accent);
+    font-size: 12px;
+}
+
+.kata-importance {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    padding: 30px;
+    margin-top: 40px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    position: relative;
+    z-index: 2;
+}
+
+.kata-importance h3 {
+    color: var(--kodokan-primary);
+    margin: 0 0 25px;
+    font-size: 24px;
+    text-align: center;
+    position: relative;
+}
+
+.kata-importance h3::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background-color: var(--kodokan-accent);
+}
+
+.importance-content {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.importance-text {
+    flex: 1;
+}
+
+.importance-text p {
+    color: var(--kodokan-text);
+    margin: 0 0 15px;
+    line-height: 1.7;
+}
+
+.importance-text p:last-child {
+    margin-bottom: 0;
+}
+
+.kata-quote {
+    flex: 0 0 40%;
+}
+
+.kata-quote blockquote {
+    margin: 0;
+    padding: 25px;
+    background-color: var(--kodokan-light);
+    border-left: 3px solid var(--kodokan-accent);
+    border-radius: 8px;
+    position: relative;
+}
+
+.kata-quote blockquote::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 60px;
+    color: var(--kodokan-accent);
+    opacity: 0.2;
+    font-family: 'Georgia', serif;
+    line-height: 1;
+}
+
+.kata-quote blockquote p {
+    color: var(--kodokan-secondary);
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0 0 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.kata-quote blockquote cite {
+    color: var(--kodokan-text);
+    font-style: normal;
+    display: block;
+    text-align: right;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Адаптивные стили для секции кат */
+@media (max-width: 1200px) {
+    .katas-grid {
+        grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    }
+    
+    .kata-intro-container {
+        gap: 30px;
+    }
+    
+    .kata-intro-image {
+        flex: 0 0 280px;
+    }
+}
+
+@media (max-width: 992px) {
+    .kodokan-katas {
+        padding: 50px 30px;
+    }
+    
+    .kodokan-katas h2 {
+        font-size: 32px;
+    }
+    
+    .kata-intro-container {
+        flex-direction: column;
+    }
+    
+    .kata-intro-image {
+        max-width: 100%;
+        height: 250px;
+    }
+    
+    .katas-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .kata-categories {
+        flex-direction: column;
+    }
+    
+    .importance-content {
+        flex-direction: column;
+    }
+    
+    .kata-quote {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .kodokan-katas {
+        padding: 40px 25px;
+    }
+    
+    .kodokan-katas h2 {
+        font-size: 28px;
+    }
+    
+    .kata-intro,
+    .importance-text p {
+        font-size: 16px;
+    }
+    
+    .kata-item {
+        border-radius: 8px;
+    }
+    
+    .kata-content {
+        padding: 20px;
+    }
+    
+    .kata-content h3 {
+        font-size: 20px;
+    }
+    
+    .kata-description {
+        font-size: 15px;
+    }
+    
+    .kata-importance {
+        padding: 25px 20px;
+    }
+    
+    .kata-importance h3 {
+        font-size: 22px;
+    }
+    
+    .kata-quote blockquote {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .kodokan-katas {
+        padding: 30px 20px;
+        margin-bottom: 40px;
+    }
+    
+    .kodokan-katas h2 {
+        font-size: 24px;
+    }
+    
+    .kata-intro-image {
+        height: 200px;
+    }
+    
+    .kata-image {
+        height: 180px;
+    }
+    
+    .kata-content {
+        padding: 15px;
+    }
+    
+    .kata-content h3 {
+        font-size: 18px;
+    }
+    
+    .kata-description {
+        margin-bottom: 15px;
+    }
+    
+    .kata-info {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .kata-importance {
+        padding: 20px 15px;
+    }
+    
+    .kata-importance h3 {
+        font-size: 20px;
+    }
+}
+
+/* Стили для секции сравнения с спортивным дзюдо */
+.kodokan-vs-sport {
+    padding: 60px 30px;
+    background-color: var(--kodokan-light);
+    border-radius: 8px;
+    margin-bottom: 50px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.kodokan-vs-sport h2 {
+    color: var(--kodokan-secondary);
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.kodokan-vs-sport h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--kodokan-accent);
+    transition: width 0.3s ease;
+}
+
+.kodokan-vs-sport:hover h2::after {
+    width: 120px;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    background-color: var(--kodokan-secondary);
+}
+
+.header-cell {
+    color: white;
+    font-weight: 600;
+    padding: 15px 20px;
+    text-align: center;
+}
+
+.comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    background-color: white;
+    transition: background-color 0.3s ease;
+}
+
+.comparison-row:nth-child(even) {
+    background-color: rgba(240, 233, 223, 0.5);
+}
+
+.comparison-row:hover {
+    background-color: rgba(212, 160, 23, 0.05);
+}
+
+.comparison-cell {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.comparison-cell:first-child {
+    font-weight: 600;
+    color: var(--kodokan-secondary);
+}
+
+/* Стили для секции преимуществ */
+.kodokan-benefits {
+    padding: 60px 30px;
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 50px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.kodokan-benefits h2 {
+    color: var(--kodokan-primary);
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.kodokan-benefits h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--kodokan-accent);
+    transition: width 0.3s ease;
+}
+
+.kodokan-benefits:hover h2::after {
+    width: 120px;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.benefit-card {
+    background-color: var(--kodokan-light);
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-icon {
+    width: 70px;
+    height: 70px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.benefit-card:hover .benefit-icon {
+    background-color: var(--kodokan-primary);
+}
+
+.benefit-icon i {
+    font-size: 28px;
+    color: var(--kodokan-primary);
+    transition: color 0.3s ease;
+}
+
+.benefit-card:hover .benefit-icon i {
+    color: white;
+}
+
+.benefit-card h3 {
+    color: var(--kodokan-secondary);
+    margin: 0 0 15px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.benefit-card p {
+    color: var(--kodokan-text);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Стили для секции этикета */
+.kodokan-etiquette {
+    padding: 60px 30px;
+    background-color: var(--kodokan-light);
+    border-radius: 8px;
+    margin-bottom: 50px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    background-image: url("../../../assets/images/backgrounds/tatami-pattern.png");
+    background-blend-mode: overlay;
+    background-size: 300px;
+}
+
+.kodokan-etiquette h2 {
+    color: var(--kodokan-secondary);
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.kodokan-etiquette h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--kodokan-accent);
+    transition: width 0.3s ease;
+}
+
+.kodokan-etiquette:hover h2::after {
+    width: 120px;
+}
+
+.etiquette-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    color: var(--kodokan-text);
+    line-height: 1.6;
+    font-size: 18px;
+}
+
+.etiquette-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.etiquette-item {
+    background-color: white;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border-top: 5px solid var(--kodokan-primary);
+}
+
+.etiquette-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.etiquette-item h3 {
+    color: var(--kodokan-primary);
+    margin: 0 0 15px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.etiquette-item p {
+    color: var(--kodokan-text);
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.etiquette-item ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.etiquette-item ul li {
+    margin-bottom: 10px;
+    color: var(--kodokan-text);
+    line-height: 1.6;
+}
+
+.etiquette-item ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* Стили для заключения */
+.kodokan-conclusion {
+    padding: 30px 0;
+    margin-bottom: 50px;
+}
+
+.conclusion-text {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--kodokan-text);
+    margin-top: 30px;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-style: italic;
+}
+
+/* Модификации галереи */
+.discipline-gallery {
+    background-color: var(--kodokan-light);
+}
+
+/* Адаптивные стили */
+@media (max-width: 1200px) {
+    .principles-container,
+    .katas-grid,
+    .benefits-grid,
+    .etiquette-container {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 992px) {
+    .kodokan-principles,
+    .kodokan-katas,
+    .kodokan-vs-sport,
+    .kodokan-benefits,
+    .kodokan-etiquette {
+        padding: 40px 20px;
+    }
+    
+    .katas-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+    
+    .comparison-header,
+    .comparison-row {
+        grid-template-columns: 1.5fr 2fr 2fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .kodokan-principles h2,
+    .kodokan-katas h2,
+    .kodokan-vs-sport h2,
+    .kodokan-benefits h2,
+    .kodokan-etiquette h2 {
+        font-size: 28px;
+    }
+    
+    .kata-intro,
+    .etiquette-intro,
+    .conclusion-text {
+        font-size: 16px;
+    }
+    
+    .principles-container,
+    .benefits-grid,
+    .etiquette-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .katas-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .comparison-header,
+    .comparison-row {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .header-cell {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .header-cell:last-child {
+        border-bottom: none;
+    }
+    
+    .comparison-cell {
+        border-bottom: 1px solid #eee;
+    }
+    
+    .comparison-cell:first-child {
+        font-weight: 600;
+        background-color: var(--kodokan-secondary);
+        color: white;
+    }
+}
+
+@media (max-width: 576px) {
+    .kodokan-principles,
+    .kodokan-katas,
+    .kodokan-vs-sport,
+    .kodokan-benefits,
+    .kodokan-etiquette {
+        padding: 30px 15px;
+    }
+    
+    .kodokan-principles h2,
+    .kodokan-katas h2,
+    .kodokan-vs-sport h2,
+    .kodokan-benefits h2,
+    .kodokan-etiquette h2 {
+        font-size: 24px;
+    }
+    
+    .principle-card,
+    .benefit-card,
+    .etiquette-item {
+        padding: 20px;
+    }
+    
+    .principle-icon,
+    .benefit-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .principle-icon i,
+    .benefit-icon i {
+        font-size: 20px;
+    }
+}
+
+/* Стили для секции описания дисциплины */
+.discipline-description {
+    padding: 70px 40px;
+    margin-bottom: 60px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.discipline-description::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    background-image: url("../../../assets/images/backgrounds/japanese-mon.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.03;
+    z-index: 1;
+}
+
+.description-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.discipline-description h2 {
+    color: var(--kodokan-primary);
+    font-size: 36px;
+    margin-bottom: 40px;
+    text-align: center;
+    position: relative;
+    font-family: 'Playfair Display', serif;
+}
+
+.discipline-description h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--kodokan-accent);
+    transition: width 0.3s ease;
+}
+
+.discipline-description:hover h2::after {
+    width: 120px;
+}
+
+.discipline-description p {
+    color: var(--kodokan-text);
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    text-align: justify;
+}
+
+.discipline-description p:last-child {
+    margin-bottom: 0;
+}
+
+.discipline-description strong {
+    color: var(--kodokan-secondary);
+    font-weight: 600;
+}
+
+.quote-block {
+    padding: 30px 40px;
+    margin: 40px 0;
+    background-color: var(--kodokan-light);
+    border-left: 4px solid var(--kodokan-accent);
+    border-radius: 0 8px 8px 0;
+    position: relative;
+}
+
+.quote-block::before {
+    content: '"';
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 60px;
+    color: var(--kodokan-accent);
+    opacity: 0.2;
+    font-family: 'Playfair Display', serif;
+    line-height: 1;
+}
+
+.quote-text {
+    font-size: 18px;
+    line-height: 1.7;
+    font-style: italic;
+    color: var(--kodokan-secondary);
+    margin-bottom: 15px;
+}
+
+.quote-author {
+    font-size: 16px;
+    color: var(--kodokan-primary);
+    text-align: right;
+    font-weight: 600;
+}
+
+.description-image-container {
+    margin: 40px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.description-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.description-image-container:hover .description-image {
+    transform: scale(1.03);
+}
+
+.image-caption {
+    padding: 15px 20px;
+    background-color: var(--kodokan-light);
+    color: var(--kodokan-text);
+    font-size: 14px;
+    text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Двухколоночный контент для ключевых моментов */
+.key-points {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.key-point-item {
+    padding: 25px;
+    background-color: var(--kodokan-light);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.key-point-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.key-point-item h3 {
+    color: var(--kodokan-primary);
+    font-size: 20px;
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 30px;
+}
+
+.key-point-item h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-image: url("../../../assets/images/backgrounds/japanese-knot.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.key-point-item p {
+    margin-bottom: 0;
+    font-size: 16px;
+}
+
+/* Адаптивные стили для секции описания */
+@media (max-width: 992px) {
+    .discipline-description {
+        padding: 50px 30px;
+    }
+    
+    .discipline-description h2 {
+        font-size: 32px;
+    }
+    
+    .quote-block {
+        padding: 25px 30px;
+    }
+    
+    .key-points {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .discipline-description {
+        padding: 40px 25px;
+        margin-bottom: 50px;
+    }
+    
+    .discipline-description h2 {
+        font-size: 28px;
+    }
+    
+    .discipline-description p {
+        font-size: 16px;
+    }
+    
+    .quote-text {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 576px) {
+    .discipline-description {
+        padding: 30px 20px;
+        margin-bottom: 40px;
+    }
+    
+    .discipline-description h2 {
+        font-size: 24px;
+    }
+    
+    .quote-block {
+        padding: 20px 25px;
+        margin: 30px 0;
+    }
+    
+    .quote-text {
+        font-size: 16px;
+    }
+    
+    .description-image-container {
+        margin: 30px 0;
+    }
+    
+    .key-point-item {
+        padding: 20px;
+    }
+    
+    .key-point-item h3 {
+        font-size: 18px;
+    }
+}
